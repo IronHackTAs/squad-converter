@@ -11,6 +11,7 @@ import { SpaceshipComponent } from './components/spaceship/spaceship.component';
 import { BoardingComponent } from './components/boarding/boarding.component';
 import { TakeoffComponent } from './components/takeoff/takeoff.component';
 import { JeepComponent } from './components/jeep/jeep.component';
+import { ProfsComponent } from './components/profs/profs.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { JeepComponent } from './components/jeep/jeep.component';
     BoardingComponent,
     TakeoffComponent,
     JeepComponent,
+    ProfsComponent,
   ],
   imports: [
     BrowserModule,
