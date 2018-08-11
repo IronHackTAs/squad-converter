@@ -10,6 +10,7 @@ import { HandButtonComponent } from './components/hand-button/hand-button.compon
 import { SpaceshipComponent } from './components/spaceship/spaceship.component';
 import { BoardingComponent } from './components/boarding/boarding.component';
 import { TakeoffComponent } from './components/takeoff/takeoff.component';
+import { JeepComponent } from './components/jeep/jeep.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { TakeoffComponent } from './components/takeoff/takeoff.component';
     SpaceshipComponent,
     BoardingComponent,
     TakeoffComponent,
+    JeepComponent,
   ],
   imports: [
     BrowserModule,
