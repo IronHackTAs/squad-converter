@@ -9,6 +9,7 @@ import {routes} from './components/routes';
 import { HandButtonComponent } from './components/hand-button/hand-button.component';
 import { SpaceshipComponent } from './components/spaceship/spaceship.component';
 import { BoardingComponent } from './components/boarding/boarding.component';
+import { TakeoffComponent } from './components/takeoff/takeoff.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { BoardingComponent } from './components/boarding/boarding.component';
     HandButtonComponent,
     SpaceshipComponent,
     BoardingComponent,
+    TakeoffComponent,
   ],
   imports: [
     BrowserModule,
