@@ -4,14 +4,19 @@ import { LottieAnimationViewModule } from 'lottie-angular2';
 
 
 import { AppComponent } from './app.component';
+import { HandButtonComponent } from './components/hand-button/hand-button.component';
+import { RouterModule } from '../../node_modules/@angular/router';
+import {routes} from './components/routes';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HandButtonComponent,
   ],
   imports: [
     BrowserModule,
-    LottieAnimationViewModule.forRoot()
+    LottieAnimationViewModule.forRoot(),
+    RouterModule.forRoot(routes)
   ],
   providers: [],
   bootstrap: [AppComponent]
