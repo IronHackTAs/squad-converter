@@ -6,6 +6,7 @@ import { BoardingComponent } from './boarding/boarding.component';
 import { TakeoffComponent } from './takeoff/takeoff.component';
 import { JeepComponent } from './jeep/jeep.component';
 import { ProfsComponent } from './profs/profs.component';
+import { SplashComponent } from './splash/splash.component';
 
 
 
@@ -15,7 +16,8 @@ export const routes: Routes = [
         { path: 'boarding', component: BoardingComponent},
         { path: 'takeoff', component: TakeoffComponent},
         { path: 'jeep', component: JeepComponent},
-        { path: 'profs', component: ProfsComponent}
+        { path: 'profs', component: ProfsComponent},
+        { path: 'splash', component: SplashComponent}
       ];
 
 

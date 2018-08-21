@@ -1,5 +1,5 @@
 <div class="container">
-    <div class="Rectangle-4 center">
+    <div class="Rectangle-4">
         <div class="-Go-back">
             < Go back</div>
                 <div class="row">
@@ -23,18 +23,18 @@
                 <div class="We-need-to-register">We need to register how many students accomplish this adventure, so we have
                     to know who you are
                 </div>
-                <div *ngIf="next==true" class="Rectangle-6"><p>Hi {{name}}!</p></div>
+                <div *ngIf="next==true" class="Rectangle-6">
+                    <p>Hi {{name}}!</p>
+                </div>
                 <input #box1 name="username" placeholder="Name">
                 <input #box2 name="surname" placeholder="Surname">
-                <button (click)="onEnter(box1.value,box2.value)">Add</button>
+                <button class="add" (click)="onEnter(box1.value,box2.value)"><p class="Confirm">Add</p></button>
                 <button [disabled]="!submit" (click)="onConfirm()" class="button"><p class="Confirm">Confirm</p></button>
         </div>
-        <div class="container">
-            <div class="Get-ready">Get ready!</div>
-            <div class="to-start-this-advent">to start this adventure, we need first to identify you</div>
-            <lottie-animation-view [options]="lottieConfig" (animCreated)="handleAnimation($event)">
-            </lottie-animation-view>
-            <div id="player">
-            </div>
+        <div class="Get-ready">Get ready!</div>
+        <div class="to-start-this-advent">to start this adventure, we need first to identify you</div>
+        <lottie-animation-view [options]="lottieConfig" (animCreated)="handleAnimation($event)">
+        </lottie-animation-view>
+        <div id="player">
         </div>
     </div>

@@ -12,6 +12,7 @@ import { BoardingComponent } from './components/boarding/boarding.component';
 import { TakeoffComponent } from './components/takeoff/takeoff.component';
 import { JeepComponent } from './components/jeep/jeep.component';
 import { ProfsComponent } from './components/profs/profs.component';
+import { SplashComponent } from './components/splash/splash.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { ProfsComponent } from './components/profs/profs.component';
     TakeoffComponent,
     JeepComponent,
     ProfsComponent,
+    SplashComponent,
   ],
   imports: [
     BrowserModule,
