@@ -24,7 +24,7 @@
         <select (change)="onClick()" [(ngModel)]="selectedValue">
             <option *ngFor="let c of campus" [ngValue]="c">{{c.name}}</option>
         </select>
-        <button (click)="onConfirm()" [ngClass]="{'color' : color}" class="button"><p>Confirm campus</p></button>
+        <button (click)="onConfirm()" [ngClass]="{'color' : color}" class="button main-button"><p>Confirm campus</p></button>
 
     </div>
     <lottie-animation-view [options]="lottieConfig" (animCreated)="handleAnimation($event)">
