@@ -14,8 +14,8 @@ export class BoardingComponent implements OnInit {
   constructor(public router:Router) {
     this.lottieConfig = {
       path: "../../../assets/boarding/boarding.json",
-      autoplay: true,
-      loop: true
+      autoplay: false,
+      loop: false
     };
     setTimeout(()=> {
         this.router.navigate(['/handButton'])
