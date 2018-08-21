@@ -14,8 +14,8 @@ export class HandButtonComponent implements OnInit {
   constructor() {
       this.lottieConfig = {
           path: '../../../assets/handButton/pushButton.json',
-          autoplay: true,
-          loop: true
+          autoplay: false,
+          loop: false
       };
   }
 

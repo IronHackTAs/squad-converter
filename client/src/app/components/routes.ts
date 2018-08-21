@@ -11,6 +11,7 @@ import { SplashComponent } from './splash/splash.component';
 
 
 export const routes: Routes = [
+        { path: '', redirectTo:'splash', pathMatch: 'full'},
         { path: 'handButton', component: HandButtonComponent},
         { path: 'spaceship', component: SpaceshipComponent},
         { path: 'boarding', component: BoardingComponent},

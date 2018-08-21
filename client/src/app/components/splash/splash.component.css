@@ -4,5 +4,6 @@
 
 .space-man{
     float:left;
-    width: 100%;
+    width: 60%;
+    padding-top:130px; 
 }
