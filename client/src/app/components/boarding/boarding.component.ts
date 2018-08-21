@@ -34,7 +34,7 @@ export class BoardingComponent implements OnInit {
       this.play();
       setTimeout(() => {
         this.router.navigate(["/handButton"]);
-      }, 2700);
+      }, 4700);
     }
   }
 
