@@ -13,7 +13,7 @@ export class SplashComponent implements OnInit {
   ngOnInit() {
   }
 
-  click(){
+  onClick(){
     this.route.navigate(['/jeep'])
   }
 

@@ -10,19 +10,33 @@ export class BoardingComponent implements OnInit {
   public lottieConfig: Object;
   private anim: any;
   private animationSpeed: number = 1;
+  public campus = [
+    { name: "Madrid" },
+    { name: "Barcelona" },
+    { name: "Miami" },
+    { name: "Amsterdam" },
+    { name: "Paris" }
+  ];
+  public selectedValue = "";
 
-  constructor(public router:Router) {
+  constructor(public router: Router) {
     this.lottieConfig = {
       path: "../../../assets/boarding/boarding.json",
       autoplay: false,
       loop: false
     };
-    setTimeout(()=> {
-        this.router.navigate(['/handButton'])
-    },2000);
   }
 
   ngOnInit() {}
+
+  onConfirm() {
+    if (this.selectedValue != "") {
+      this.play();
+      setTimeout(() => {
+        this.router.navigate(["/handButton"]);
+      }, 2700);
+    }
+  }
 
   handleAnimation(anim: any) {
     this.anim = anim;

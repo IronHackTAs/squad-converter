@@ -23,9 +23,7 @@ export class JeepComponent implements OnInit {
     };
   }
 
-  ngOnInit() {
-      
-  }
+  ngOnInit() {}
 
   onEnter(name: string, surname: string) {
     this.name = name;
@@ -37,7 +35,7 @@ export class JeepComponent implements OnInit {
   onConfirm(){
     this.play();
     setTimeout (()=>{
-        this.route.navigate(['/handButton'])
+        this.route.navigate(['/boarding'])
     },3000)
   }
 

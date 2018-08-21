@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { LottieAnimationViewModule } from 'lottie-angular2';
+import { FormsModule } from '@angular/forms';
 
 
 import { AppComponent } from './app.component';
@@ -28,7 +29,8 @@ import { SplashComponent } from './components/splash/splash.component';
   imports: [
     BrowserModule,
     LottieAnimationViewModule.forRoot(),
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

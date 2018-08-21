@@ -1,6 +1,20 @@
 /* You can add global styles to this file, and also import other style files */
 a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,caption,center,cite,code,dd,del,details,dfn,div,dl,dt,em,embed,fieldset,figcaption,figure,footer,form,h1,h2,h3,h4,h5,h6,header,hgroup,html,i,iframe,img,ins,kbd,label,legend,li,mark,menu,nav,object,ol,output,p,pre,q,ruby,s,samp,section,small,span,strike,strong,sub,summary,sup,table,tbody,td,tfoot,th,thead,time,tr,tt,u,ul,var,video{margin:0 !important;padding:0;border:0;font:inherit;vertical-align:baseline}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:after,blockquote:before,q:after,q:before{content:'';content:none}table{border-collapse:collapse;border-spacing:0}
 
+a {
+    text-decoration: none;
+    font-family: AvenirNext;
+  font-size: 16px;
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.5;
+  letter-spacing: normal;
+  text-align: left;
+  color: #4f5b77;
+  }
+  
+
 .container {
     padding-left: 20px;
 }
@@ -19,6 +33,7 @@ h1 {
     letter-spacing: normal;
     text-align: left;
     color: #4f5b77;
+    padding-top:30px; 
 }
 
 h2 {
@@ -31,6 +46,8 @@ h2 {
     letter-spacing: normal;
     text-align: left;
     color: #c6cad3;
+    padding-top: 10px; 
+    width: 34%;
 }
 
 h3 {
@@ -61,7 +78,6 @@ button {
     position: relative;
     width: 100%;
     height: 48px;
-    margin-top: 30%;
     opacity: 0.4;
     border-radius: 24px;
     background-color: #57cfff;
@@ -86,3 +102,7 @@ button > p {
     float:right;
     padding: 50px;
 }
+
+.right-bar > div{
+    padding-top:20px;
+  }

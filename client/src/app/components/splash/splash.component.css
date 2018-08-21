@@ -5,5 +5,8 @@
 .space-man{
     float:left;
     width: 60%;
-    padding-top:130px; 
+}
+
+button {
+    opacity: 100;
 }
