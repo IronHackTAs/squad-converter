@@ -18,6 +18,7 @@ export class BoardingComponent implements OnInit {
     { name: "Paris" }
   ];
   public selectedValue = "";
+  public color = false;
 
   constructor(public router: Router) {
     this.lottieConfig = {
@@ -28,6 +29,10 @@ export class BoardingComponent implements OnInit {
   }
 
   ngOnInit() {}
+
+  onClick(){
+    this.color = true;
+  }
 
   onConfirm() {
     if (this.selectedValue != "") {

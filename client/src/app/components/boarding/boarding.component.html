@@ -21,10 +21,10 @@
             </div>
             <h3>Prepare to jump aboard</h3>
             <p>Before going inside, you have to select the campus/city where you have completed your bootcamp</p>
-            <select [(ngModel)]="selectedValue">
+            <select (change)="onClick()" [(ngModel)]="selectedValue">
                  <option *ngFor="let c of campus" [ngValue]="c">{{c.name}}</option>
             </select>
-            <button (click)="onConfirm()" class="button"><p>Confirm campus</p></button>
+            <button (click)="onConfirm()" [ngClass]="{'color' : color}" class="button"><p>Confirm campus</p></button>
 
     </div>
     <h1>Welcome aboard {{name}}!</h1>

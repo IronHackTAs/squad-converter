@@ -106,3 +106,26 @@ button > p {
 .right-bar > div{
     padding-top:20px;
   }
+
+.Step-1-of-5 {
+    width: 130px;
+    height: 48px;
+    font-family: AvenirNext;
+    font-size: 24px;
+    font-weight: 500;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 2;
+    letter-spacing: normal;
+    text-align: left;
+    color: #008d9c;
+    float: right;
+}
+
+select {
+  width: 327px;
+  height: 64px;
+  border-radius: 8px;
+  background-color: #ffffff;
+  border: solid 1px #f5f5f5;
+}
