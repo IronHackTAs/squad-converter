@@ -23,6 +23,18 @@
   color: #4f5b77;
 }
 
+.Rectangle-6>p{
+  font-family: AvenirNext;
+  font-size: 16px;
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.5;
+  letter-spacing: normal;
+  text-align: left;
+  color: #4f5b77;
+}
+
 .to-start-this-advent {
   width: 450px;
   height: 96px;
@@ -111,7 +123,6 @@
   letter-spacing: normal;
   text-align: left;
   color: #4f5b77;
-  color: var(--dusk);
 }
 
 .button {
@@ -121,6 +132,12 @@
   border-radius: 24px;
   background-color: #57cfff;
   margin-top: 270px;
+}
+
+input{
+  width: 48%;
+  opacity: 0.4;
+  border-radius: 24px;
 }
 
 .Confirm {
@@ -140,4 +157,11 @@
 
 .Rectangle-4 > div{
   padding-top:20px;
+}
+
+.Rectangle-6 {
+  width: 328px;
+  height: 80px;
+  border-radius: 8px;
+  background-color: #ffffff;
 }
