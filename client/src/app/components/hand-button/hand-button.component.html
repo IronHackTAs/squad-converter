@@ -27,8 +27,10 @@
         <button (click)="onConfirm()" [ngClass]="{'color' : color}" class="button main-button"><p>Confirm campus</p></button>
 
     </div>
-    <lottie-animation-view [options]="lottieConfig" (animCreated)="handleAnimation($event)">
-    </lottie-animation-view>
-    <div id="player">
+    <div style="position:absolute;left:-10px; z-index: -1;width: 95%;top:0px">
+        <lottie-animation-view [options]="lottieConfig" (animCreated)="handleAnimation($event)">
+        </lottie-animation-view>
+        <div id="player">
+        </div>
     </div>
 </div>
