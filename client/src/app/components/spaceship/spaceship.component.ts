@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-spaceship',
@@ -10,13 +11,34 @@ export class SpaceshipComponent implements OnInit {
   public lottieConfig: Object;
   private anim: any;
   private animationSpeed: number = 1;
+  public campus = [
+    { name: "2018 - June" },
+    { name: "2018 - July" },
+    { name: "2018 - August" },
+    { name: "2018 - September"}
+  ];
+  public selectedValue = "";
+  public color = false;
 
-  constructor() {
+  constructor(public router:Router) {
       this.lottieConfig = {
           path: '../../../assets/spaceship/spaceship.json',
-          autoplay: true,
-          loop: true
+          autoplay: false,
+          loop: false
       };
+  }
+
+  onClick(){
+    this.color = true;
+  }
+
+  onConfirm() {
+    if (this.selectedValue != "") {
+      this.play();
+      setTimeout(() => {
+        this.router.navigate(["/profs"]);
+      }, 2000);
+    }
   }
 
   ngOnInit(){
