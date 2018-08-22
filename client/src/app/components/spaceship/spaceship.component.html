@@ -21,14 +21,16 @@
         <h3>Propel the rocket</h3>
         <p>The last step! Please, select the month when you started the bootcamp and pick up your teachers!</p>
         <select (change)="onClick()" [(ngModel)]="selectedValue">
-                <option *ngFor="let c of campus" [ngValue]="c">{{c.name}}</option>
-            </select>
-            <button (click)="onConfirm()" [ngClass]="{'color' : color}" class="button main-button"><p>Confirm campus</p></button>
+            <option *ngFor="let c of campus" [ngValue]="c">{{c.name}}</option>
+        </select>
+        <button (click)="onConfirm()" [ngClass]="{'color' : color}" class="button main-button"><p>Confirm campus</p></button>
     </div>
     <h1>Rocket on its way!</h1>
     <h2>tell us what month you started your bootcamp</h2>
-    <lottie-animation-view [options]="lottieConfig" (animCreated)="handleAnimation($event)">
-    </lottie-animation-view>
-    <div id="player">
+    <div style="position:absolute; z-index: -1;width: 90%;top:0px">
+        <lottie-animation-view [options]="lottieConfig" (animCreated)="handleAnimation($event)">
+        </lottie-animation-view>
+        <div id="player">
+        </div>
     </div>
 </div>
