@@ -14,6 +14,7 @@ export class JeepComponent implements OnInit {
   public surname = "";
   public next = false;
   public submit = false;
+  public color = false;
 
   constructor(public route:Router) {
     this.lottieConfig = {
@@ -30,6 +31,7 @@ export class JeepComponent implements OnInit {
     this.surname = surname;
     this.submit = true;
     this.next = true;
+    this.color = true;
   }
 
   onConfirm(){

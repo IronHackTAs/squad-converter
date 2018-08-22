@@ -113,7 +113,7 @@
 }
 
 .add{
-  width: 100%;
+  width: 327px;
   height: 48px;
 }
 
@@ -162,5 +162,9 @@ input{
   background-color: #fff;
   border: solid 1px #f5f5f5;
   color:#4f5b77;
+}
+
+.color {
+  opacity: 100;
 }
 
