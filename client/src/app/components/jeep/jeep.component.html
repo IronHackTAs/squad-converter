@@ -25,8 +25,8 @@
                 <div *ngIf="next==true" class="Rectangle-6">
                     <p>Hi {{name}}!</p>
                 </div>
-                <input class="Rectangle-6" #box1 name="username" placeholder="Name" >
-                <input class="Rectangle-6" #box2 name="surname" placeholder="Surname">
+                <input class="rectangle" #box1 name="username" placeholder="Name" >
+                <input class="rectangle" #box2 name="surname" placeholder="Surname">
                 <button class="add" (click)="onEnter(box1.value,box2.value)"><p class="Confirm">Add</p></button>
                 <button [disabled]="!submit" (click)="onConfirm()" class="button"><p class="Confirm">Confirm</p></button>
         </div>
