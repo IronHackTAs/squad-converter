@@ -18,27 +18,26 @@
             </svg>
 
 
-                    <div class="Step-1-of-5">Step 1<span class="grey"> of 5</span></div>
-                </div>
-                <div class="Drive-to-the-rocket">Drive to the rocket </div>
-                <div class="We-need-to-register">We need to register how many students accomplish this adventure, so we have
-                    to know who you are
-                </div>
-                <div *ngIf="next==true" class="Rectangle-6">
-                    <p>Hi {{name}}!</p>
-                </div>
-                <input class="rectangle" #box1 name="username" placeholder="Name" >
-                <input class="rectangle" #box2 name="surname" placeholder="Surname">
-                <button class="add" (click)="onEnter(box1.value,box2.value)"><p class="Confirm">Add</p></button>
-                <button [disabled]="!submit" (click)="onConfirm()" [ngClass]="{'color' : color}" class="button main-button"><p class="Confirm">Confirm</p></button>
+            <div class="Step-1-of-5">Step 1<span class="grey"> of 5</span></div>
         </div>
-        <div class="Get-ready">Get ready!</div>
-        <div class="to-start-this-advent">to start this adventure, we need first to identify you</div>
-        	<div style="position: absolute; z-index: -1; width: 100%; top: 0;">
-                <lottie-animation-view [options]="lottieConfig" (animCreated)="handleAnimation($event)">
-                	</lottie-animation-view>
-                <div id="player">
-                </div>
-            </div>
-            </div>
-
+        <div class="Drive-to-the-rocket">Drive to the rocket </div>
+        <div class="We-need-to-register">We need to register how many students accomplish this adventure, so we have to know
+            who you are
+        </div>
+        <div *ngIf="next==true" class="Rectangle-6">
+            <p>Hi {{name}}!</p>
+        </div>
+        <input class="rectangle" #box1 name="username" placeholder="Name">
+        <input class="rectangle" #box2 name="surname" placeholder="Surname">
+        <button class="add" (click)="onEnter(box1.value,box2.value)"><p class="Confirm">Add</p></button>
+        <button [disabled]="!submit" (click)="onConfirm()" [ngClass]="{'color' : color}" class="button main-button"><p class="Confirm">Confirm</p></button>
+    </div>
+    <div class="Get-ready">Get ready!</div>
+    <div class="to-start-this-advent">to start this adventure, we need first to identify you</div>
+    <div style="position: absolute; z-index: -1; width: 100%; top: 0;">
+        <lottie-animation-view [options]="lottieConfig" (animCreated)="handleAnimation($event)">
+        </lottie-animation-view>
+        <div id="player">
+        </div>
+    </div>
+</div>
