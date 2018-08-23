@@ -26,7 +26,7 @@
             <option *ngFor="let c of campus" [ngValue]="c">{{c.name}}</option>
         </select> -->
 
-        <div class="select" tabindex="0">
+        <div class="select" tabindex="0" (click)="toggleOptList(select)" #select>
             <span class="value">Select course</span>
             <ul class="optList hidden">
                 <li class="option" *ngFor="let c of campus" (click)="prueba(c.name)">{{c.name}}</li>

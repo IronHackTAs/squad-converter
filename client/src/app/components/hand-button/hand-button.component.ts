@@ -18,12 +18,12 @@ export class HandButtonComponent implements OnInit {
   ];
   public selectedValue = "";
   public color = false;
-
+  public c:any;
   constructor(public router: Router) {
     this.lottieConfig = {
-      path: "../../../assets/handButton/pushButton.json",
-      autoplay: false,
-      loop: false
+      path: "../../../assets/handButton/button.json",
+      autoplay: true,
+      loop: true
     };
 
     
@@ -43,6 +43,7 @@ export class HandButtonComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.customSelect();
   }
 
   handleAnimation(anim: any) {
@@ -66,6 +67,35 @@ export class HandButtonComponent implements OnInit {
     this.anim.setSpeed(speed);
   }
 
+  customSelect() {
+    let selectList = document.querySelectorAll(".select");
+    let select = selectList[0];
+    //this.toggleOptList(select);
+    let optionList = select.querySelectorAll('.optList');
+
+    /* optionList.forEach(function(option, index) {
+      option.addEventListener("mouseover", function() {
+        this.highlightOption(select, option);
+      });
+
+      option.addEventListener("click", function(event) {
+        this.updateValue(select, index);
+      });
+    }.bind(this));
+
+    select.addEventListener("click", function(event) {
+      this.toggleOptList(select);
+    }.bind(this));
+
+    select.addEventListener("focus", function(event) {
+      this.activeSelect(select);
+    }.bind(this));
+
+    select.addEventListener("blur", function(event) {
+      this.deactivateSelect(select);
+    }.bind(this)); */
+  }
+
   highlightOption(select, option) {
     let optionList = select.querySelectorAll(".option");
 
@@ -77,8 +107,8 @@ export class HandButtonComponent implements OnInit {
   }
 
   toggleOptList(select) {
-    /* let optList = select.querySelector(".optList");
-    optList.classList.toggle('hidden'); */
+    let optList = select.querySelector(".optList");
+    optList.classList.toggle('hidden');
   }
 
   deactivateSelect(select) {
@@ -96,10 +126,15 @@ export class HandButtonComponent implements OnInit {
     select.classList.add("active");
   }
 
-  prueba(i) {
+  prueba(course) {
     let value = document.querySelector(".value");
-    value.innerHTML = i;
+    value.innerHTML = course;
     this.color = true;
-    this.selectedValue = i;
+    this.selectedValue = course;
+    this.lottieConfig = {
+      path: "../../../assets/handButton/pushButton.json",
+      autoplay: true,
+      loop: false
+    };
   }
 }
