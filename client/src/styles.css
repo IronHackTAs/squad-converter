@@ -137,3 +137,7 @@ select {
     bottom: 84px;
     right: 5vw;
 }
+
+.center {
+    text-align: center;
+}

@@ -26,7 +26,9 @@
             <option *ngFor="let c of campus" [ngValue]="c">{{c.name}}</option>
         </select>
 
-        <button (click)="onConfirm()" [ngClass]="{'color' : color}" class="main-button"><p>Confirm campus</p></button>
+        <div class="center">
+            <button (click)="onConfirm()" [ngClass]="{'color' : color}" class="main-button"><p>Confirm campus</p></button>
+        </div>
 
     </div>
     <div style="position:absolute;left:-10px; z-index: -1;width: 95%;top:0px">
