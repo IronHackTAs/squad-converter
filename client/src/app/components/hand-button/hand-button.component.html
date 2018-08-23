@@ -17,24 +17,37 @@
                 </g>
             </svg>
 
-            <div class="Step-1-of-5">Step 2 of 5</div>
+            <div class="Step-1-of-5">Step 3 <span>of 5</span></div>
         </div>
-        <h3>Prepare to jump aboard</h3>
-        <p>Before going inside, you have to select the campus/city where you have completed your bootcamp</p>
+        <h3>Press the button to take off</h3>
+        <p class="info">To continous with the proccess you have to select which Bootcamp have you coursed, and specify if
+            it was full time or part time</p>
+        
 
-        <select (change)="onClick()" [(ngModel)]="selectedValue">
-            <option *ngFor="let c of campus" [ngValue]="c">{{c.name}}</option>
-        </select>
-
-        <div class="center">
-            <button (click)="onConfirm()" [ngClass]="{'color' : color}" class="main-button"><p>Confirm campus</p></button>
+        <div class="select" tabindex="0" (click)="toggleOptList(select)" #select>
+            <span class="value">Select course</span>
+            <ul class="optList hidden">
+                <li class="option" *ngFor="let c of campus" (click)="prueba(c.name)">{{c.name}}</li>
+            </ul>
         </div>
+
+        <button (click)="onConfirm()" [ngClass]="{'color' : color}" class="button"><p>Confirm course</p></button>
 
     </div>
-    <div style="position:absolute;left:-10px; z-index: -1;width: 95%;top:0px">
-        <lottie-animation-view [options]="lottieConfig" (animCreated)="handleAnimation($event)">
-        </lottie-animation-view>
-        <div id="player">
+
+    <div class="main-content">
+        <h1>Humm..</h1>
+        <h2>try to remember when have<br>you studied at Ironhack</h2>
+        <div style="position: absolute; z-index: -1; width: 90%; top: 0;">
+            <lottie-animation-view class="animationContainer" [options]="lottieConfig"  [ngStyle]="{'display': displayAnimation2}">
+            </lottie-animation-view>
+            <lottie-animation-view class="animationContainer" [options]="lottieConfig2" (animCreated)="handleAnimation($event)" [ngStyle]="{'display': displayAnimation}">
+            </lottie-animation-view>
         </div>
+    </div>
+
+
+    <div id="player">
+
     </div>
 </div>
