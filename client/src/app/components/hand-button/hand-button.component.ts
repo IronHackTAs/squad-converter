@@ -18,15 +18,13 @@ export class HandButtonComponent implements OnInit {
   ];
   public selectedValue = "";
   public color = false;
-  public c:any;
+
   constructor(public router: Router) {
     this.lottieConfig = {
       path: "../../../assets/handButton/button.json",
       autoplay: true,
       loop: true
     };
-
-    
   }
 
   onClick() {
@@ -34,6 +32,12 @@ export class HandButtonComponent implements OnInit {
   }
 
   onConfirm() {
+    this.lottieConfig = {
+      path: "../../../assets/handButton/pushButton.json",
+      autoplay: false,
+      loop: false
+    };
+
     if (this.selectedValue != "") {
       this.play();
       setTimeout(() => {
@@ -42,9 +46,7 @@ export class HandButtonComponent implements OnInit {
     }
   }
 
-  ngOnInit() {
-    this.customSelect();
-  }
+  ngOnInit() {}
 
   handleAnimation(anim: any) {
     this.anim = anim;
@@ -67,63 +69,9 @@ export class HandButtonComponent implements OnInit {
     this.anim.setSpeed(speed);
   }
 
-  customSelect() {
-    let selectList = document.querySelectorAll(".select");
-    let select = selectList[0];
-    //this.toggleOptList(select);
-    let optionList = select.querySelectorAll('.optList');
-
-    /* optionList.forEach(function(option, index) {
-      option.addEventListener("mouseover", function() {
-        this.highlightOption(select, option);
-      });
-
-      option.addEventListener("click", function(event) {
-        this.updateValue(select, index);
-      });
-    }.bind(this));
-
-    select.addEventListener("click", function(event) {
-      this.toggleOptList(select);
-    }.bind(this));
-
-    select.addEventListener("focus", function(event) {
-      this.activeSelect(select);
-    }.bind(this));
-
-    select.addEventListener("blur", function(event) {
-      this.deactivateSelect(select);
-    }.bind(this)); */
-  }
-
-  highlightOption(select, option) {
-    let optionList = select.querySelectorAll(".option");
-
-    optionList.forEach(function(other) {
-      other.classList.remove("highlight");
-    });
-
-    option.classList.add("highlight");
-  }
-
   toggleOptList(select) {
     let optList = select.querySelector(".optList");
     optList.classList.toggle('hidden');
-  }
-
-  deactivateSelect(select) {
-    if (!select.classList.contains("active")) return;
-
-    let optList = select.querySelector(".optList");
-
-    optList.classList.add("hidden");
-    select.classList.remove("active");
-  }
-
-  activeSelect(select) {
-    if (select.classList.contains("active")) return;
-
-    select.classList.add("active");
   }
 
   prueba(course) {
@@ -131,10 +79,5 @@ export class HandButtonComponent implements OnInit {
     value.innerHTML = course;
     this.color = true;
     this.selectedValue = course;
-    this.lottieConfig = {
-      path: "../../../assets/handButton/pushButton.json",
-      autoplay: true,
-      loop: false
-    };
   }
 }

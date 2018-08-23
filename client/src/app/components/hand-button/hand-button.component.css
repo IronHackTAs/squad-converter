@@ -62,6 +62,7 @@
   bottom: 84px;
   left: 50%;
   margin-left: calc(-327px / 2);
+  outline: none;
 }
 
 /**********************************************/
@@ -134,7 +135,8 @@
   font-family: "AvenirNext";
 }
 
-.select .highlight {
+.option:hover {
   background: #b0bbc8;
   color: #ffffff;
+  cursor: pointer;
 }
