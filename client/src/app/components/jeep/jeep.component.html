@@ -1,7 +1,8 @@
 <div class="container">
     <div class="Rectangle-4">
         <div class="top">
-            <div class="-Go-back"><a [routerLink]="['/splash']">< Go back</a>
+            <div class="-Go-back">
+                <a [routerLink]="['/splash']">< Go back</a>
             </div>
             <div class="row">
 
@@ -25,7 +26,7 @@
                 to know who you are
             </div>
             <div *ngIf="next==true" class="Rectangle-6">
-                <p>Hi {{name}}!</p>
+                <p class="center">Hi {{name}}!</p>
             </div>
             <input class="rectangle" #box1 name="username" placeholder="Name">
             <input class="rectangle" #box2 name="surname" placeholder="Surname">

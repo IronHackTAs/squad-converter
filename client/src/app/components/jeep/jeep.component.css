@@ -140,16 +140,6 @@ input{
   padding-top:20px;
 }
 
-.Rectangle-6 {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 328px;
-  height: 80px;
-  border-radius: 8px;
-  background-color: #ffffff;
-}
-
 .rectangle{
   border-radius: 8px;
   background-color: #fff;
@@ -181,4 +171,17 @@ input{
 }
 :-moz-placeholder { /* Firefox 18- */
   color: #b0bbc8;
+}
+
+.Rectangle-6 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 80px;
+  border-radius: 8px;
+  background-color: #ffffff;
+}
+
+.center {
+  max-width: 50%;
 }
