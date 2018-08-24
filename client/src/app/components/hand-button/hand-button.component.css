@@ -14,10 +14,7 @@
 .right-bar {
   position: relative;
   padding: 0 50px;
-}
-
-.-Go-back {
-  padding-top: 143px !important;
+  height: 100vh;
 }
 
 .Step-1-of-5 span {

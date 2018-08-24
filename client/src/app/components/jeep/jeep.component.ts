@@ -14,6 +14,7 @@ export class JeepComponent implements OnInit {
   public surname = "";
   public next = false;
   public submit = false;
+  public color = false;
 
   constructor(public route:Router) {
     this.lottieConfig = {
@@ -29,14 +30,19 @@ export class JeepComponent implements OnInit {
     this.name = name;
     this.surname = surname;
     this.submit = true;
-    this.next = true;
+    if(this.name != '' && this.surname != ''){
+      this.next = true;
+      this.color = true;
+    }
   }
 
   onConfirm(){
-    this.play();
-    setTimeout (()=>{
-        this.route.navigate(['/boarding'])
-    },3000)
+    if(this.next != false){
+      this.play();
+      setTimeout (()=>{
+          this.route.navigate(['/boarding'])
+      },3000)
+    }
   }
 
   handleAnimation(anim: any) {
