@@ -210,3 +210,27 @@ select {
     color: #ffffff;
     cursor: pointer;
   }
+
+  ul {
+    max-height: 25rem;
+  }
+
+  .row {
+      padding-top: 30px;
+  }
+
+  .title {
+      padding-top:  32px;
+  }
+
+  .description {
+      padding-top: 15px;
+  }
+
+  .input-box {
+      padding-top: 30px;
+  }
+
+  #username {
+      margin-top:10px;
+  }
