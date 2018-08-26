@@ -21,9 +21,12 @@
             </div>
             <h3>Propel the rocket</h3>
             <p>The last step! Please, select the month when you started the bootcamp and pick up your teachers!</p>
-            <select (change)="onClick()" [(ngModel)]="selectedValue">
-                <option *ngFor="let c of campus" [ngValue]="c">{{c.name}}</option>
-            </select>
+            <div class="select" tabindex="0" (click)="toggleOptList(select)" #select>
+                    <span class="value">Select date</span>
+                    <ul class="optList hidden">
+                        <li class="option" *ngFor="let c of campus" (click)="prueba(c.name)">{{c.name}}</li>
+                    </ul>
+                </div>
         </div>
         <div class="bottom">
             <button (click)="onConfirm()" [ngClass]="{'color' : color}" class="button main-button"><p>Confirm campus</p></button>
