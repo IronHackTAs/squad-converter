@@ -20,11 +20,18 @@
     
                 <div class="Step-1-of-5">Step 2 of 5</div>
             </div>
-            <h3>Prepare to jump aboard</h3>
-            <p>Before going inside, you have to select the campus/city where you have completed your bootcamp</p>
-            <select (change)="onClick()" [(ngModel)]="selectedValue">
-                <option *ngFor="let c of campus" [ngValue]="c">{{c.name}}</option>
-            </select>
+            <div class="title">
+                <h3>Prepare to jump aboard</h3>
+            </div>
+            <div class="description">
+                <p>Before going inside, you have to select the campus/city where you have completed your bootcamp</p>
+            </div>
+            <div class="select" tabindex="0" (click)="toggleOptList(select)" #select>
+                    <span class="value">Select city</span>
+                    <ul class="optList hidden">
+                        <li class="option" *ngFor="let c of campus" (click)="prueba(c.name)">{{c.name}}</li>
+                    </ul>
+                </div>
         </div>
         <div class="bottom">
             <button (click)="onConfirm()" [ngClass]="{'color' : color}" class="button main-button"><p>Confirm campus</p></button>

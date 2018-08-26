@@ -63,4 +63,16 @@ export class BoardingComponent implements OnInit {
     this.animationSpeed = speed;
     this.anim.setSpeed(speed);
   }
+
+  toggleOptList(select) {
+    let optList = select.querySelector(".optList");
+    optList.classList.toggle("hidden");
+  }
+
+  prueba(course) {
+    let value = document.querySelector(".value");
+    value.innerHTML = course;
+    this.color = true;
+    this.selectedValue = course;
+  }
 }

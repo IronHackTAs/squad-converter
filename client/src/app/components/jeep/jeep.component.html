@@ -21,16 +21,18 @@
 
                 <div class="Step-1-of-5">Step 1<span class="grey"> of 5</span></div>
             </div>
-            <div class="Drive-to-the-rocket">Drive to the rocket </div>
-            <div class="We-need-to-register">We need to register how many students accomplish this adventure, so we have
+            <div class="Drive-to-the-rocket title">Drive to the rocket </div>
+            <div class="We-need-to-register description">We need to register how many students accomplish this adventure, so we have
                 to know who you are
             </div>
-            <div *ngIf="next==true" class="Rectangle-6">
-                <p class="center">Hi {{name}}!</p>
+            <div class="input-box">
+                <div *ngIf="next==true" class="Rectangle-6">
+                    <p class="center">Hi {{name}}!</p>
+                </div>
+                <input class="rectangle" #box1 name="username" placeholder="Name" id="username">
+                <input class="rectangle" #box2 name="surname" placeholder="Surname">
+                <button class="add" (click)="onEnter(box1.value,box2.value)"><p class="Confirm">Add</p></button>
             </div>
-            <input class="rectangle" #box1 name="username" placeholder="Name">
-            <input class="rectangle" #box2 name="surname" placeholder="Surname">
-            <button class="add" (click)="onEnter(box1.value,box2.value)"><p class="Confirm">Add</p></button>
         </div>
         <div class="bottom">
             <button [ngClass]="{'color': color}" [disabled]="!submit" (click)="onConfirm()" class="main-button"><p class="Confirm">Confirm</p></button>
