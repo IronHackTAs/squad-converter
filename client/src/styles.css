@@ -135,3 +135,78 @@ select {
     right: 7%;
     outline: none;
 }
+
+
+.select {
+    position: relative;
+    display: inline-block;
+    box-sizing: border-box;
+    padding: 1px 25px 2px 5px;
+    width: 100%;
+    border-radius: 8px;
+  
+    background: #fff;
+    background-image: url("./assets/icons/arrow-down.png");
+    background-repeat: no-repeat;
+    background-position-x: 95%;
+    background-position-y: center;
+    background-size: 16px;
+  }
+  
+  .select.active,
+  .select:focus {
+    outline: none;
+    box-shadow: 0 0 3px 1px #4f5b77;
+  }
+  
+  .select .value {
+    display: inline-block;
+    width: 100%;
+    overflow: hidden;
+    vertical-align: top;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    line-height: 24px;
+    font-size: 16px;
+    padding: 10px 20px;
+    font-family: "AvenirNext";
+    color: #b0bbc8;
+  }
+  
+  .select .optList {
+    position: absolute;
+    top: 100%;
+    left: 0;
+  }
+  
+  .select .optList.hidden {
+    max-height: 0;
+    visibility: hidden;
+  }
+  
+  .select .optList {
+    z-index: 2;
+    list-style: none;
+    margin: 0;
+    margin-top: 5px !important;
+    padding: 0;
+    box-sizing: border-box;
+    min-width: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    border-radius: 8px;
+    background: #fff;
+  }
+  
+  .select .option {
+    line-height: 24px;
+    font-size: 16px;
+    padding: 20px;
+    font-family: "AvenirNext";
+  }
+  
+  .option:hover {
+    background: #b0bbc8;
+    color: #ffffff;
+    cursor: pointer;
+  }
