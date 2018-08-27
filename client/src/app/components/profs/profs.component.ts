@@ -14,7 +14,13 @@ export class ProfsComponent implements OnInit {
   private anim: any;
   private animationSpeed: number = 1;
   public url: string = 'http://localhost:3000/courseEditions';
+
   public datas = {};
+  public percentage: number = 10;
+  public squaq: number = 8;
+  public p: string;
+  public rocket: string = "78";
+
 
   constructor(public http: HttpClient, public route: ActivatedRoute, public data: DataService) {
       this.lottieConfig = {
@@ -22,6 +28,8 @@ export class ProfsComponent implements OnInit {
           autoplay: true,
           loop: true
       };
+       this.p = (2.04 * this.percentage).toString();
+        this.rocket = (2.04 * this.percentage + 7).toString();
   }
 
   ngOnInit(){
