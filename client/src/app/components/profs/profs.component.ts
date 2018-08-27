@@ -10,6 +10,10 @@ export class ProfsComponent implements OnInit {
   public lottieConfig: Object;
   private anim: any;
   private animationSpeed: number = 1;
+  public percentage: number = 10;
+  public squaq: number = 8;
+  public p: string;
+  public rocket: string = "78";
 
   constructor() {
       this.lottieConfig = {
@@ -17,6 +21,8 @@ export class ProfsComponent implements OnInit {
           autoplay: true,
           loop: true
       };
+       this.p = (2.04 * this.percentage).toString();
+        this.rocket = (2.04 * this.percentage + 7).toString();
   }
 
   ngOnInit(){
