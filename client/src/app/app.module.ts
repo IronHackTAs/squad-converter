@@ -14,6 +14,7 @@ import { TakeoffComponent } from './components/takeoff/takeoff.component';
 import { JeepComponent } from './components/jeep/jeep.component';
 import { ProfsComponent } from './components/profs/profs.component';
 import { SplashComponent } from './components/splash/splash.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { SplashComponent } from './components/splash/splash.component';
     BrowserModule,
     LottieAnimationViewModule.forRoot(),
     RouterModule.forRoot(routes),
-    FormsModule
+    FormsModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,58 @@
+{
+  "courseEditions": [
+    {
+      "id": "5b4f3f8c67bfa0a3d44cd316",
+      "start_at": "2018-03-19T00:00:00.000Z",
+      "end_at": "2018-05-18T00:00:00.000Z",
+      "is_active": true,
+      "is_sold_out": false,
+      "course": {
+        "id": "5b4f3f8c67bfa0a3d44cd2fd",
+        "name": "Web Development Bootcamp",
+        "course_code": "webft"
+      },
+      "campus": {
+        "id": "5b4f3f8c67bfa0a3d44cd2f7",
+        "name": "Madrid"
+      },
+      "language": "en",
+      "price_value": 6500,
+      "price_currency": "€",
+      "discount": null,
+      "price_discounted": null,
+      "squap_name": "webdev-squad-19"
+    },
+    {
+      "id": "5b4f3f8c67bfa0a3d44cd310",
+      "start_at": "2018-03-19T00:00:00.000Z",
+      "end_at": "2018-05-18T00:00:00.000Z",
+      "is_active": true,
+      "is_sold_out": false,
+      "course": {
+        "id": "5b4f3f8c67bfa0a3d44cd2fd",
+        "name": "Web Development Bootcamp",
+        "course_code": "webft"
+      },
+      "campus": {
+        "id": "5b4f3f8c67bfa0a3d44cd2f6",
+        "name": "Barcelona"
+      },
+      "language": "en",
+      "price_value": 6500,
+      "price_currency": "€",
+      "discount": null,
+      "price_discounted": null,
+      "squap_name": "webdev-squad-07"
+    },
+    {
+      "title": "prova",
+      "content": "prova",
+      "id": "nrXGzNH"
+    },
+    {
+      "title": "prova",
+      "content": "prova",
+      "id": "PwUJJR4"
+    }
+  ]
+}
