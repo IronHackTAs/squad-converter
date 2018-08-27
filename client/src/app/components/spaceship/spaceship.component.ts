@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { DataService } from '../../services/data.service';
 
 @Component({
   selector: 'app-spaceship',
@@ -29,7 +30,7 @@ export class SpaceshipComponent implements OnInit {
   public selectedValue = "";
   public color = false;
 
-  constructor(public router:Router) {
+  constructor(public router:Router, public data:DataService) {
       this.lottieConfig = {
           path: '../../../assets/spaceship/spaceship.json',
           autoplay: false,
@@ -85,5 +86,6 @@ export class SpaceshipComponent implements OnInit {
     value.innerHTML = course;
     this.color = true;
     this.selectedValue = course;
+    this.data.addDate(this.selectedValue);
   }
 }

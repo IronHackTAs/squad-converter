@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
-import { Router } from "@angular/router";
+import { Router, ActivatedRoute } from "@angular/router";
+import { DataService } from "../../services/data.service";
 
 @Component({
   selector: "app-boarding",
@@ -10,17 +11,17 @@ export class BoardingComponent implements OnInit {
   public lottieConfig: Object;
   private anim: any;
   private animationSpeed: number = 1;
-  public campus = [
+  public campus:Array<object> = [
     { name: "Madrid" },
     { name: "Barcelona" },
     { name: "Miami" },
     { name: "Amsterdam" },
     { name: "Paris" }
   ];
-  public selectedValue = "";
-  public color = false;
+  public selectedValue:string = "";
+  public color:boolean = false;
 
-  constructor(public router: Router) {
+  constructor(public router: Router, public route: ActivatedRoute, public data: DataService) {
     this.lottieConfig = {
       path: "../../../assets/boarding/boarding.json",
       autoplay: false,
@@ -30,7 +31,7 @@ export class BoardingComponent implements OnInit {
 
   ngOnInit() {}
 
-  onClick(){
+  onClick() {
     this.color = true;
   }
 
@@ -74,5 +75,6 @@ export class BoardingComponent implements OnInit {
     value.innerHTML = course;
     this.color = true;
     this.selectedValue = course;
+    this.data.addCity(this.selectedValue);
   }
 }
