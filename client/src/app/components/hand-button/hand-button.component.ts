@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
+import { DataService } from "../../services/data.service";
 
 @Component({
   selector: "app-hand-button",
@@ -22,7 +23,7 @@ export class HandButtonComponent implements OnInit {
   public selectedValue = "";
   public color = false;
 
-  constructor(public router: Router) {
+  constructor(public router: Router, public data:DataService) {
     this.lottieConfig = {
       path: "../../../assets/handButton/button.json",
       autoplay: true,
@@ -83,5 +84,6 @@ export class HandButtonComponent implements OnInit {
     value.innerHTML = course;
     this.color = true;
     this.selectedValue = course;
+    this.data.addCourse(this.selectedValue);
   }
 }

@@ -1,5 +1,7 @@
-import { Component, OnInit } from "@angular/core";
-import { Router } from "@angular/router";
+import { Component, OnInit, Output, Input } from "@angular/core";
+import { Router, Data } from "@angular/router";
+import { DataService } from "../../services/data.service";
+
 
 @Component({
   selector: "app-jeep",
@@ -16,7 +18,7 @@ export class JeepComponent implements OnInit {
   public submit = false;
   public color = false;
 
-  constructor(public route:Router) {
+  constructor(public route:Router, public data: DataService) {
     this.lottieConfig = {
       path: "../../../assets/jeep/jeep.json",
       autoplay: false,
@@ -33,6 +35,7 @@ export class JeepComponent implements OnInit {
     if(this.name != '' && this.surname != ''){
       this.next = true;
       this.color = true;
+      this.data.addName(this.name,this.surname);
     }
   }
 
