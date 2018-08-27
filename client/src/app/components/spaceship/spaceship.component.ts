@@ -12,6 +12,15 @@ export class SpaceshipComponent implements OnInit {
   private anim: any;
   private animationSpeed: number = 1;
   public campus = [
+    { name: "2017 - September" },
+    { name: "2017 - October" },
+    { name: "2017 - November" },
+    { name: "2017 - December" },
+    { name: "2018 - January" },
+    { name: "2018 - February" },
+    { name: "2018 - March" },
+    { name: "2018 - April" },
+    { name: "2018 - May" },
     { name: "2018 - June" },
     { name: "2018 - July" },
     { name: "2018 - August" },
@@ -64,5 +73,17 @@ export class SpaceshipComponent implements OnInit {
   setSpeed(speed: number) {
       this.animationSpeed = speed;
       this.anim.setSpeed(speed);
+  }
+
+  toggleOptList(select) {
+    let optList = select.querySelector(".optList");
+    optList.classList.toggle("hidden");
+  }
+
+  prueba(course) {
+    let value = document.querySelector(".value");
+    value.innerHTML = course;
+    this.color = true;
+    this.selectedValue = course;
   }
 }
