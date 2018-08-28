@@ -9,13 +9,13 @@ import { ProfsComponent } from "./profs/profs.component";
 import { SplashComponent } from "./splash/splash.component";
 
 export const routes: Routes = [
-  { path: "", redirectTo: "splash", pathMatch: "full" },
-  { path: "**", redirectTo: "splash", pathMatch: "full" },
+  { path:'', redirectTo: "splash", pathMatch: "full" },
   { path: "handButton", component: HandButtonComponent },
   { path: "spaceship", component: SpaceshipComponent },
   { path: "boarding", component: BoardingComponent },
   { path: "takeoff", component: TakeoffComponent },
   { path: "jeep", component: JeepComponent },
   { path: "profs", component: ProfsComponent },
-  { path: "splash", component: SplashComponent }
+  { path: "splash", component: SplashComponent },
+  { path: "**", redirectTo: "splash" },
 ];
