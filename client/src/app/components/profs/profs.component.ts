@@ -21,7 +21,7 @@ export class ProfsComponent implements OnInit {
     date: "",
     course: ""
   };
-  public percentage: number = 10;
+  public percentage: number = 100;
   public squad: number = 0;
   public p: string;
   public rocket: string = "78";
@@ -59,17 +59,17 @@ export class ProfsComponent implements OnInit {
     return this.http.get(this.url).subscribe(data => {
       Object.values(data).forEach(e => {
         let course = this.getCourseCode(this.datas.course);
-        let year = e["start_at"].slice(0, 4);
+        let year = new Date(e["start_at"]).getFullYear().toString();
         if (
           e["campus"].name == this.datas.city &&
           course == e["course"].course_code &&
-          this.datas.date.indexOf(
+          this.datas.date.includes(
             this.monthNames[new Date(e["start_at"]).getMonth()]
-          ) != -1 &&
-          this.datas.date.indexOf(year) != -1
+          )  &&
+          this.datas.date.includes(year) 
         ) {
           let squadName = e["squap_name"];
-          this.squad = parseInt(squadName.substring(squadName.length - 2));
+          this.squad = parseInt(squadName.replace(/[^0-9]/g, ""));
         }
       });
     });
@@ -98,25 +98,25 @@ export class ProfsComponent implements OnInit {
 
   getCourseCode(course) {
     if (
-      course.indexOf("Full-time") != -1 &&
-      course.indexOf("Web Development") != -1
+      course.includes("Full-time") &&
+      course.includes("Web Development")
     ) {
       return "webft";
-    } else if (course.indexOf("Web Development") != -1) {
+    } else if (course.includes("Web Development")) {
       return "webpt";
     } else if (
-      course.indexOf("Full-time") != -1 &&
-      course.indexOf("UX/UI") != -1
+      course.includes("Full-time") &&
+      course.includes("UX/UI")
     ) {
       return "uxft";
-    } else if (course.indexOf("UX/UI") != -1) {
+    } else if (course.includes("UX/UI")) {
       return "uxpt";
     } else if (
-      course.indexOf("Full-time") != -1 &&
-      course.indexOf("Data Analytics") != -1
+      course.includes("Full-time") &&
+      course.includes("Data Analytics")
     ) {
       return "dataft";
-    } else if (course.indexOf("Data Analytics") != -1) {
+    } else if (course.includes("Data Analytics")) {
       return "datapt";
     }
   }
