@@ -234,3 +234,7 @@ select {
   #username {
       margin-top:10px;
   }
+
+  .Step-1-of-5 span {
+    color: #b0bbc8;
+  }
