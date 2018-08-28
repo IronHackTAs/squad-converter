@@ -5,15 +5,18 @@ import { Injectable } from '@angular/core';
 })
 export class DataService {
 
-  public data = {};
+  public data = {
+    name:"",
+    surname:"",
+    city:"",
+    date:"",
+    course:""
+  };
 
   constructor() { }
 
   addName(name, surname){
-    this.data = {
-      name,
-      surname
-    }
+    Object.assign(this.data, {name,surname})
   }
 
   addCity(city){
