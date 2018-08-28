@@ -96,7 +96,7 @@ button > p {
 }
 
 .right-bar {
-    width: 26vw;
+    width: 28vw;
     height: 90vh;
     background-color: #f4f7fc;
     float:right;
@@ -237,4 +237,8 @@ select {
 
   .Step-1-of-5 span {
     color: #b0bbc8;
+  }
+
+  .description {
+      padding: 20px 0;
   }
