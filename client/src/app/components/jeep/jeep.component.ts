@@ -12,11 +12,9 @@ export class JeepComponent implements OnInit {
   public lottieConfig: Object;
   private anim: any;
   private animationSpeed: number = 1;
-  public name = "";
-  public surname = "";
-  public next = false;
-  public submit = false;
-  public color = false;
+  public name:string = "";
+  public surname:string = "";
+  public color:boolean = false;
 
   constructor(public route:Router, public data: DataService) {
     this.lottieConfig = {
@@ -28,24 +26,22 @@ export class JeepComponent implements OnInit {
 
   ngOnInit() {}
 
-  onEnter(name: string, surname: string) {
+  onNameChange(name: string) {
     this.name = name;
-    this.surname = surname;
-    this.submit = true;
-    if(this.name != '' && this.surname != ''){
-      this.next = true;
-      this.color = true;
-      this.data.addName(this.name,this.surname);
-    }
+    this.name !== '' && this.surname !== '' ? this.color = true : this.color = false;
   }
 
-  onConfirm(){
-    if(this.next != false){
+  onSurnameChange(surname: string) {
+    this.surname = surname;
+    this.name !== '' && this.surname !== '' ? this.color = true : this.color = false;
+  }
+
+  onConfirm() {
+    this.data.addName(this.name,this.surname);
       this.play();
       setTimeout (()=>{
           this.route.navigate(['/boarding'])
       },3000)
-    }
   }
 
   handleAnimation(anim: any) {
