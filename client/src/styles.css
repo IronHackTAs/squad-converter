@@ -242,3 +242,7 @@ select {
   .description {
       padding: 20px 0;
   }
+
+  .missing {
+    border:1px solid red;
+  }
