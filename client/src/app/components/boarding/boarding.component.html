@@ -34,7 +34,7 @@
                 </div>
         </div>
         <div class="bottom">
-            <button (click)="onConfirm()" [ngClass]="{'color' : color}" class="button main-button"><p>Confirm campus</p></button>
+            <button [disabled]="!submit" (click)="onConfirm()" [ngClass]="{'color' : color}" class="button main-button"><p>Confirm campus</p></button>
         </div>
 
     </div>

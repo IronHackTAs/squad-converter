@@ -29,6 +29,7 @@ export class SpaceshipComponent implements OnInit {
   ];
   public selectedValue = "";
   public color = false;
+  public submit = true;
 
   constructor(public router:Router, public data:DataService) {
       this.lottieConfig = {
@@ -44,6 +45,7 @@ export class SpaceshipComponent implements OnInit {
 
   onConfirm() {
     if (this.selectedValue != "") {
+      this.submit = false;
       this.play();
       setTimeout(() => {
         this.router.navigate(["/profs"]);

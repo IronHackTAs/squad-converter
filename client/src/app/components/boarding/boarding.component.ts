@@ -20,6 +20,7 @@ export class BoardingComponent implements OnInit {
   ];
   public selectedValue:string = "";
   public color:boolean = false;
+  public submit = true;
 
   constructor(public router: Router, public route: ActivatedRoute, public data: DataService) {
     this.lottieConfig = {
@@ -37,6 +38,7 @@ export class BoardingComponent implements OnInit {
 
   onConfirm() {
     if (this.selectedValue != "") {
+      this.submit = false;
       this.play();
       setTimeout(() => {
         this.router.navigate(["/handButton"]);
