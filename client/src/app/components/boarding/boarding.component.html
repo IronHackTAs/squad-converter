@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container reverse">
     <div class="right-bar">
         <div class="top">
             <div class="-Go-back"><a [routerLink]="['/jeep']">< Go back</a>
@@ -43,7 +43,7 @@
     </div>
     <h1>Welcome aboard {{name}}!</h1>
     <h2>you have to select the Campus where you studied</h2>
-    <div style="position:absolute; z-index: -1;top:-2px;left: -5px">
+    <div style="z-index: -1;top:-2px;left: -5px">
         <lottie-animation-view [options]="lottieConfig" (animCreated)="handleAnimation($event)">
         </lottie-animation-view>
         <div id="player">

@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container reverse">
     <div class="right-bar">
         <div class="top">
             <div class="-Go-back"><a [routerLink]="['/jeep']">< Go back</a>
@@ -42,7 +42,7 @@
     <div class="main-content">
         <h1>Humm..</h1>
         <h2>try to remember when have<br>you studied at Ironhack</h2>
-        <div style="position: absolute; z-index: -1; width: 90%; top: 0;">
+        <div style="z-index: -1; width: 90%; top: 0;">
             <lottie-animation-view class="animationContainer" [options]="lottieConfig"  [ngStyle]="{'display': displayAnimation2}">
             </lottie-animation-view>
             <lottie-animation-view class="animationContainer" [options]="lottieConfig2" (animCreated)="handleAnimation($event)" [ngStyle]="{'display': displayAnimation}">

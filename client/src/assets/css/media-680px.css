@@ -1,0 +1,29 @@
+.container {
+  display: flex;
+  flex-direction: column-reverse;
+  padding-left: 0 !important;
+  width: 100vw;
+}
+  
+.right-bar {
+  width: 100vw !important;
+}
+
+.left-part {
+  display: flex;
+  flex-direction: column;
+  padding: 50px;
+  width: 100vw;
+}
+
+h2 {
+  width: 70% !important;
+}
+
+.space-man {
+  width: 50% !important;
+}
+
+.reverse {
+  flex-direction: column !important;
+}

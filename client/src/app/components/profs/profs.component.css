@@ -129,7 +129,6 @@ svg {
       z-index: 1;
     }
   .animation {
-    position: absolute;
     width: 95%;
     top:0%;
   }

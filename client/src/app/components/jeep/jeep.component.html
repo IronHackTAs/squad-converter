@@ -1,5 +1,5 @@
-<div class="container">
-    <div class="Rectangle-4">
+<div class="container reverse">
+    <div class="Rectangle-4 right-bar">
         <div class="top">
             <div class="-Go-back">
                 <a [routerLink]="['/splash']">< Go back</a>
@@ -41,14 +41,14 @@
             <button [disabled]="!submit" [ngClass]="{'color': color}" (click)="onConfirm()" class="main-button"><p class="Confirm">Confirm</p></button>
         </div>
     </div>
-    <div>
+    <div class="left-part">
         <div class="Get-ready">Get ready!</div>
         <div class="to-start-this-advent">to start this adventure, we need first to identify you</div>
-    </div>
-</div>
-<div style="position: absolute; z-index: -1; width: 100%; top: 0;">
-    <lottie-animation-view [options]="lottieConfig" (animCreated)="handleAnimation($event)">
-    </lottie-animation-view>
-    <div id="player">
+        <div style="z-index: -1; width: 100%; top: 0;">
+            <lottie-animation-view [options]="lottieConfig" (animCreated)="handleAnimation($event)">
+            </lottie-animation-view>
+            <div id="player">
+            </div>
+        </div>
     </div>
 </div>
