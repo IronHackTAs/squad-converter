@@ -23,6 +23,7 @@ export class BoardingComponent implements OnInit {
   public submit = true;
   public missingSelect = false;
   public missingCity = false;
+  public name:string = '';
   
   constructor(public router: Router, public route: ActivatedRoute, public data: DataService) {
     this.lottieConfig = {
@@ -32,7 +33,9 @@ export class BoardingComponent implements OnInit {
     };
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.name = this.data.getData().name;
+  }
 
   onConfirm() {
     if (this.selectedValue != "") {

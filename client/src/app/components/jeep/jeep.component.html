@@ -38,13 +38,13 @@
             </div>
         </div>
         <div class="bottom">
-            <button [disabled]="!submit" [ngClass]="{'color': color}" (click)="onConfirm()" class="main-button"><p class="Confirm">Confirm</p></button>
+            <button (click)="scroll(target)" [disabled]="!submit" [ngClass]="{'color': color}" (click)="onConfirm()" class="main-button"><p class="Confirm">Confirm</p></button>
         </div>
     </div>
     <div class="left-part">
-        <div class="Get-ready">Get ready!</div>
-        <div class="to-start-this-advent">to start this adventure, we need first to identify you</div>
-        <div style="z-index: -1; width: 100%; top: 0;">
+        <h1 class="Get-ready">Get ready!</h1>
+        <h2 class="to-start-this-advent">to start this adventure, we need first to identify you</h2>
+        <div #target style="z-index: -1; width: 100%; top: 0;">
             <lottie-animation-view [options]="lottieConfig" (animCreated)="handleAnimation($event)">
             </lottie-animation-view>
             <div id="player">

@@ -39,7 +39,7 @@
   color: #c6cad3;
 }
 
-.Rectangle-4 {
+/* .Rectangle-4 {
   width: 28vw;
   height: 90vh;
   background-color: #f4f7fc;
@@ -48,7 +48,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-}
+} */
 
 .-Go-back {
   margin-top: 50px;

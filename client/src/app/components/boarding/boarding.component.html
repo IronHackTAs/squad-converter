@@ -41,12 +41,14 @@
         </div>
 
     </div>
-    <h1>Welcome aboard {{name}}!</h1>
-    <h2>you have to select the Campus where you studied</h2>
-    <div style="z-index: -1;top:-2px;left: -5px">
-        <lottie-animation-view [options]="lottieConfig" (animCreated)="handleAnimation($event)">
-        </lottie-animation-view>
-        <div id="player">
+    <div class="left-part">
+        <h1>Welcome aboard {{name}}!</h1>
+        <h2>you have to select the Campus where you studied</h2>
+        <div style="z-index: -1;top:-2px;left: -5px">
+            <lottie-animation-view [options]="lottieConfig" (animCreated)="handleAnimation($event)">
+            </lottie-animation-view>
+            <div id="player">
+            </div>
         </div>
     </div>
 </div>

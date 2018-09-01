@@ -28,6 +28,10 @@ export class JeepComponent implements OnInit {
 
   ngOnInit() {}
 
+  scroll(el) {
+    if(this.name !== '' && this.surname !== '')el.scrollIntoView();
+}
+
   onNameChange(name: string) {
     this.name = name;
     this.name !== "" && this.surname !== ""

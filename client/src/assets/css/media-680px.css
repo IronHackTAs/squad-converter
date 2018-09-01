@@ -8,19 +8,18 @@
 .right-bar {
   width: 100vw !important;
   padding: 25px !important;
-  width: 90vw !important;
 }
 
 .left-part {
   display: flex;
   flex-direction: column;
   padding: 0px 25px;
-  width: 80vw;
+  width: 100vw;
 }
 
 h2 {
-  width: 70% !important;
-  font-size: 16px !important;
+  width: 100% !important;
+  font-size: 32px !important;
 }
 
 .space-man {
@@ -32,5 +31,6 @@ h2 {
 }
 
 .section {
-  padding-top: 10% !important;
+  padding-top: 10px !important;
 }
+

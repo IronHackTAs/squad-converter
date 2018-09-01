@@ -36,12 +36,14 @@
             <button [disabled]="!submit" (click)="onConfirm()" [ngClass]="{'color' : color}" class="button main-button"><p>Confirm campus</p></button>
         </div>
     </div>
-    <h1>Rocket on its way!</h1>
-    <h2>tell us what month you started your bootcamp</h2>
-    <div style="z-index: -1;width: 98%;top:0px">
-        <lottie-animation-view [options]="lottieConfig" (animCreated)="handleAnimation($event)">
-        </lottie-animation-view>
-        <div id="player">
+    <div class="left-part">
+        <h1>Rocket on its way!</h1>
+        <h2>tell us what month you started your bootcamp</h2>
+        <div style="z-index: -1;width: 98%;top:0px">
+            <lottie-animation-view [options]="lottieConfig" (animCreated)="handleAnimation($event)">
+            </lottie-animation-view>
+            <div id="player">
+            </div>
         </div>
     </div>
 </div>
