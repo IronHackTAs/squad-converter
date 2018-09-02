@@ -34,7 +34,7 @@
         </div>
 
         <div class="bottom">
-            <button (click)="onConfirm()" [ngClass]="{'color' : color}" class="button main-button"><p>Confirm course</p></button>
+            <button (click)="scroll(target)" (click)="onConfirm()" [ngClass]="{'color' : color}" class="button main-button"><p>Confirm course</p></button>
         </div>
 
     </div>
@@ -42,7 +42,7 @@
     <div class="main-content left-part">
         <h1>Humm..</h1>
         <h2>try to remember when have<br>you studied at Ironhack</h2>
-        <div style="z-index: -1; width: 90%; top: 0;">
+        <div #target style="z-index: -1; width: 90%; top: 0;">
             <lottie-animation-view class="animationContainer" [options]="lottieConfig"  [ngStyle]="{'display': displayAnimation2}">
             </lottie-animation-view>
             <lottie-animation-view class="animationContainer" [options]="lottieConfig2" (animCreated)="handleAnimation($event)" [ngStyle]="{'display': displayAnimation}">

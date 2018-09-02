@@ -37,6 +37,10 @@ export class BoardingComponent implements OnInit {
     this.name = this.data.getData().name;
   }
 
+  scroll(el) {
+    if(this.selectedValue !== '')el.scrollIntoView();
+}
+
   onConfirm() {
     if (this.selectedValue != "") {
       this.submit = false;
