@@ -3,6 +3,7 @@
   flex-direction: column-reverse;
   padding-left: 0 !important;
   width: 80%;
+  zoom: 90%;
 }
 
 .right-bar {
