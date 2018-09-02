@@ -1,4 +1,12 @@
 .main {
-    width: 110vw;
-    padding-left: 70px;
+    /* width: 110vw;
+    padding-left: 70px; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left:20%; 
+}
+
+.item {
+    max-width: 100%;
 }

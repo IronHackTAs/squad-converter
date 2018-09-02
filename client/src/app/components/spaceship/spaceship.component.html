@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container reverse">
     <div class="right-bar">
         <div class="top">
             <div class="-Go-back"><a [routerLink]="['/handButton']">< Go back</a>
@@ -33,15 +33,17 @@
                 </div>
         </div>
         <div class="bottom">
-            <button (click)="onConfirm()" [ngClass]="{'color' : color}" class="button main-button"><p>Confirm campus</p></button>
+            <button (click)="scroll(target)" [disabled]="!submit" (click)="onConfirm()" [ngClass]="{'color' : color}" class="button main-button"><p>Confirm campus</p></button>
         </div>
     </div>
-    <h1>Rocket on its way!</h1>
-    <h2>tell us what month you started your bootcamp</h2>
-    <div style="position:absolute; z-index: -1;width: 99%;top:0px">
-        <lottie-animation-view [options]="lottieConfig" (animCreated)="handleAnimation($event)">
-        </lottie-animation-view>
-        <div id="player">
+    <div class="left-part">
+        <h1>Rocket on its way!</h1>
+        <h2>tell us what month you started your bootcamp</h2>
+        <div #target style="z-index: -1;width: 98%;top:0px">
+            <lottie-animation-view [options]="lottieConfig" (animCreated)="handleAnimation($event)">
+            </lottie-animation-view>
+            <div id="player">
+            </div>
         </div>
     </div>
 </div>

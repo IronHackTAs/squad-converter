@@ -26,8 +26,8 @@
 }
 
 .to-start-this-advent {
-  width: 450px;
-  height: 96px;
+  /* width: 450px;
+  height: 96px; */
   font-family: AvenirNext;
   font-size: 32px;
   font-weight: 600;
@@ -39,8 +39,8 @@
   color: #c6cad3;
 }
 
-.Rectangle-4 {
-  width: 26vw;
+/* .Rectangle-4 {
+  width: 28vw;
   height: 90vh;
   background-color: #f4f7fc;
   float:right;
@@ -48,7 +48,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-}
+} */
 
 .-Go-back {
   margin-top: 50px;

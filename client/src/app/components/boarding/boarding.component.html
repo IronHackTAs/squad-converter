@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container reverse">
     <div class="right-bar">
         <div class="top">
             <div class="-Go-back"><a [routerLink]="['/jeep']">< Go back</a>
@@ -26,24 +26,29 @@
             <div class="description">
                 <p>Before going inside, you have to select the campus/city where you have completed your bootcamp</p>
             </div>
-            <div class="select" tabindex="0" (click)="toggleOptList(select)" #select>
+            <div [ngClass]="{'missing': missingSelect}"  class="select" tabindex="0" (click)="toggleOptList(select)" #select>
                     <span class="value">Select city</span>
                     <ul class="optList hidden">
                         <li class="option" *ngFor="let c of campus" (click)="prueba(c.name)">{{c.name}}</li>
                     </ul>
                 </div>
+                <div *ngIf="missingCity" class="missingCity"><p>
+                    Select your city
+                </p></div>
         </div>
         <div class="bottom">
-            <button (click)="onConfirm()" [ngClass]="{'color' : color}" class="button main-button"><p>Confirm campus</p></button>
+            <button (click)="scroll(target)" [disabled]="!submit" (click)="onConfirm()" [ngClass]="{'color' : color}" class="button main-button"><p>Confirm campus</p></button>
         </div>
 
     </div>
-    <h1>Welcome aboard {{name}}!</h1>
-    <h2>you have to select the Campus where you studied</h2>
-    <div style="position:absolute; z-index: -1;top:-2px;left: -5px;width: 103%; border: 1px solid white;">
-        <lottie-animation-view [options]="lottieConfig" (animCreated)="handleAnimation($event)">
-        </lottie-animation-view>
-        <div id="player">
+    <div class="left-part">
+        <h1>Welcome aboard {{name}}!</h1>
+        <h2>you have to select the Campus where you studied</h2>
+        <div #target style="z-index: -1;top:-2px;left: -5px">
+            <lottie-animation-view [options]="lottieConfig" (animCreated)="handleAnimation($event)">
+            </lottie-animation-view>
+            <div id="player">
+            </div>
         </div>
     </div>
 </div>

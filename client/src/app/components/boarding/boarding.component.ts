@@ -20,7 +20,11 @@ export class BoardingComponent implements OnInit {
   ];
   public selectedValue:string = "";
   public color:boolean = false;
-
+  public submit = true;
+  public missingSelect = false;
+  public missingCity = false;
+  public name:string = '';
+  
   constructor(public router: Router, public route: ActivatedRoute, public data: DataService) {
     this.lottieConfig = {
       path: "../../../assets/boarding/boarding.json",
@@ -29,18 +33,24 @@ export class BoardingComponent implements OnInit {
     };
   }
 
-  ngOnInit() {}
-
-  onClick() {
-    this.color = true;
+  ngOnInit() {
+    this.name = this.data.getData().name;
   }
+
+  scroll(el) {
+    if(this.selectedValue !== '')el.scrollIntoView();
+}
 
   onConfirm() {
     if (this.selectedValue != "") {
+      this.submit = false;
       this.play();
       setTimeout(() => {
         this.router.navigate(["/handButton"]);
       }, 4700);
+    }else {
+      this.missingSelect = true;
+      this.missingCity = true;
     }
   }
 
@@ -74,6 +84,8 @@ export class BoardingComponent implements OnInit {
     let value = document.querySelector(".value");
     value.innerHTML = course;
     this.color = true;
+    this.missingSelect = false;
+    this.missingCity = false;
     this.selectedValue = course;
     this.data.addCity(this.selectedValue);
   }

@@ -9,3 +9,16 @@ select {
 .color {
   opacity: 100;
 }
+
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+}
+
+.missingCity{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 5px;
+}

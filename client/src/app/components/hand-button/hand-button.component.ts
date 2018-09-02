@@ -36,6 +36,10 @@ export class HandButtonComponent implements OnInit {
     };
   }
 
+  scroll(el) {
+    if(this.selectedValue !== '')el.scrollIntoView();
+}
+
   onClick() {
     this.color = true;
   }
