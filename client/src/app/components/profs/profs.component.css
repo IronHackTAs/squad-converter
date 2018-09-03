@@ -1,49 +1,7 @@
 svg {
     width: 100%;
   }
-  .Rectangle-4 {
-    width: 30vw;
-    height: calc(100vh - 100px);
-    background-color: #f4f7fc;
-    float:right;
-    position: relative;
-    z-index: 1;
-    padding: 50px;
-  }
-    .Rectangle-7 {
-      width: 41px;
-      height: 6px;
-      border-radius: 3px;
-      background-color: #ffd26f;
-    }
-    .-Go-back {
-      margin-top: 50px;
-      padding-top: 4vh;
-      width: 77px;
-      height: 24px;
-      font-family: AvenirNext;
-      font-size: 16px;
-      font-weight: 500;
-      font-style: normal;
-      font-stretch: normal;
-      line-height: 1.5;
-      letter-spacing: normal;
-      text-align: left;
-      color: #4f5b77;
-    }
-    .This-is-your-Squad {
-      width: 292px;
-      height: 48px;
-      font-family: AvenirNext;
-      font-size: 32px;
-      font-weight: bold;
-      font-style: normal;
-      font-stretch: normal;
-      line-height: 1.5;
-      letter-spacing: normal;
-      text-align: left;
-      color: #b0bbc8;
-    }
+
     .layer {
       width: 90px;
       height: 98px;
@@ -57,72 +15,7 @@ svg {
       text-align: center;
       color: #008d9c;
     }
-    .You-are-in-3rd-posit {
-      width: 100%;
-      height: 33px;
-      font-family: AvenirNext;
-      font-size: 24px;
-      font-weight: bold;
-      font-style: normal;
-      font-stretch: normal;
-      line-height: normal;
-      letter-spacing: normal;
-      text-align: left;
-      color: #4f5b77;
-      padding-top: 33px;
-    }
-    .To-go-back-to-earth {
-      width: 100%;
-      height: 120px;
-      font-family: AvenirNext;
-      font-size: 16px;
-      font-weight: 500;
-      font-style: normal;
-      font-stretch: normal;
-      line-height: 1.5;
-      letter-spacing: normal;
-      text-align: left;
-      padding-top: 20px;
-      color: #4f5b77;
-    }
-    .Rectangle-8 {
-      width: 100%;
-      height: 48px;
-      border-radius: 24px;
-      background-color: #57cfff;
-      
-    }
-    .Button-Rectangle-8 {
-      padding-top: 30px;
-    }
-    .to-save-your-teache {
-      padding-top:8px; 
-      width: 402px;
-      height: 96px;
-      font-family: AvenirNext;
-      font-size: 32px;
-      font-weight: 600;
-      font-style: normal;
-      font-stretch: normal;
-      line-height: 1.5;
-      letter-spacing: normal;
-      text-align: left;
-      color: #c6cad3;
-    }
-    .Congratulations {
-      padding-top: 30px;
-      width: 262px;
-      height: 48px;
-      font-family: AvenirNext;
-      font-size: 32px;
-      font-weight: bold;
-      font-style: normal;
-      font-stretch: normal;
-      line-height: 1.5;
-      letter-spacing: normal;
-      text-align: left;
-      color: #4f5b77;
-    }
+  
     .text-animation{
       padding-left: 50px;
       position: relative;

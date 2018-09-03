@@ -2,11 +2,6 @@
   opacity: 100;
 }
 
-.container {
-  padding: 0;
-}
-
-
 .Step-1-of-5 span {
   color: #b0bbc8;
 }
@@ -15,16 +10,6 @@
   display: flex;
   align-items: center;
   justify-content: start;
-}
-
-.row svg {
-  margin-right: 10px;
-}
-
-.right-bar > div,
-.right-bar h3,
-.right-bar .info {
-  padding: 20px 0;
 }
 
 .right-bar h3 {
