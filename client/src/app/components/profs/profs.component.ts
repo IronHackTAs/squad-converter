@@ -21,7 +21,7 @@ export class ProfsComponent implements OnInit {
     date: "",
     course: ""
   };
-  public percentage: number = 100;
+  public percentage: number = 0;
   public squad: number = 0;
   public p: string;
   public rocket: string = "78";

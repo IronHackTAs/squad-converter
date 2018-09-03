@@ -246,7 +246,7 @@ select {
     margin-right: 10px;
   }
 
-  @media (min-width:681px) {
+  @media (min-width:900px) {
     .animation {
         position: absolute;
         z-index: -1;
