@@ -35,11 +35,3 @@ h2 {
 .section {
   padding-top: 10px !important;
 }
-
-.animation {
-  position: absolute;
-  top:120vh;
-  left: 0px;
-  width: 100%;
-  z-index: -1;
-}
