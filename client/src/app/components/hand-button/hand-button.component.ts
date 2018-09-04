@@ -15,10 +15,10 @@ export class HandButtonComponent implements OnInit {
   private anim: any;
   private animationSpeed: number = 1;
   public campus = [
-    { name: "Web Development Full-time" },
-    { name: "Web Development Part-time" },
-    { name: "UX/UI Full-time" },
-    { name: "UX/UI Part-time" }
+    { name: "Web Development Full-Time" },
+    { name: "Web Development Part-Time" },
+    { name: "UX/UI Full-Time" },
+    { name: "UX/UI Part-Time" }
   ];
   public selectedValue = "";
   public color = false;

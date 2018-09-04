@@ -14,9 +14,6 @@ a {
     color: #4f5b77;
 }
   
-.container {
-    padding-left: 20px;
-}
   
 .row {
     display: flex;
@@ -96,11 +93,9 @@ button > p {
 }
 
 .right-bar {
-    width: 28vw;
     height: 87vh;
     background-color: #f4f7fc;
     float:right;
-    padding: 50px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -246,3 +241,31 @@ select {
   .missing {
     border:1px solid red;
   }
+
+  .row svg {
+    margin-right: 10px;
+  }
+
+  @media (min-width:900px) {
+    .animation {
+        position: absolute;
+        z-index: -1;
+        top:-2px;
+        left: -5px
+      }
+      
+    .container {
+        padding-left: 20px;
+    }
+
+    .right-bar {
+        width: 28vw;
+        padding: 50px;
+    }
+
+    h2 {
+        padding-top: 10px; 
+        width: 34%;
+    }
+    
+}

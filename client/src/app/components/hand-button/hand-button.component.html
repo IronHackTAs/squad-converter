@@ -20,9 +20,13 @@
     
             <div class="Step-1-of-5">Step 3 <span>of 5</span></div>
             </div>
-            <h3>Press the button to take off</h3>
-            <p class="info">To continous with the proccess you have to select which Bootcamp have you coursed, and specify if
-                it was full time or part time</p>
+            <div class="title">
+                <h3>Press the button to take off</h3>
+            </div>
+            <div class="description">
+                <p class="info">To continous with the proccess you have to select which Bootcamp have you coursed, and specify if
+                    it was full time or part time</p>
+            </div>
             
     
             <div class="select" tabindex="0" (click)="toggleOptList(select)" #select>
@@ -42,7 +46,7 @@
     <div class="main-content left-part">
         <h1>Humm..</h1>
         <h2>try to remember when have<br>you studied at Ironhack</h2>
-        <div #target style="z-index: -1; width: 90%; top: 0;">
+        <div #target class="animation">
             <lottie-animation-view class="animationContainer" [options]="lottieConfig"  [ngStyle]="{'display': displayAnimation2}">
             </lottie-animation-view>
             <lottie-animation-view class="animationContainer" [options]="lottieConfig2" (animCreated)="handleAnimation($event)" [ngStyle]="{'display': displayAnimation}">
