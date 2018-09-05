@@ -93,7 +93,6 @@ button > p {
 }
 
 .right-bar {
-    height: 87vh;
     background-color: #f4f7fc;
     float:right;
     display: flex;
@@ -259,6 +258,7 @@ select {
     }
 
     .right-bar {
+        height: 87vh;
         width: 28vw;
         padding: 50px;
     }
@@ -266,6 +266,5 @@ select {
     h2 {
         padding-top: 10px; 
         width: 34%;
-    }
-    
+    }  
 }
