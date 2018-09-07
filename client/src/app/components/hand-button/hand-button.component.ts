@@ -25,12 +25,12 @@ export class HandButtonComponent implements OnInit {
 
   constructor(public router: Router, public data:DataService) {
     this.lottieConfig = {
-      path: "../../../assets/handButton/button.json",
+      path: "../../../assets/animations/handButton/button.json",
       autoplay: true,
       loop: true
     };
     this.lottieConfig2 = {
-      path: "../../../assets/handButton/pushButton.json",
+      path: "../../../assets/animations/handButton/pushButton.json",
       autoplay: false,
       loop: false
     };

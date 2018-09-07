@@ -13,7 +13,7 @@ export class TakeoffComponent implements OnInit {
 
   constructor(public router:Router) {
     this.lottieConfig = {
-      path: "../../../assets/takeoff/takeoff.json",
+      path: "../../../assets/animations/takeoff/takeoff.json",
       autoplay: true,
       loop: true
     };

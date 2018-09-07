@@ -27,7 +27,7 @@ export class BoardingComponent implements OnInit {
   
   constructor(public router: Router, public route: ActivatedRoute, public data: DataService) {
     this.lottieConfig = {
-      path: "../../../assets/boarding/boarding.json",
+      path: "../../../assets/animations/boarding/boarding.json",
       autoplay: false,
       loop: false
     };

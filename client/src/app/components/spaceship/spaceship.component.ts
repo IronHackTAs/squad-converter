@@ -33,7 +33,7 @@ export class SpaceshipComponent implements OnInit {
 
   constructor(public router:Router, public data:DataService) {
       this.lottieConfig = {
-          path: '../../../assets/spaceship/spaceship.json',
+          path: '../../../assets/animations/spaceship/spaceship.json',
           autoplay: false,
           loop: false
       };

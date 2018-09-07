@@ -46,7 +46,7 @@ export class ProfsComponent implements OnInit {
     public data: DataService
   ) {
     this.lottieConfig = {
-      path: "../../../assets/profs/profs.json",
+      path: "../../../assets/animations/profs/profs.json",
       autoplay: true,
       loop: true
     };
