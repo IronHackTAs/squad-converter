@@ -20,7 +20,7 @@ export class JeepComponent implements OnInit {
 
   constructor(public route: Router, public data: DataService) {
     this.lottieConfig = {
-      path: "../../../assets/jeep/jeep.json",
+      path: "../../../assets/animations/jeep/jeep.json",
       autoplay: false,
       loop: false
     };

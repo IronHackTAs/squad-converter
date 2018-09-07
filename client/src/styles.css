@@ -93,7 +93,6 @@ button > p {
 }
 
 .right-bar {
-    height: 87vh;
     background-color: #f4f7fc;
     float:right;
     display: flex;
@@ -222,10 +221,6 @@ select {
       padding-top: 15px;
   }
 
-  .input-box {
-      padding-top: 30px;
-  }
-
   #username {
       margin-top:10px;
   }
@@ -259,6 +254,7 @@ select {
     }
 
     .right-bar {
+        height: 87vh;
         width: 28vw;
         padding: 50px;
     }
@@ -266,6 +262,5 @@ select {
     h2 {
         padding-top: 10px; 
         width: 34%;
-    }
-    
+    }  
 }

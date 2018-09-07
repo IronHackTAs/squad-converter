@@ -21,10 +21,10 @@
 
                 <div class="Step-1-of-5">Step 1<span class="grey"> of 5</span></div>
             </div>
-            <div class="Drive-to-the-rocket title">Drive to the rocket </div>
-            <div class="We-need-to-register description">We need to register how many students accomplish this adventure, so we have
+            <h3 class="title">Drive to the rocket </h3>
+            <p class="description">We need to register how many students accomplish this adventure, so we have
                 to know who you are
-            </div>
+            </p>
             <div class="input-box">
                 <input [ngClass]="{'missing': missingName}" class="rectangle" #box1 name="username" placeholder="Name" id="username" (input)="onNameChange($event.target.value)" required>
                 <div *ngIf="missingName" class="missingName"><p>
