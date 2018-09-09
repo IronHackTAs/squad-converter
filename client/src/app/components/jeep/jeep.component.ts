@@ -1,6 +1,7 @@
 import { Component, OnInit, Output, Input } from "@angular/core";
-import { Router, Data } from "@angular/router";
+import { Router, Data, ActivatedRoute } from "@angular/router";
 import { DataService } from "../../services/data.service";
+import { Route } from "@angular/compiler/src/core";
 
 @Component({
   selector: "app-jeep",
@@ -18,7 +19,7 @@ export class JeepComponent implements OnInit {
   public missingName = false;
   public missingSurname = false;
 
-  constructor(public route: Router, public data: DataService) {
+  constructor(public route: Router, public data: DataService, public activatedRoute:ActivatedRoute) {
     this.lottieConfig = {
       path: "../../../assets/animations/jeep/jeep.json",
       autoplay: false,
@@ -26,18 +27,24 @@ export class JeepComponent implements OnInit {
     };
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.activatedRoute.queryParams.subscribe(params=>console.log(params))
+  }
+
+  Login() {
+    window.location.href = 'https://www.linkedin.com/oauth/v2/authorization?response_type=code&client_id=773anx1suvcdkc&redirect_uri=http://localhost:4200/jeep&state=987654321&scope=r_basicprofile';
+    }
 
   scroll(el) {
-    if(this.name !== '' && this.surname !== '')el.scrollIntoView();
-}
+    if (this.name !== "" && this.surname !== "") el.scrollIntoView();
+  }
 
   onNameChange(name: string) {
     this.name = name;
     this.name !== "" && this.surname !== ""
       ? (this.color = true)
       : (this.color = false);
-    if(this.name !== '')this.missingName = false;
+    if (this.name !== "") this.missingName = false;
   }
 
   onSurnameChange(surname: string) {
@@ -45,7 +52,7 @@ export class JeepComponent implements OnInit {
     this.name !== "" && this.surname !== ""
       ? (this.color = true)
       : (this.color = false);
-      if(this.surname !== '')this.missingSurname = false;
+    if (this.surname !== "") this.missingSurname = false;
   }
 
   onConfirm() {
@@ -56,12 +63,12 @@ export class JeepComponent implements OnInit {
       setTimeout(() => {
         this.route.navigate(["/boarding"]);
       }, 3000);
-    } else if (this.name == '' && this.surname == '') {
+    } else if (this.name == "" && this.surname == "") {
       this.missingName = true;
       this.missingSurname = true;
-    } else if (this.surname == ''){
+    } else if (this.surname == "") {
       this.missingSurname = true;
-    } else if (this.name == '') {
+    } else if (this.name == "") {
       this.missingName = true;
     }
   }
