@@ -15,6 +15,20 @@ import { JeepComponent } from './components/jeep/jeep.component';
 import { ProfsComponent } from './components/profs/profs.component';
 import { SplashComponent } from './components/splash/splash.component';
 import { HttpClientModule } from '@angular/common/http';
+import { SocialLoginModule, AuthServiceConfig } from "angularx-social-login";
+import { LinkedInLoginProvider} from "angularx-social-login";
+
+
+let config = new AuthServiceConfig([
+  {
+    id: LinkedInLoginProvider.PROVIDER_ID,
+    provider: new LinkedInLoginProvider("LinkedIn-client-Id", false, 'en_US')
+  }
+]);
+ 
+export function provideConfig() {
+  return config;
+}
 
 @NgModule({
   declarations: [
@@ -33,8 +47,14 @@ import { HttpClientModule } from '@angular/common/http';
     RouterModule.forRoot(routes),
     FormsModule,
     HttpClientModule,
+    SocialLoginModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: AuthServiceConfig,
+      useFactory: provideConfig
+  }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
