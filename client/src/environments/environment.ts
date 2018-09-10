@@ -3,7 +3,10 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  idClient :"773anx1suvcdkc",
+  secretKey :"NqqO6KAN1PxTg5Dl",
+  linkedinLink:"https://www.linkedin.com/oauth/v2/accessToken",
 };
 
 /*

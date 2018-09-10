@@ -1,13 +1,15 @@
 import { Component, OnInit, Output, Input } from "@angular/core";
 import { Router, Data, ActivatedRoute } from "@angular/router";
 import { DataService } from "../../services/data.service";
-import { Route } from "@angular/compiler/src/core";
+import { LinkedinService } from "../../services/linkedin.service";
+import {environment} from '../../../environments/environment';
 
 @Component({
   selector: "app-jeep",
   templateUrl: "./jeep.component.html",
   styleUrls: ["./jeep.component.css"]
 })
+
 export class JeepComponent implements OnInit {
   public lottieConfig: Object;
   private anim: any;
@@ -19,7 +21,8 @@ export class JeepComponent implements OnInit {
   public missingName = false;
   public missingSurname = false;
 
-  constructor(public route: Router, public data: DataService, public activatedRoute:ActivatedRoute) {
+  constructor(public route: Router, public data: DataService, public activatedRoute:ActivatedRoute, public linkedin:LinkedinService) {
+
     this.lottieConfig = {
       path: "../../../assets/animations/jeep/jeep.json",
       autoplay: false,
@@ -28,11 +31,13 @@ export class JeepComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.activatedRoute.queryParams.subscribe(params=>console.log(params))
+    this.activatedRoute.queryParams.subscribe(params=>{
+      this.linkedin.token(params.code).then(data=>console.log(data))
+    })
   }
 
   Login() {
-    window.location.href = 'https://www.linkedin.com/oauth/v2/authorization?response_type=code&client_id=773anx1suvcdkc&redirect_uri=http://localhost:4200/jeep&state=987654321&scope=r_basicprofile';
+    window.location.href = `https://www.linkedin.com/oauth/v2/authorization?response_type=code&client_id=${environment.idClient}&redirect_uri=http://localhost:4200/jeep&state=987654321&scope=r_basicprofile`;
     }
 
   scroll(el) {
