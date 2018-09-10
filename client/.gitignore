@@ -42,4 +42,4 @@ Thumbs.db
 .db.json
 
 #enviroment
-/src/enviroments
+/src/environments
