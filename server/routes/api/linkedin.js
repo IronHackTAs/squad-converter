@@ -22,8 +22,7 @@ linkedinRoute.get("/oauth/linkedin/callback", (req, res) => {
         req.query.state,
         function(err, results) {
           if (err) return console.error(err);
-    
-          console.log(results);
+
           const linkedin = Linkedin.init(results.access_token);
           linkedin.people.me(function(err, $in) {
             if(err)console.error(err);
