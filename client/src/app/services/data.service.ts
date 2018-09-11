@@ -35,4 +35,8 @@ export class DataService {
     return this.data;
   }
 
+  addNameLinkedin(user) {
+    Object.assign(this.data, {name:user.firstName,surname:user.lastName})
+  }
+
 }
