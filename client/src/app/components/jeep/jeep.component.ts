@@ -32,7 +32,7 @@ export class JeepComponent implements OnInit {
 
   ngOnInit() {
     this.activatedRoute.queryParams.subscribe(params=>{
-      this.linkedin.token(params.code).then(data=>console.log(data))
+      this.linkedin.token(params.code).subscribe(data=>console.log(data))
     })
   }
 
