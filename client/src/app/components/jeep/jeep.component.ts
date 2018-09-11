@@ -44,6 +44,7 @@ export class JeepComponent implements OnInit {
           this.empty = true;
           this.user = user;
           if (this.user) {
+            this.data.addNameLinkedin(user);
             this.play();
             setTimeout(() => {
               this.route.navigate(["/boarding"]);
