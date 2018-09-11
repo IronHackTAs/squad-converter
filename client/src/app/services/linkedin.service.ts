@@ -1,44 +1,26 @@
 import { Injectable } from "@angular/core";
-import { HttpHeaders, HttpClientModule } from "@angular/common/http";
-import {environment} from '../../environments/environment';
+import { environment } from "../../environments/environment";
 import { HttpClient } from "@angular/common/http";
+import { Http, Headers } from "@angular/http";
 import { Observable } from "rxjs";
-import { catchError, retry } from "rxjs/operators";
-import axios from 'axios'
+import { catchError } from "rxjs/operators";
 import "rxjs/add/operator/map";
 import "rxjs/add/operator/catch";
-
-const httpOptions = {
-  headers: new HttpHeaders({
-    'Host': 'www.linkedin.com',
-    "Access-Control-Allow-Origin": "*",
-    'Content-Type':  'x-www-form-urlencoded',
-    'Authorization': 'my-auth-token',
-    'withCredentials': 'true'
-  })
-};
 
 @Injectable({
   providedIn: "root"
 })
 export class LinkedinService {
+  public person: Array<string> = [];
+  constructor(public http: HttpClient, public Http: Http) {}
 
-  constructor(public http: HttpClient) {}
-
-  handleError(e) {
-    console.log(e);
-    return Observable.throw(e.json().message);
+  getToken(params) {
+    return this.http.get(`${environment.BASE_URL}/api/oauth/linkedin/callback/?code=${params.code}&state=${params.state}`)
+    .map(res => res)
   }
 
-  token(code) {
-    const body = {grant_type:'authorization_code',code,redirect_uri:'http://localhost:4200/jeep', client_id:environment.idClient,client_secret:environment.secretKey}
-    const link = `${environment.linkedinLink}`;
-    // return axios.post(link,body,httpOptions)
-    // .then(data=>console.log(data))
-    // .catch(err=>console.log(err))
-    return this.http
-      .post(link, body,httpOptions)
-      .map(res => console.log(res))
-      .pipe(catchError(this.handleError));
+  getCode(){
+    return this.http.get(`${environment.BASE_URL}/api/oauth/linkedin`)
+    .map(res=>res)
   }
 }
