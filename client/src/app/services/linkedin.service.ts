@@ -12,9 +12,9 @@ const httpOptions = {
   headers: new HttpHeaders({
     'Host': 'www.linkedin.com',
     "Access-Control-Allow-Origin": "*",
-    'Content-Type':  'application/x-www-form-urlencoded',
+    'Content-Type':  'x-www-form-urlencoded',
     'Authorization': 'my-auth-token',
-    'withCredentials':'true'
+    'withCredentials': 'true'
   })
 };
 
@@ -31,13 +31,14 @@ export class LinkedinService {
   }
 
   token(code) {
-    const link = `${environment.linkedinLink}?grant_type=authorization_code&code=${code}&redirect_uri=http://localhost:4200/jeep&client_id=${environment.idClient}&client_secret=${environment.secretKey}`;
-    return axios.post(link,httpOptions)
-    .then(data=>console.log(data))
-    .catch(err=>console.log(err))
-    // return this.http
-    //   .post(link, httpOptions)
-    //   .map(res => console.log(res))
-    //   .pipe(catchError(this.handleError));
+    const body = {grant_type:'authorization_code',code,redirect_uri:'http://localhost:4200/jeep', client_id:environment.idClient,client_secret:environment.secretKey}
+    const link = `${environment.linkedinLink}`;
+    // return axios.post(link,body,httpOptions)
+    // .then(data=>console.log(data))
+    // .catch(err=>console.log(err))
+    return this.http
+      .post(link, body,httpOptions)
+      .map(res => console.log(res))
+      .pipe(catchError(this.handleError));
   }
 }
