@@ -17,6 +17,7 @@ import { SplashComponent } from './components/splash/splash.component';
 import { HttpClientModule } from '@angular/common/http';
 import { SocialLoginModule, AuthServiceConfig } from "angularx-social-login";
 import { LinkedInLoginProvider} from "angularx-social-login";
+import { HttpModule } from '@angular/http';
 
 
 let config = new AuthServiceConfig([
@@ -47,6 +48,7 @@ export function provideConfig() {
     RouterModule.forRoot(routes),
     FormsModule,
     HttpClientModule,
+    HttpModule,
     SocialLoginModule
   ],
   providers: [
