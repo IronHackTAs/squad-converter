@@ -2,14 +2,15 @@ import { Component, OnInit, Output, Input } from "@angular/core";
 import { Router, Data, ActivatedRoute } from "@angular/router";
 import { DataService } from "../../services/data.service";
 import { LinkedinService } from "../../services/linkedin.service";
-import {environment} from '../../../environments/environment';
+import { environment } from "../../../environments/environment";
+import * as _ from "lodash";
+import "rxjs/add/operator/toPromise";
 
 @Component({
   selector: "app-jeep",
   templateUrl: "./jeep.component.html",
   styleUrls: ["./jeep.component.css"]
 })
-
 export class JeepComponent implements OnInit {
   public lottieConfig: Object;
   private anim: any;
@@ -20,9 +21,15 @@ export class JeepComponent implements OnInit {
   public submit = true;
   public missingName = false;
   public missingSurname = false;
+  public user: object = {};
+  public empty: boolean = false;
 
-  constructor(public route: Router, public data: DataService, public activatedRoute:ActivatedRoute, public linkedin:LinkedinService) {
-
+  constructor(
+    public route: Router,
+    public data: DataService,
+    public activatedRoute: ActivatedRoute,
+    public linkedin: LinkedinService
+  ) {
     this.lottieConfig = {
       path: "../../../assets/animations/jeep/jeep.json",
       autoplay: false,
@@ -31,14 +38,27 @@ export class JeepComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.activatedRoute.queryParams.subscribe(params=>{
-      this.linkedin.token(params.code).then(data=>console.log(data))
-    })
+    this.activatedRoute.queryParams.subscribe(params => {
+      if (!_.isEmpty(params)) {
+        this.linkedin.getToken(params).subscribe(user => {
+          this.empty = true;
+          this.user = user;
+          if (this.user) {
+            this.play();
+            setTimeout(() => {
+              this.route.navigate(["/boarding"]);
+            }, 3000);
+          }
+        });
+      }
+    });
   }
 
   Login() {
-    window.location.href = `https://www.linkedin.com/oauth/v2/authorization?response_type=code&client_id=${environment.idClient}&redirect_uri=http://localhost:4200/jeep&state=987654321&scope=r_basicprofile`;
-    }
+    this.linkedin
+      .getCode()
+      .subscribe(data => (window.location.href = data.toString()));
+  }
 
   scroll(el) {
     if (this.name !== "" && this.surname !== "") el.scrollIntoView();
