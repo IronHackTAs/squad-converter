@@ -74,3 +74,24 @@ input{
   justify-content: center;
   padding-bottom: 5px;
 }
+
+.inline {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.linkedin {
+  background-color: #0077b5;
+  opacity: 1;
+}
+
+.user-box {
+  background-color: #ffffff;
+  padding: 10px;
+}
+
+.profile-img {
+  border-radius: 50%;
+  width: 3rem;
+}
