@@ -7,6 +7,7 @@ import { TakeoffComponent } from "./takeoff/takeoff.component";
 import { JeepComponent } from "./jeep/jeep.component";
 import { ProfsComponent } from "./profs/profs.component";
 import { SplashComponent } from "./splash/splash.component";
+import { AboutComponent } from "./about/about.component";
 
 export const routes: Routes = [
   { path:'', redirectTo: "splash", pathMatch: "full" },
@@ -17,5 +18,6 @@ export const routes: Routes = [
   { path: "jeep", component: JeepComponent },
   { path: "profs", component: ProfsComponent },
   { path: "splash", component: SplashComponent },
+  { path: "about", component: AboutComponent },
   { path: "**", redirectTo: "splash" },
 ];
