@@ -7,7 +7,7 @@
       <p>
         {{member.name}}
       </p>
-      <button class="linkedin inline">
+      <button class="linkedin inline" (click)="link(member.url)">
           <svg width="48px" height="48px" viewBox="0 0 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
             <defs>
                 <filter x="-4.3%" y="-15.6%" width="108.6%" height="143.8%" filterUnits="objectBoundingBox" id="filter-1">
@@ -50,7 +50,7 @@
       <p>
         {{member.name}}
       </p>
-      <button class="github inline">
+      <button class="github inline" (click)="link(member.url)">
           <svg width="34px" height="33px" viewBox="0 0 34 33" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
             <!-- Generator: Sketch 51.3 (57544) - http://www.bohemiancoding.com/sketch -->
             <desc>Created with Sketch.</desc>
