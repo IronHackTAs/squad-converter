@@ -84,6 +84,7 @@ input{
 .linkedin {
   background-color: #0077b5;
   opacity: 1;
+  border-radius: 5.1px;
 }
 
 .user-box {
