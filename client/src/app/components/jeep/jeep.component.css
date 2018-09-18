@@ -88,6 +88,7 @@ input{
 }
 
 .user-box {
+  display: flex;
   background-color: #ffffff;
   padding: 10px;
 }

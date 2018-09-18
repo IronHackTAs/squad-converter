@@ -12,7 +12,7 @@ export class ProfsComponent implements OnInit {
   public lottieConfig: Object;
   private anim: any;
   private animationSpeed: number = 1;
-  public url: string = "http://localhost:3000/courseEditions";
+  public url: string = "http://localhost:4000/courseEditions";
 
   public datas = {
     name: "",
@@ -60,6 +60,7 @@ export class ProfsComponent implements OnInit {
       Object.values(data).forEach(e => {
         let course = this.getCourseCode(this.datas.course);
         let year = new Date(e["start_at"]).getFullYear().toString();
+        console.log(this.datas.course,course)
         if (
           e["campus"].name == this.datas.city &&
           course == e["course"].course_code &&
@@ -98,21 +99,22 @@ export class ProfsComponent implements OnInit {
 
   getCourseCode(course) {
     if (
-      course.includes("Full-time") &&
+      course.includes("Full-Time") &&
       course.includes("Web Development")
     ) {
       return "webft";
-    } else if (course.includes("Web Development")) {
+    } else if (
+      course.includes("Web Development")) {
       return "webpt";
     } else if (
-      course.includes("Full-time") &&
+      course.includes("Full-Time") &&
       course.includes("UX/UI")
     ) {
       return "uxft";
     } else if (course.includes("UX/UI")) {
       return "uxpt";
     } else if (
-      course.includes("Full-time") &&
+      course.includes("Full-Time") &&
       course.includes("Data Analytics")
     ) {
       return "dataft";
