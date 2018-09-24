@@ -11,7 +11,7 @@ import { DataService } from "../../services/data.service";
 export class ProfsComponent implements OnInit {
   public lottieConfig: Object;
   private anim: any;
-  private animationSpeed: number = 1;
+  private animationSpeed: number = 5;
   public url: string = "http://localhost:4000/courseEditions";
 
   public datas = {
