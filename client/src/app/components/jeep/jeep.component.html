@@ -24,33 +24,7 @@
             <p class="description">We need to register how many students accomplish this adventure, so we have to know who
                 you are
             </p>
-            <div class="input-box">
-                <div *ngIf="empty" class="user-box inline">
-                    <img src="{{user.pictureUrl}}" alt="" class="profile-img">
-                    <p>
-                        Hi {{user.firstName}}!
-                    </p>
-                </div>
-                <input [ngClass]="{'missing': missingName}" class="rectangle" #box1 name="username" placeholder="Name" id="username" (input)="onNameChange($event.target.value)"
-                    required>
-                <div *ngIf="missingName" class="missingName">
-                    <p>
-                        Missing Name
-                    </p>
-                </div>
-                <input [ngClass]="{'missing': missingSurname}" class="rectangle" #box2 name="surname" placeholder="Surname" (input)="onSurnameChange($event.target.value)"
-                    required>
-                <div *ngIf="missingSurname" class="missingSurname">
-                    <p>
-                        Missing Surname
-                    </p>
-                </div>
-
-            </div>
             <div>
-                <div class="inline">
-                    <p>OR</p>
-                </div>
                 <button (click)="Login()" class="main-button linkedin inline">
                     <svg width="48px" height="48px" viewBox="0 0 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                         <defs>
