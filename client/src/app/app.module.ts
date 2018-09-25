@@ -18,6 +18,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { SocialLoginModule, AuthServiceConfig } from "angularx-social-login";
 import { LinkedInLoginProvider} from "angularx-social-login";
 import { HttpModule } from '@angular/http';
+import { AboutComponent } from './components/about/about.component';
+import { CrashComponent } from './components/crash/crash.component';
 
 
 let config = new AuthServiceConfig([
@@ -41,6 +43,8 @@ export function provideConfig() {
     JeepComponent,
     ProfsComponent,
     SplashComponent,
+    AboutComponent,
+    CrashComponent,
   ],
   imports: [
     BrowserModule,
