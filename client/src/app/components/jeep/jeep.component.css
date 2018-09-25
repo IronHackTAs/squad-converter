@@ -84,9 +84,12 @@ input{
 .linkedin {
   background-color: #0077b5;
   opacity: 1;
+  height: 64px;
+  border-radius: 8px;
 }
 
 .user-box {
+  display: flex;
   background-color: #ffffff;
   padding: 10px;
 }
