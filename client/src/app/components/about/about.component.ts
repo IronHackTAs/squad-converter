@@ -17,7 +17,7 @@ export class AboutComponent implements OnInit {
   public web:Array<any> = [
     {name:'Victor Rodríguez',img:'../../../assets/img/victor.png',url:'www.github.com/Girgetto'},
     {name:'Giorgio Grassini',img:'../../../assets/img/giorgio.png',url:'www.github.com/Girgetto'},
-    {name:'Diego Méndez',img:'../../../assets/img/diego.png',url:'www.github.com/Girgetto'},
+    {name:'Diego Méndez',img:'../../../assets/img/diego.png',url:'www.github.com/diegomendezp'},
     {name:'Juan Sánchez',img:'../../../assets/img/juan.png',url:'www.github.com/Girgetto'},
     {name:'Gabriel Cebrián',img:'../../../assets/img/gabriel.png',url:'www.github.com/Girgetto'},
   ]
