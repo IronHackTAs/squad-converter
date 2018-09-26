@@ -13,14 +13,12 @@ import "rxjs/add/operator/toPromise";
 })
 export class JeepComponent implements OnInit {
   public lottieConfig: Object;
-  private anim: any;
-  private animationSpeed: number = 1;
+  public anim: any;
+  public animationSpeed: number = 1;
   public name: string = "";
   public surname: string = "";
   public color = false;
-  public submit = true;
-  public missingName = false;
-  public missingSurname = false;
+  public submit = false;
   public user: object = {};
   public empty: boolean = false;
 
@@ -44,11 +42,14 @@ export class JeepComponent implements OnInit {
           this.empty = true;
           this.user = user;
           if (this.user) {
+            this.submit = true;
+            this.color = true;
             this.data.addNameLinkedin(user);
             this.play();
-            setTimeout(() => {
-              this.route.navigate(["/boarding"]);
-            }, 3000);
+            setTimeout(()=>{
+              this.pause();
+            },2700)
+            //ANCHOR Make the redirect automatic or not?
           }
         });
       }
@@ -65,38 +66,8 @@ export class JeepComponent implements OnInit {
     if (this.name !== "" && this.surname !== "") el.scrollIntoView();
   }
 
-  onNameChange(name: string) {
-    this.name = name;
-    this.name !== "" && this.surname !== ""
-      ? (this.color = true)
-      : (this.color = false);
-    if (this.name !== "") this.missingName = false;
-  }
-
-  onSurnameChange(surname: string) {
-    this.surname = surname;
-    this.name !== "" && this.surname !== ""
-      ? (this.color = true)
-      : (this.color = false);
-    if (this.surname !== "") this.missingSurname = false;
-  }
-
   onConfirm() {
-    if (this.name !== "" && this.surname !== "") {
-      this.submit = false;
-      this.data.addName(this.name, this.surname);
-      this.play();
-      setTimeout(() => {
-        this.route.navigate(["/boarding"]);
-      }, 3000);
-    } else if (this.name == "" && this.surname == "") {
-      this.missingName = true;
-      this.missingSurname = true;
-    } else if (this.surname == "") {
-      this.missingSurname = true;
-    } else if (this.name == "") {
-      this.missingName = true;
-    }
+    this.route.navigate(["/boarding"]);
   }
 
   handleAnimation(anim: any) {

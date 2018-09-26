@@ -86,6 +86,7 @@ input{
   opacity: 1;
   height: 64px;
   border-radius: 8px;
+  margin-top: 10px;
 }
 
 .user-box {
