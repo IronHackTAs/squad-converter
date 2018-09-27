@@ -47,9 +47,8 @@ export class JeepComponent implements OnInit {
             this.data.addNameLinkedin(user);
             this.play();
             setTimeout(()=>{
-              this.pause();
-            },2700)
-            //ANCHOR Make the redirect automatic or not?
+              this.route.navigate(["/boarding"]);
+            },3000)
           }
         });
       }
