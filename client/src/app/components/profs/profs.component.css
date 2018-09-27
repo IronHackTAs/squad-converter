@@ -21,10 +21,16 @@ svg {
   position: relative;
   z-index: 1;
 }
+
 .animation {
   width: 95%;
   top: 0%;
 }
+
 .space {
   padding-top: 52px;
+}
+
+.color {
+  opacity: 100;
 }
