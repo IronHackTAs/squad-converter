@@ -13,6 +13,7 @@ export class ProfsComponent implements OnInit {
   private anim: any;
   private animationSpeed: number = 5;
   public url: string = "http://localhost:4000/courseEditions";
+  public color = true;
 
   public datas = {
     name: "",
@@ -39,6 +40,10 @@ export class ProfsComponent implements OnInit {
     "November",
     "December"
   ];
+  public webText = `Ironhack is a Global Tech School offering intensive & immersive in-person courses in Web Development, UX/UI Design & Data Analytics. 
+  https://www.ironhack.com/en/courses/web-development-bootcamp`;
+  public webLink = `https://www.ironhack.com/en/courses/web-development-bootcamp`;
+  public uxLink = `https://www.ironhack.com/en/courses/ux-ui-design-bootcamp-learn-ux-design`;
 
   constructor(
     public http: HttpClient,
@@ -60,20 +65,27 @@ export class ProfsComponent implements OnInit {
       Object.values(data).forEach(e => {
         let course = this.getCourseCode(this.datas.course);
         let year = new Date(e["start_at"]).getFullYear().toString();
-        console.log(this.datas.course,course)
         if (
           e["campus"].name == this.datas.city &&
           course == e["course"].course_code &&
           this.datas.date.includes(
             this.monthNames[new Date(e["start_at"]).getMonth()]
-          )  &&
-          this.datas.date.includes(year) 
+          ) &&
+          this.datas.date.includes(year)
         ) {
           let squadName = e["squap_name"];
           this.squad = parseInt(squadName.replace(/[^0-9]/g, ""));
         }
       });
     });
+  }
+
+  linkedinPost() {
+    console.log(this.datas.course)
+    if(this.datas.course.includes("Web")){
+      window.location.href = `https://www.linkedin.com/shareArticle?mini=true&url=${this.webLink}&title=${this.webText}`;
+    }else if (this.datas.course.includes("UX/UI"))
+    window.location.href = `https://www.linkedin.com/shareArticle?mini=true&url=${this.uxLink}&title=${this.webText}`;
   }
 
   handleAnimation(anim: any) {
@@ -98,18 +110,11 @@ export class ProfsComponent implements OnInit {
   }
 
   getCourseCode(course) {
-    if (
-      course.includes("Full-Time") &&
-      course.includes("Web Development")
-    ) {
+    if (course.includes("Full-Time") && course.includes("Web Development")) {
       return "webft";
-    } else if (
-      course.includes("Web Development")) {
+    } else if (course.includes("Web Development")) {
       return "webpt";
-    } else if (
-      course.includes("Full-Time") &&
-      course.includes("UX/UI")
-    ) {
+    } else if (course.includes("Full-Time") && course.includes("UX/UI")) {
       return "uxft";
     } else if (course.includes("UX/UI")) {
       return "uxpt";

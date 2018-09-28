@@ -55,7 +55,6 @@ export class CrashComponent implements OnInit {
   }
 
   onConfirm() {
-    console.log('entra')
     if (this.name !== "" && this.surname !== "") {
       this.submit = false;
       this.data.addName(this.name, this.surname);

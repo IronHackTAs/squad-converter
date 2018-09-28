@@ -21,6 +21,7 @@ export class JeepComponent implements OnInit {
   public submit = false;
   public user: object = {};
   public empty: boolean = false;
+  public error: boolean = false;
 
   constructor(
     public route: Router,
@@ -38,6 +39,9 @@ export class JeepComponent implements OnInit {
   ngOnInit() {
     this.activatedRoute.queryParams.subscribe(params => {
       if (!_.isEmpty(params)) {
+        setTimeout(() => {
+          this.error = true;
+        }, 4500);
         this.linkedin.getToken(params).subscribe(user => {
           this.empty = true;
           this.user = user;
@@ -46,10 +50,9 @@ export class JeepComponent implements OnInit {
             this.color = true;
             this.data.addNameLinkedin(user);
             this.play();
-            setTimeout(()=>{
-              this.pause();
-            },2700)
-            //ANCHOR Make the redirect automatic or not?
+            setTimeout(() => {
+              this.route.navigate(["/boarding"]);
+            }, 3000);
           }
         });
       }
@@ -59,7 +62,10 @@ export class JeepComponent implements OnInit {
   Login() {
     this.linkedin
       .getCode()
-      .subscribe(data => (window.location.href = data.toString()));
+      .subscribe(
+        data => (window.location.href = data.toString()),
+        error => (error ? (this.error = true) : (this.error = false))
+      );
   }
 
   scroll(el) {
