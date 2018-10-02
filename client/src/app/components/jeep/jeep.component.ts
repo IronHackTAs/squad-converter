@@ -44,7 +44,7 @@ export class JeepComponent implements OnInit {
         }, 4500);
         this.linkedin.getToken(params).subscribe(user => {
           this.empty = true;
-          this.user = user;
+          this.user = user['$in'];
           if (this.user) {
             this.submit = true;
             this.color = true;

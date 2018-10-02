@@ -1,6 +1,7 @@
+require("dotenv").config();
 const express = require("express");
 const linkedinRoute = express.Router();
-require("dotenv").config();
+const axios = require('axios'); 
 const Linkedin = require("node-linkedin")(
   process.env.CLIENT_ID,
   process.env.SECRET_KEY,
@@ -24,9 +25,29 @@ linkedinRoute.get("/oauth/linkedin/callback", (req, res) => {
     const linkedin = Linkedin.init(results.access_token);
     linkedin.people.me(function(err, $in) {
       if (err) console.error(err);
-      return res.status(200).json($in);
+      return res.status(200).json({$in,token:results.access_token});
     });
   });
 });
+
+linkedinRoute.post("/submit",(req,res)=>{
+  var config = {
+    headers: {'Authorization': "bearer " + req.body.token}
+  };
+  
+  var bodyParameters = {
+   key: req.body.value
+  }
+
+  axios.post(
+  'https://api.linkedin.com/v1/people/~/shares?format=json',
+  bodyParameters,
+  config
+).then((response) => {
+  console.log(response)
+}).catch((error) => {
+  console.log(error)
+});
+})
 
 module.exports = linkedinRoute;
