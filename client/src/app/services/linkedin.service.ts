@@ -19,8 +19,12 @@ export class LinkedinService {
     .map(res => res)
   }
 
-  getCode(){
+  getCode() {
     return this.http.get(`${environment.BASE_URL}/api/oauth/linkedin`)
-    .map(res=>res)
+    .map(res=> res)
+  }
+
+  sharePost(data) {
+    return this.http.post(`${environment.BASE_URL}/api/submit`,{data}).map(res=> res);
   }
 }

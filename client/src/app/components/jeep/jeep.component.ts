@@ -44,11 +44,12 @@ export class JeepComponent implements OnInit {
         }, 4500);
         this.linkedin.getToken(params).subscribe(user => {
           this.empty = true;
-          this.user = user;
+          this.user = user['$in'];
           if (this.user) {
             this.submit = true;
             this.color = true;
-            this.data.addNameLinkedin(user);
+            this.data.addNameLinkedin(user['$in']);
+            this.data.addToken(user['token']);
             this.play();
             setTimeout(() => {
               this.route.navigate(["/boarding"]);
