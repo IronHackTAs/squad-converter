@@ -48,11 +48,11 @@ linkedinRoute.post("/submit", (req, res) => {
     }
   };
 
-  var bodyParameters = {
-      "comment": "Check out developer.linkedin.com! http://linkd.in/1FC2PyG",
-      "visibility": {
-        "code": "anyone"
-    }
+  var bodyParameters =   {
+    "comment": `${req.body.data.header}\n${req.body.data.text} ${req.body.data.url}`,
+    "visibility": {
+      "code": "anyone"
+    }  
   }
 
   axios.post(
