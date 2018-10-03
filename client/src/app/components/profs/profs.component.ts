@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { ActivatedRoute } from "@angular/router";
 import { DataService } from "../../services/data.service";
+import { LinkedinService } from "../../services/linkedin.service";
 
 @Component({
   selector: "app-profs",
@@ -20,7 +21,8 @@ export class ProfsComponent implements OnInit {
     surname: "",
     city: "",
     date: "",
-    course: ""
+    course: "",
+    token:"",
   };
   public percentage: number = 0;
   public squad: number = 0;
@@ -48,7 +50,8 @@ export class ProfsComponent implements OnInit {
   constructor(
     public http: HttpClient,
     public route: ActivatedRoute,
-    public data: DataService
+    public data: DataService,
+    public linkedIn: LinkedinService,
   ) {
     this.lottieConfig = {
       path: "../../../assets/animations/profs/profs.json",
@@ -81,11 +84,15 @@ export class ProfsComponent implements OnInit {
   }
 
   linkedinPost() {
-    console.log(this.datas.course)
-    if(this.datas.course.includes("Web")){
-      window.location.href = `https://www.linkedin.com/shareArticle?mini=true&url=${this.webLink}&title=${this.webText}`;
-    }else if (this.datas.course.includes("UX/UI"))
-    window.location.href = `https://www.linkedin.com/shareArticle?mini=true&url=${this.uxLink}&title=${this.webText}`;
+    const data = {
+      bodyParameters: "prova",
+      token:this.datas.token,
+    }
+    this.linkedIn.sharePost(data).subscribe(data=> console.log(data));
+    // if(this.datas.course.includes("Web")){
+    //   window.location.href = `https://www.linkedin.com/shareArticle?mini=true&url=${this.webLink}&title=${this.webText}`;
+    // }else if (this.datas.course.includes("UX/UI"))
+    // window.location.href = `https://www.linkedin.com/shareArticle?mini=true&url=${this.uxLink}&title=${this.webText}`;
   }
 
   handleAnimation(anim: any) {

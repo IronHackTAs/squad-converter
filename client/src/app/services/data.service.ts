@@ -10,25 +10,30 @@ export class DataService {
     surname:"",
     city:"",
     date:"",
-    course:""
+    course:"",
+    token:"",
   };
 
   constructor() { }
 
+  addToken(token) {
+    Object.assign(this.data, { token })
+  }
+
   addName(name, surname){
-    Object.assign(this.data, {name,surname})
+    Object.assign(this.data, { name,surname })
   }
 
   addCity(city){
-    Object.assign(this.data, {city})
+    Object.assign(this.data, { city })
   }
 
   addDate(date){
-    Object.assign(this.data, {date})
+    Object.assign(this.data, { date })
   }
 
   addCourse(course){
-    Object.assign(this.data, {course})
+    Object.assign(this.data, { course })
   }
 
   getData(){
@@ -36,7 +41,7 @@ export class DataService {
   }
 
   addNameLinkedin(user) {
-    Object.assign(this.data, {name:user.firstName,surname:user.lastName})
+    Object.assign(this.data, { name: user.firstName, surname: user.lastName })
   }
 
 }
