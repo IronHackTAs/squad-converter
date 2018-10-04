@@ -39,9 +39,6 @@ export class JeepComponent implements OnInit {
   ngOnInit() {
     this.activatedRoute.queryParams.subscribe(params => {
       if (!_.isEmpty(params)) {
-        setTimeout(() => {
-          this.error = true;
-        }, 4500);
         this.linkedin.getToken(params).subscribe(user => {
           this.empty = true;
           this.user = user['$in'];
