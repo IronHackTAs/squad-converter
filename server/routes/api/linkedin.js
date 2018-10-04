@@ -27,10 +27,10 @@ linkedinRoute.get("/oauth/linkedin/callback", (req, res) => {
     err,
     results
   ) {
-    if (err) return console.error(err);
+    if (err) res.status(500).json({ message: 'Error in longin' })
     const linkedin = Linkedin.init(results.access_token);
     linkedin.people.me(function (err, $in) {
-      if (err) console.error(err);
+      if (err) res.status(500).json({ message: 'Error in login'})
       return res.status(200).json({
         $in,
         token: results.access_token
