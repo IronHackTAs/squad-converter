@@ -2,7 +2,6 @@ import { Component, OnInit, Output, Input } from "@angular/core";
 import { Router, Data, ActivatedRoute } from "@angular/router";
 import { DataService } from "../../services/data.service";
 import { LinkedinService } from "../../services/linkedin.service";
-import { environment } from "../../../environments/environment";
 import * as _ from "lodash";
 import "rxjs/add/operator/toPromise";
 

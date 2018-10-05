@@ -17,7 +17,6 @@ const scope = [
 ];
 
 linkedinRoute.get("/oauth/linkedin", (req, res) => {
-  // set the callback url
   var auth_url = Linkedin.auth.authorize(scope);
   res.status(200).json(auth_url);
 });
@@ -28,14 +27,16 @@ linkedinRoute.get("/oauth/linkedin/callback", (req, res) => {
     results
   ) {
     if (err) res.status(500).json({ message: 'Error in longin' })
-    const linkedin = Linkedin.init(results.access_token);
-    linkedin.people.me(function (err, $in) {
-      if (err) res.status(500).json({ message: 'Error in login'})
-      return res.status(200).json({
-        $in,
-        token: results.access_token
+    else {
+      const linkedin = Linkedin.init(results.access_token);
+      linkedin.people.me(function (err, $in) {
+        if (err) res.status(500).json({ message: 'Error in login'})
+        return res.status(200).json({
+          $in,
+          token: results.access_token
+        });
       });
-    });
+    }
   });
 });
 
