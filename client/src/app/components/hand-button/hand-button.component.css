@@ -28,7 +28,9 @@
   position: relative;
 }
 
-
+.selected-color > span {
+  color: #000 !important;
+}
 
 /**********************************************/
 
