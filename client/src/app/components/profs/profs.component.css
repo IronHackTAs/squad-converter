@@ -41,3 +41,10 @@ svg {
   align-items: center;
   padding-top: 2rem;
 }
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  margin-top:1rem;
+}
