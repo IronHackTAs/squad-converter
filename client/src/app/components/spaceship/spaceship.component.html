@@ -25,7 +25,7 @@
             <div class="description">
                 <p>The last step! Please, select the month when you started the bootcamp and pick up your teachers!</p>
             </div>
-            <div class="select" tabindex="0" (click)="toggleOptList(select)" #select>
+            <div class="select" [ngClass]="{'selected-color': color}" tabindex="0" (click)="toggleOptList(select)" #select>
                     <span class="value">Select date</span>
                     <ul class="optList hidden">
                         <li class="option" *ngFor="let c of campus" (click)="prueba(c.name)">{{c.name}}</li>

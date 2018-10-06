@@ -11,3 +11,7 @@ ul {
   align-items: center;
   justify-content: start;
 }
+
+.selected-color > span {
+  color: #000;
+}

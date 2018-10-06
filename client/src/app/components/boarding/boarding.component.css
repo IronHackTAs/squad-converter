@@ -16,9 +16,13 @@ select {
   justify-content: start;
 }
 
-.missingCity{
+.missingCity {
   display: flex;
   align-items: center;
   justify-content: center;
   padding-top: 5px;
+}
+
+.selected-color > span {
+  color: #000;
 }
