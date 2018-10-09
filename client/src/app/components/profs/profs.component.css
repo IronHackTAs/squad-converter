@@ -48,3 +48,12 @@ svg {
   align-content: center;
   margin-top:1rem;
 }
+
+.center {
+  justify-content: center;
+  align-content: center;
+}
+
+.inline {
+  display: flex;
+}
