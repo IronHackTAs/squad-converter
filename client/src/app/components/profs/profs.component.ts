@@ -3,7 +3,7 @@ import { HttpClient } from "@angular/common/http";
 import { ActivatedRoute } from "@angular/router";
 import { DataService } from "../../services/data.service";
 import { LinkedinService } from "../../services/linkedin.service";
-
+import { environment }  from "../../../enviroments/environment"
 @Component({
   selector: "app-profs",
   templateUrl: "./profs.component.html",
@@ -13,7 +13,7 @@ export class ProfsComponent implements OnInit {
   public lottieConfig: Object;
   private anim: any;
   private animationSpeed: number = 5;
-  public url: string = "http://localhost:4000/courseEditions";
+  public url: string = environment.DB;
   public color = true;
   public isShareClicked: boolean = false;
 

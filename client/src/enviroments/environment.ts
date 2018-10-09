@@ -7,7 +7,8 @@ export const environment = {
     idClient :"773anx1suvcdkc",
     secretKey :"NqqO6KAN1PxTg5Dl",
     linkedinLink:"https://www.linkedin.com/oauth/v2/accessToken",
-    BASE_URL : 'http://localhost:3000'
+    BASE_URL : 'http://localhost:3000',
+    DB : "http://localhost:4000/courseEditions"
   };
   
   /*
