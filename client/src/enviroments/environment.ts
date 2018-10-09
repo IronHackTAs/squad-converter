@@ -4,10 +4,11 @@
 
 export const environment = {
     production: false,
-    ***REMOVED***
-    ***REMOVED***
-    ***REMOVED***
-    BASE_URL : 'http://localhost:3000'
+    idClient :"773anx1suvcdkc",
+    secretKey :"NqqO6KAN1PxTg5Dl",
+    linkedinLink:"https://www.linkedin.com/oauth/v2/accessToken",
+    BASE_URL : 'http://localhost:3000',
+    DB : "http://localhost:4000/courseEditions"
   };
   
   /*
