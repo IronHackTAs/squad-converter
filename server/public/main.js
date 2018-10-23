@@ -1513,10 +1513,7 @@ __webpack_require__.r(__webpack_exports__);
 // The list of file replacements can be found in `angular.json`.
 var environment = {
     production: false,
-    idClient: "773anx1suvcdkc",
-    secretKey: "NqqO6KAN1PxTg5Dl",
-    linkedinLink: "https://www.linkedin.com/oauth/v2/accessToken",
-    BASE_URL: 'http://localhost:3000',
+    BASE_URL: '',
     DB: "http://localhost:4000/courseEditions"
 };
 /*
