@@ -5,27 +5,11 @@ const cookieParser = require('cookie-parser');
 const express = require('express');
 const favicon = require('serve-favicon');
 const hbs = require('hbs');
-const mongoose = require('mongoose');
 const logger = require('morgan');
 const path = require('path');
 const cors = require('cors');
 
-const session = require('express-session');
-const MongoStore = require('connect-mongo')(session);
 const flash = require('connect-flash');
-
-mongoose.Promise = Promise;
-mongoose
-  .connect(
-    'mongodb://localhost/server',
-    { useMongoClient: true },
-  )
-  .then(() => {
-    console.log('Connected to Mongo!');
-  })
-  .catch((err) => {
-    console.error('Error connecting to mongo', err);
-  });
 
 const app = express();
 
@@ -71,15 +55,6 @@ hbs.registerHelper('ifUndefined', (value, options) => {
 // default value for title local
 app.locals.title = 'Ironhack - Squad Converter';
 
-// Enable authentication using session + passport
-app.use(
-  session({
-    secret: 'irongenerator',
-    resave: true,
-    saveUninitialized: true,
-    store: new MongoStore({ mongooseConnection: mongoose.connection }),
-  }),
-);
 app.use(flash());
 require('./passport')(app);
 
