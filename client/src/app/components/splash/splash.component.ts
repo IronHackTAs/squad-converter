@@ -1,20 +1,23 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, OnInit } from "@angular/core";
+import { Router } from "@angular/router";
 
 @Component({
-  selector: 'app-splash',
-  templateUrl: './splash.component.html',
-  styleUrls: ['./splash.component.css']
+  selector: "app-splash",
+  templateUrl: "./splash.component.html",
+  styleUrls: ["./splash.component.css"]
 })
 export class SplashComponent implements OnInit {
+  public checkboxValue: boolean;
 
-  constructor(public route:Router) { }
+  constructor(public route: Router) {}
 
-  ngOnInit() {
+  ngOnInit() {}
+
+  onClick() {
+    if (this.checkboxValue) {
+      this.route.navigate(["/jeep"]);
+    }
   }
 
-  onClick(){
-    this.route.navigate(['/jeep'])
-  }
-
+  togle() {}
 }

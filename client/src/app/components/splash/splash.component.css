@@ -1,12 +1,25 @@
-.section{
-    padding-top: 40px; 
-}
-
-.space-man{
-    float:left;
+.section {
+    padding-top: 40px;
+  }
+  
+  .space-man {
+    float: left;
     width: 55%;
-}
-
-button {
+  }
+  
+  button {
     opacity: 100;
-}
+  }
+  
+  .inline {
+      display: inline
+  }
+  
+  .paragraph {
+    padding-bottom: 20px;
+  }
+  
+  a {
+    color: #57cfff;
+  }
+  

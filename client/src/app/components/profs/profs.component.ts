@@ -3,7 +3,7 @@ import { HttpClient } from "@angular/common/http";
 import { ActivatedRoute } from "@angular/router";
 import { DataService } from "../../services/data.service";
 import { LinkedinService } from "../../services/linkedin.service";
-import { environment }  from "../../../enviroments/environment"
+import { environment }  from "../../../environments/environment"
 @Component({
   selector: "app-profs",
   templateUrl: "./profs.component.html",
