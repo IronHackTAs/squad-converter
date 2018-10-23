@@ -1,6 +1,6 @@
 #!/bin/bash
 rm -rf server/public/*
 cd client
-ng build
+ng build --prod
 cd ..
 mv client/dist/client/* server/public
