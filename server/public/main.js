@@ -1045,7 +1045,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var routes = [
-    { path: '', redirectTo: "splash", pathMatch: "full" },
+    { path: '', redirectTo: "splash", pathMatch: "prefix" },
     { path: "handButton", component: _hand_button_hand_button_component__WEBPACK_IMPORTED_MODULE_0__["HandButtonComponent"] },
     { path: "spaceship", component: _spaceship_spaceship_component__WEBPACK_IMPORTED_MODULE_1__["SpaceshipComponent"] },
     { path: "boarding", component: _boarding_boarding_component__WEBPACK_IMPORTED_MODULE_2__["BoardingComponent"] },
