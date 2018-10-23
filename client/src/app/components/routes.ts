@@ -11,7 +11,7 @@ import { AboutComponent } from "./about/about.component";
 import { CrashComponent } from "./crash/crash.component";
 
 export const routes: Routes = [
-  { path:'', redirectTo: "splash", pathMatch: "full" },
+  { path: '', redirectTo: "splash", pathMatch: "prefix" },
   { path: "handButton", component: HandButtonComponent },
   { path: "spaceship", component: SpaceshipComponent },
   { path: "boarding", component: BoardingComponent },

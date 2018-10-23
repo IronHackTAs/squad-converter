@@ -4,7 +4,7 @@
 
 export const environment = {
     production: false,
-    BASE_URL : '',
+    BASE_URL : 'http://localhost:3000',
     DB : "http://localhost:4000/courseEditions"
   };
   
