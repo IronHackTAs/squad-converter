@@ -17,7 +17,10 @@ const scope = [
 ];
 
 linkedinRoute.get("/oauth/linkedin", (req, res) => {
+<<<<<<< HEAD
   // set the callback url
+=======
+>>>>>>> ad816503b575ccdefa2c314b411047f99c6b14cc
   var auth_url = Linkedin.auth.authorize(scope);
   res.status(200).json(auth_url);
 });
@@ -27,6 +30,7 @@ linkedinRoute.get("/oauth/linkedin/callback", (req, res) => {
     err,
     results
   ) {
+<<<<<<< HEAD
     if (err) return console.error(err);
     const linkedin = Linkedin.init(results.access_token);
     linkedin.people.me(function (err, $in) {
@@ -36,6 +40,19 @@ linkedinRoute.get("/oauth/linkedin/callback", (req, res) => {
         token: results.access_token
       });
     });
+=======
+    if (err) res.status(500).json({ message: 'Error in login'});
+    else {
+      const linkedin = Linkedin.init(results.access_token);
+      linkedin.people.me(function (err, $in) {
+        if (err) console.log(err)
+        return res.status(200).json({
+          $in,
+          token: results.access_token
+        });
+      });
+    }
+>>>>>>> ad816503b575ccdefa2c314b411047f99c6b14cc
   });
 });
 

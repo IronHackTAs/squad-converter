@@ -34,3 +34,26 @@ svg {
 .color {
   opacity: 100;
 }
+
+.about-the-squad {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 2rem;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  margin-top:1rem;
+}
+
+.center {
+  justify-content: center;
+  align-content: center;
+}
+
+.inline {
+  display: flex;
+}

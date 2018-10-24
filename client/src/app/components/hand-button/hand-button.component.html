@@ -28,8 +28,7 @@
                     it was full time or part time</p>
             </div>
             
-    
-            <div class="select" tabindex="0" (click)="toggleOptList(select)" #select>
+            <div class="select" [ngClass]="{'selected-color': color}" tabindex="0" (click)="toggleOptList(select)" #select>
                 <span class="value">Select course</span>
                 <ul class="optList hidden">
                     <li class="option" *ngFor="let c of campus" (click)="prueba(c.name)">{{c.name}}</li>

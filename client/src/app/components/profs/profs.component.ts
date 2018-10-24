@@ -3,7 +3,7 @@ import { HttpClient } from "@angular/common/http";
 import { ActivatedRoute } from "@angular/router";
 import { DataService } from "../../services/data.service";
 import { LinkedinService } from "../../services/linkedin.service";
-
+import { environment }  from "../../../environments/environment"
 @Component({
   selector: "app-profs",
   templateUrl: "./profs.component.html",
@@ -13,8 +13,9 @@ export class ProfsComponent implements OnInit {
   public lottieConfig: Object;
   private anim: any;
   private animationSpeed: number = 5;
-  public url: string = "http://localhost:4000/courseEditions";
+  public url: string = environment.DB;
   public color = true;
+  public isShareClicked: boolean = false;
 
   public datas = {
     name: "",
@@ -22,11 +23,11 @@ export class ProfsComponent implements OnInit {
     city: "",
     date: "",
     course: "",
-    token:"",
+    token: ""
   };
   public percentage: number = 0;
   public squad: number = 0;
-  public course: string =""
+  public course: string = "";
   public p: string;
   public rocket: string = "78";
   public monthNames = [
@@ -51,7 +52,7 @@ export class ProfsComponent implements OnInit {
     public http: HttpClient,
     public route: ActivatedRoute,
     public data: DataService,
-    public linkedIn: LinkedinService,
+    public linkedIn: LinkedinService
   ) {
     this.lottieConfig = {
       path: "../../../assets/animations/profs/profs.json",
@@ -85,13 +86,18 @@ export class ProfsComponent implements OnInit {
   }
 
   linkedinPost() {
-    const data = {
-      token:this.datas.token,
-      header: this.course.includes('web') ? `Ironhack ${this.datas.city} - Developer Squad ${this.squad}` : `Ironhack ${this.datas.city} - Designer Squad ${this.squad}`,
-      url: this.course.includes('web') ? this.webLink : this.uxLink,
-      text: this.webText
+    if (!this.isShareClicked) {
+      const data = {
+        token: this.datas.token,
+        header: this.course.includes("web")
+          ? `Ironhack ${this.datas.city} - Developer Squad ${this.squad}`
+          : `Ironhack ${this.datas.city} - Designer Squad ${this.squad}`,
+        url: this.course.includes("web") ? this.webLink : this.uxLink,
+        text: this.webText
+      };
+      this.linkedIn.sharePost(data).subscribe(data => console.log(data));
+      this.isShareClicked = true;
     }
-    this.linkedIn.sharePost(data).subscribe(data=> console.log(data));   
   }
 
   handleAnimation(anim: any) {

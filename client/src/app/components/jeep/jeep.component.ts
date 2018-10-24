@@ -2,7 +2,6 @@ import { Component, OnInit, Output, Input } from "@angular/core";
 import { Router, Data, ActivatedRoute } from "@angular/router";
 import { DataService } from "../../services/data.service";
 import { LinkedinService } from "../../services/linkedin.service";
-import { environment } from "../../../environments/environment";
 import * as _ from "lodash";
 import "rxjs/add/operator/toPromise";
 
@@ -39,20 +38,23 @@ export class JeepComponent implements OnInit {
   ngOnInit() {
     this.activatedRoute.queryParams.subscribe(params => {
       if (!_.isEmpty(params)) {
-        this.linkedin.getToken(params).subscribe(user => {
-          this.empty = true;
-          this.user = user['$in'];
-          if (this.user) {
-            this.submit = true;
-            this.color = true;
-            this.data.addNameLinkedin(user['$in']);
-            this.data.addToken(user['token']);
-            this.play();
-            setTimeout(() => {
-              this.route.navigate(["/boarding"]);
-            }, 3000);
-          }
-        });
+        this.linkedin.getToken(params).subscribe(
+          user => {
+            this.empty = true;
+            this.user = user["$in"];
+            if (this.user) {
+              this.submit = true;
+              this.color = true;
+              this.data.addNameLinkedin(user["$in"]);
+              this.data.addToken(user["token"]);
+              this.play();
+              setTimeout(() => {
+                this.route.navigate(["/boarding"]);
+              }, 3000);
+            }
+          },
+          err => this.Login()
+        );
       }
     });
   }
