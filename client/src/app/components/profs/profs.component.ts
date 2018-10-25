@@ -16,6 +16,7 @@ export class ProfsComponent implements OnInit {
   public url: string = environment.DB;
   public color = true;
   public isShareClicked: boolean = false;
+  public isModalShow:boolean = false;
 
   public datas = {
     name: "",
@@ -87,16 +88,17 @@ export class ProfsComponent implements OnInit {
 
   linkedinPost() {
     if (!this.isShareClicked) {
-      const data = {
-        token: this.datas.token,
-        header: this.course.includes("web")
-          ? `Ironhack ${this.datas.city} - Developer Squad ${this.squad}`
-          : `Ironhack ${this.datas.city} - Designer Squad ${this.squad}`,
-        url: this.course.includes("web") ? this.webLink : this.uxLink,
-        text: this.webText
-      };
-      this.linkedIn.sharePost(data).subscribe(data => console.log(data));
-      this.isShareClicked = true;
+      this.isModalShow = true;
+      // const data = {
+      //   token: this.datas.token,
+      //   header: this.course.includes("web")
+      //     ? `Ironhack ${this.datas.city} - Developer Squad ${this.squad}`
+      //     : `Ironhack ${this.datas.city} - Designer Squad ${this.squad}`,
+      //   url: this.course.includes("web") ? this.webLink : this.uxLink,
+      //   text: this.webText
+      // };
+      // this.linkedIn.sharePost(data).subscribe(data => console.log(data));
+      // this.isShareClicked = true;
     }
   }
 

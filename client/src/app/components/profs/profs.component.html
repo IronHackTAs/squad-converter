@@ -90,7 +90,8 @@
       </svg>
     </div>
     <h3 class="You-are-in-3rd-posit">You are in 3rd place!</h3>
-    <p>To go back to Earth with your teachers, every member of your squad has to complete this adventure so you can return together. Share this link with your teammates to win this competition!</p>
+    <p>To go back to Earth with your teachers, every member of your squad has to complete this adventure so you can
+      return together. Share this link with your teammates to win this competition!</p>
     <div class="bottom">
       <button class="button main-button" (click)="linkedinPost()" [ngClass]="{'color': color}">
         <p>
@@ -99,11 +100,11 @@
       </button>
       <div *ngIf="isShareClicked" class="modal">
         <div class="center">
-            <p>Are you sure to post?</p>
+          <p>Are you sure to post?</p>
         </div>
         <div class="inline">
-            <button>YES</button>
-            <button>NO</button>
+          <button>YES</button>
+          <button>NO</button>
         </div>
       </div>
       <div class="center">
@@ -125,4 +126,13 @@
     <div id="player">
     </div>
   </div>
+</div>
+<div id="myModal" class="modal" [hidden]="!isModalShow">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <p>Post Submitted </p>
+  </div>
+
 </div>
