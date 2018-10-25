@@ -1,13 +1,15 @@
 const express = require('express');
-const router  = express.Router();
+
+const router = express.Router();
 
 
 /* GET home page */
-router.get('/', (req, res, next) => {
+router.get('/', (req, res) => {
   res.render('index');
 });
 
 const linkedinRoute = require('./api/linkedin');
+
 router.use('/api', linkedinRoute);
 
 module.exports = router;
