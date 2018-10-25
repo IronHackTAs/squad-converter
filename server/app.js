@@ -4,7 +4,6 @@ const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const express = require('express');
 const favicon = require('serve-favicon');
-const hbs = require('hbs');
 const logger = require('morgan');
 const path = require('path');
 const cors = require('cors');
@@ -44,19 +43,10 @@ app.set('view engine', 'hbs');
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 
-hbs.registerHelper('ifUndefined', (value, options) => {
-  if (options.length < 2) { throw new Error('Handlebars Helper ifUndefined needs 1 parameter'); }
-  if (typeof value !== 'undefined') {
-    return options.inverse(this);
-  }
-  return options.fn(this);
-});
-
 // default value for title local
 app.locals.title = 'Ironhack - Squad Converter';
 
 app.use(flash());
-require('./passport')(app);
 
 const index = require('./routes/index');
 

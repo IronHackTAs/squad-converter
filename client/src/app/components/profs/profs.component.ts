@@ -16,6 +16,7 @@ export class ProfsComponent implements OnInit {
   public url: string = environment.DB;
   public color = true;
   public isShareClicked: boolean = false;
+  public isModalShow:boolean = false;
 
   public datas = {
     name: "",
@@ -87,6 +88,7 @@ export class ProfsComponent implements OnInit {
 
   linkedinPost() {
     if (!this.isShareClicked) {
+      this.isModalShow = true;
       const data = {
         token: this.datas.token,
         header: this.course.includes("web")
@@ -139,4 +141,9 @@ export class ProfsComponent implements OnInit {
       return "datapt";
     }
   }
+
+  toogleIsModalShow() {
+    this.isModalShow = !this.isModalShow;
+  }
+
 }
