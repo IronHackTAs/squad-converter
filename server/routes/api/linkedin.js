@@ -51,8 +51,9 @@ linkedinRoute.post('/submit', (req, res) => {
   const bodyParameters =   {
     comment: `${req.body.data.header}\n${req.body.data.text} ${req.body.data.url}`,
     content: {
-      title: 'LinkedIn Developers Resources',
-      'submitted-url': 'https://cdn.dribbble.com/users/2167/screenshots/1171625/ironhack-dribbble.png',
+      title: 'Ironhack',
+      'submitted-url': 'www.ironhack.com',
+      'submitted-image-url' : `${req.body.data.image}`,
     },
     visibility: {
       code: 'anyone',
