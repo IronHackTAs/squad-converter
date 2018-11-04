@@ -6,6 +6,9 @@
     "start": "node ./bin/www",
     "dev": "DEBUG=server:* nodemon ./bin/www"
   },
+  "engines": {
+    "node": "8.12.0"
+  },
   "dependencies": {
     "axios": "^0.18.0",
     "bcrypt": "^1.0.3",
@@ -23,6 +26,9 @@
     "serve-favicon": "~2.4.5"
   },
   "devDependencies": {
+    "eslint": "^5.8.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.14.0",
     "nodemon": "^1.12.1"
   }
 }
