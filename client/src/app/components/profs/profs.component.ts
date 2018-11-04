@@ -95,7 +95,8 @@ export class ProfsComponent implements OnInit {
           ? `Ironhack ${this.datas.city} - Developer Squad ${this.squad}`
           : `Ironhack ${this.datas.city} - Designer Squad ${this.squad}`,
         url: this.course.includes("web") ? this.webLink : this.uxLink,
-        text: this.webText
+        text: this.webText,
+        "submitted-image-url": `${environment.BASE_URL}/assets/img/WEBDEV_BADGE.png`
       };
       this.linkedIn.sharePost(data).subscribe(data => console.log(data));
       this.isShareClicked = true;
