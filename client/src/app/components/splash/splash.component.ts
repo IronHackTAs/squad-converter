@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
 })
 export class SplashComponent implements OnInit {
   public checkboxValue: boolean;
+  public color = false;
 
   constructor(public route: Router) {}
 
@@ -19,5 +20,7 @@ export class SplashComponent implements OnInit {
     }
   }
 
-  togle() {}
+  togle() {
+    this.color = !this.color;
+  }
 }

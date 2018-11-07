@@ -7,10 +7,6 @@
   width: 55%;
 }
 
-button {
-  opacity: 100;
-}
-
 .inline {
   display: inline
 }
@@ -90,4 +86,8 @@ a {
   -webkit-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
   transform: rotate(45deg);
+}
+
+.color {
+  opacity: 100;
 }

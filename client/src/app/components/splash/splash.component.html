@@ -26,7 +26,7 @@
       </label>
     </div>
     <div class="center">
-      <button (click)="onClick()" class="main-button">
+      <button (click)="onClick()" [ngClass]="{'color' : color}" class="main-button">
         <p>Start Now</p>
       </button>
     </div>
