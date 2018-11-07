@@ -17,7 +17,6 @@ export class ProfsComponent implements OnInit {
   public color = true;
   public isShareClicked = false;
   public isModalShow = false;
-
   public datas = {
     name: '',
     surname: '',
@@ -46,7 +45,7 @@ export class ProfsComponent implements OnInit {
     'December'
   ];
   public webText = `Ironhack is a Global Tech School offering intensive & immersive
-                    in-person courses in Web Development, UX/UI Design & Data Analytics.`;
+  in-person courses in Web Development, UX/UI Design & Data Analytics.`;
   public webLink = `https://www.ironhack.com/en/courses/web-development-bootcamp`;
   public uxLink = `https://www.ironhack.com/en/courses/ux-ui-design-bootcamp-learn-ux-design`;
 
