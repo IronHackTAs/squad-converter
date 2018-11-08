@@ -13,7 +13,7 @@ export class ProfsComponent implements OnInit {
   public lottieConfig: Object;
   private anim: any;
   private animationSpeed = 5;
-  public url: string = environment.DB;
+  public dbUrl: string = environment.DB;
   public color = true;
   public isShareClicked = false;
   public isProfileClicked = false;
@@ -69,8 +69,7 @@ export class ProfsComponent implements OnInit {
   ngOnInit() {
     this.datas = this.data.getData();
     this.course = this.getCourseCode(this.datas.course);
-    console.table(this.datas);
-    return this.http.get(this.url).subscribe(data => {
+    return this.http.get(`${environment.BASE_URL}/api/database`).subscribe(data => {
       Object.values(data).forEach(e => {
         const course = this.getCourseCode(this.datas.course);
         const year = new Date(e['start_at']).getFullYear().toString();

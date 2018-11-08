@@ -12,4 +12,8 @@ const linkedinRoute = require('./api/linkedin');
 
 router.use('/api', linkedinRoute);
 
+const databaseRoute = require('./api/database');
+
+router.use('/database', databaseRoute);
+
 module.exports = router;
