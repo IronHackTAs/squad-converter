@@ -38,8 +38,6 @@ app.use(
   }),
 );
 
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'hbs');
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 
@@ -52,8 +50,8 @@ const index = require('./routes/index');
 
 app.use('/', index);
 
-app.get('*', (req, res) => {
-  res.sendFile(`${__dirname}/public/index.html`);
-});
+// app.get('*', (req, res) => {
+//   res.sendFile(`${__dirname}/public/index.html`);
+// });
 
 module.exports = app;

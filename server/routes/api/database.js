@@ -1,18 +1,19 @@
 require('dotenv').config();
 
 const express = require('express');
+
+const databaseRoute = express.Router();
 const axios = require('axios');
 
-const database = express.Router();
+
 const { dbUrl } = process.env;
 
-database.get('/', (req, res) => {
+databaseRoute.get('/', (req, res) => {
   axios.get(dbUrl)
-    .then((data) => {
-      console.log(data);
-      res.status(200).json(data);
+    .then((response) => {
+      res.status(200).json(response.data.courseEditions);
     })
-    .catch(err => console.log(err));
+    .catch((err) => { throw err; });
 });
 
-module.exports = database;
+module.exports = databaseRoute;
