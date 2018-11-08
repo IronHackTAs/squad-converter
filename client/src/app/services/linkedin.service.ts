@@ -1,18 +1,18 @@
-import { Injectable } from "@angular/core";
-import { environment } from "../../environments/environment";
-import { HttpClient } from "@angular/common/http";
-import { Http, Headers } from "@angular/http";
-import { Observable } from "rxjs";
-import { catchError } from "rxjs/operators";
-import "rxjs/add/operator/map";
-import "rxjs/add/operator/catch";
+import { Injectable } from '@angular/core';
+import { environment } from '../../environments/environment';
+import { HttpClient } from '@angular/common/http';
+import { Http, Headers } from '@angular/http';
+import { Observable } from 'rxjs';
+import { catchError } from 'rxjs/operators';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/catch';
 
 @Injectable({
-  providedIn: "root"
+  providedIn: 'root'
 })
 export class LinkedinService {
   public person: Array<string> = [];
-  constructor(public http: HttpClient, public Http: Http) {}
+  constructor(public http: HttpClient) {}
 
   handleError(e) {
     return Observable.throw(e);
@@ -39,5 +39,9 @@ export class LinkedinService {
     return this.http
       .post(`${environment.BASE_URL}/api/submit`, { data })
       .map(res => res);
+  }
+
+  profileEdit(data) {
+    return this.http.post(`${environment.BASE_URL}/api/submit`, { data }).map(res => res);
   }
 }

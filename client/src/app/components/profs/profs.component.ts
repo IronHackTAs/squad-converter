@@ -16,6 +16,7 @@ export class ProfsComponent implements OnInit {
   public url: string = environment.DB;
   public color = true;
   public isShareClicked = false;
+  public isProfileClicked = false;
   public isModalShow = false;
   public datas = {
     name: '',
@@ -23,7 +24,8 @@ export class ProfsComponent implements OnInit {
     city: '',
     date: '',
     course: '',
-    token: ''
+    token: '',
+    personId: ''
   };
   public percentage = 0;
   public squad = 0;
@@ -67,6 +69,7 @@ export class ProfsComponent implements OnInit {
   ngOnInit() {
     this.datas = this.data.getData();
     this.course = this.getCourseCode(this.datas.course);
+    console.table(this.datas);
     return this.http.get(this.url).subscribe(data => {
       Object.values(data).forEach(e => {
         const course = this.getCourseCode(this.datas.course);
@@ -86,11 +89,13 @@ export class ProfsComponent implements OnInit {
     });
   }
 
-  linkedinPost() {
+  linkedinPost(isComment) {
     if (!this.isShareClicked) {
       this.isModalShow = true;
       const data = {
+        isComment,
         token: this.datas.token,
+        personId: this.datas.personId,
         header: this.course.includes('web')
           ? `Ironhack ${this.datas.city} - Developer Squad ${this.squad}`
           : `Ironhack ${this.datas.city} - Designer Squad ${this.squad}`,

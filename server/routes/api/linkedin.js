@@ -48,7 +48,7 @@ linkedinRoute.post('/submit', (req, res) => {
     },
   };
 
-  const bodyParameters =   {
+  const bodyParametersComment =   {
     comment: `${req.body.data.header}\n${req.body.data.text} ${req.body.data.url}`,
     content: {
       title: 'Ironhack',
@@ -60,9 +60,29 @@ linkedinRoute.post('/submit', (req, res) => {
     },
   };
 
+  const bodyParametersProfile = {
+    patch: {
+      $set: {
+        summary: {
+          preferredLocale: {
+            country: 'US',
+            language: 'en',
+          },
+          localized: {
+            en_US: {
+              rawText: `${req.body.data.header}\n${req.body.data.text} ${req.body.data.url}`,
+            },
+          },
+        },
+      },
+    },
+  };
+
   axios.post(
-    'https://api.linkedin.com/v1/people/~/shares?format=json',
-    bodyParameters,
+    req.body.data.isComment
+      ? 'https://api.linkedin.com/v1/people/~/shares?format=json'
+      : `https://api.linkedin.com/v2/people/id=${req.body.data.personId}`,
+    req.body.data.isComment ? bodyParametersComment : bodyParametersProfile,
     config,
   ).then((response) => {
     res.status(200).json({ response });

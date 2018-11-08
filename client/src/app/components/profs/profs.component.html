@@ -93,9 +93,14 @@
     <p>To go back to Earth with your teachers, every member of your squad has to complete this adventure so you can
       return together. Share this link with your teammates to win this competition!</p>
     <div class="bottom">
-      <button class="button main-button" (click)="linkedinPost()" [ngClass]="{'color': color}">
+      <button class="button main-button" (click)="linkedinPost(isPost = true)" [ngClass]="{'color': color}">
         <p>
           Share post in linkedIn
+        </p>
+      </button>
+      <button class="button main-button" (click)="linkedinPost(isPost = false)" [ngClass]="{'color': color}">
+        <p>
+          Change Profile
         </p>
       </button>
       <div class="center">
