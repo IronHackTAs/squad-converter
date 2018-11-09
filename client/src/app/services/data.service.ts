@@ -42,7 +42,7 @@ export class DataService {
   }
 
   addNameLinkedin(user) {
-    Object.assign(this.data, { name: user.firstName, surname: user.lastName, id: user.id });
+    Object.assign(this.data, { name: user.firstName, surname: user.lastName, personId: user.id });
   }
 
 }

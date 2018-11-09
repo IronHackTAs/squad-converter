@@ -65,7 +65,7 @@ linkedinRoute.post('/submit', (req, res) => {
       $set: {
         summary: {
           preferredLocale: {
-            country: 'US',
+            country: 'ES',
             language: 'en',
           },
           localized: {
