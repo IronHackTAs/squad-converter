@@ -89,18 +89,13 @@
         </g>
       </svg>
     </div>
-    <h3 class="You-are-in-3rd-posit">You are in 3rd place!</h3>
+    <h3 class="You-are-in-3rd-posit">You are in {{position}}rd place!</h3>
     <p>To go back to Earth with your teachers, every member of your squad has to complete this adventure so you can
       return together. Share this link with your teammates to win this competition!</p>
     <div class="bottom">
       <button class="button main-button" (click)="linkedinPost(isPost = true)" [ngClass]="{'color': color}">
         <p>
           Share post in linkedIn
-        </p>
-      </button>
-      <button class="button main-button" (click)="linkedinPost(isPost = false)" [ngClass]="{'color': color}">
-        <p>
-          Change Profile
         </p>
       </button>
       <div class="center">
@@ -123,12 +118,16 @@
     </div>
   </div>
 </div>
-<div id="myModal" class="modal" [hidden]="!isModalShow">
+<div id="myModal" class="modal" [hidden]="isModalShow">
 
   <!-- Modal content -->
   <div class="modal-content">
-    <button class="close" (click)="toogleIsModalShow()">&times;</button>
-    <p class="text-modal">Post Submitted ✅</p>
+    <div class="modal-button">
+      <button class="close" (click)="toogleIsModalShow()">&times;</button>
+    </div>
+    <div class="modal-text">
+      <p class="text-modal">Post Submitted ✅</p>
+    </div>
   </div>
 
 </div>

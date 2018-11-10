@@ -108,6 +108,19 @@ svg {
 }
 
 .text-modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-weight: bold;
-  margin-top: 5%;
+  margin-left: 1rem;
+}
+
+.modal-text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.close {
+  margin-top: 0;
 }

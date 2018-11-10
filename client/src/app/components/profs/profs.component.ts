@@ -50,6 +50,8 @@ export class ProfsComponent implements OnInit {
   in-person courses in Web Development, UX/UI Design & Data Analytics.`;
   public webLink = `https://www.ironhack.com/en/courses/web-development-bootcamp`;
   public uxLink = `https://www.ironhack.com/en/courses/ux-ui-design-bootcamp-learn-ux-design`;
+  public position = 1;
+  public isPost: boolean;
 
   constructor(
     public http: HttpClient,
