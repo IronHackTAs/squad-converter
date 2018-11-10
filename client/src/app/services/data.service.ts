@@ -6,42 +6,43 @@ import { Injectable } from '@angular/core';
 export class DataService {
 
   public data = {
-    name:"",
-    surname:"",
-    city:"",
-    date:"",
-    course:"",
-    token:"",
+    name: '',
+    surname: '',
+    city: '',
+    date: '',
+    course: '',
+    token: '',
+    personId: '',
   };
 
   constructor() { }
 
   addToken(token) {
-    Object.assign(this.data, { token })
+    Object.assign(this.data, { token });
   }
 
-  addName(name, surname){
-    Object.assign(this.data, { name,surname })
+  addName(name, surname) {
+    Object.assign(this.data, { name, surname });
   }
 
-  addCity(city){
-    Object.assign(this.data, { city })
+  addCity(city) {
+    Object.assign(this.data, { city });
   }
 
-  addDate(date){
-    Object.assign(this.data, { date })
+  addDate(date) {
+    Object.assign(this.data, { date });
   }
 
-  addCourse(course){
-    Object.assign(this.data, { course })
+  addCourse(course) {
+    Object.assign(this.data, { course });
   }
 
-  getData(){
+  getData() {
     return this.data;
   }
 
   addNameLinkedin(user) {
-    Object.assign(this.data, { name: user.firstName, surname: user.lastName })
+    Object.assign(this.data, { name: user.firstName, surname: user.lastName, personId: user.id });
   }
 
 }

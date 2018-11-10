@@ -13,9 +13,10 @@ export class ProfsComponent implements OnInit {
   public lottieConfig: Object;
   private anim: any;
   private animationSpeed = 5;
-  public url: string = environment.DB;
+  public dbUrl: string = environment.DB;
   public color = true;
   public isShareClicked = false;
+  public isProfileClicked = false;
   public isModalShow = false;
   public datas = {
     name: '',
@@ -23,7 +24,8 @@ export class ProfsComponent implements OnInit {
     city: '',
     date: '',
     course: '',
-    token: ''
+    token: '',
+    personId: ''
   };
   public percentage = 0;
   public squad = 0;
@@ -48,6 +50,8 @@ export class ProfsComponent implements OnInit {
   in-person courses in Web Development, UX/UI Design & Data Analytics.`;
   public webLink = `https://www.ironhack.com/en/courses/web-development-bootcamp`;
   public uxLink = `https://www.ironhack.com/en/courses/ux-ui-design-bootcamp-learn-ux-design`;
+  public position = '1st';
+  public isPost: boolean;
 
   constructor(
     public http: HttpClient,
@@ -67,7 +71,7 @@ export class ProfsComponent implements OnInit {
   ngOnInit() {
     this.datas = this.data.getData();
     this.course = this.getCourseCode(this.datas.course);
-    return this.http.get(this.url).subscribe(data => {
+    return this.http.get(`${environment.BASE_URL}/api/database`).subscribe(data => {
       Object.values(data).forEach(e => {
         const course = this.getCourseCode(this.datas.course);
         const year = new Date(e['start_at']).getFullYear().toString();
@@ -86,11 +90,13 @@ export class ProfsComponent implements OnInit {
     });
   }
 
-  linkedinPost() {
+  linkedinPost(isComment) {
     if (!this.isShareClicked) {
       this.isModalShow = true;
       const data = {
+        isComment,
         token: this.datas.token,
+        personId: this.datas.personId,
         header: this.course.includes('web')
           ? `Ironhack ${this.datas.city} - Developer Squad ${this.squad}`
           : `Ironhack ${this.datas.city} - Designer Squad ${this.squad}`,
