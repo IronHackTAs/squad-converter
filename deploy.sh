@@ -4,3 +4,4 @@ cd client
 ng build --prod --aot
 cd ..
 mv client/dist/client/* server/public
+rm -rf client/dist
