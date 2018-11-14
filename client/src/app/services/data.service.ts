@@ -62,9 +62,15 @@ export class DataService {
       .map(res => res);
   }
 
-  getCourse() {
+  getCourses() {
     return this.http
       .get(`${environment.BASE_URL}/api/database/course`)
+      .map(res => res);
+  }
+
+  getCohorts() {
+    return this.http
+      .get(`${environment.BASE_URL}/api/database/cohorts`)
       .map(res => res);
   }
 }

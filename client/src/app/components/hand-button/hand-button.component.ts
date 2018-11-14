@@ -51,7 +51,7 @@ export class HandButtonComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.data.getCourse().subscribe(res => this.courses = res);
+    this.data.getCourses().subscribe(res => this.courses = res);
   }
 
   handleAnimation(anim: any) {

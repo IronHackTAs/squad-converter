@@ -12,30 +12,7 @@ export class SpaceshipComponent implements OnInit {
   public lottieConfig: Object;
   private anim: any;
   private animationSpeed = 1;
-  public campus = [
-    { name: '2017 - January' },
-    { name: '2017 - Febrary' },
-    { name: '2017 - March' },
-    { name: '2017 - April' },
-    { name: '2017 - May' },
-    { name: '2017 - June' },
-    { name: '2017 - July' },
-    { name: '2017 - August' },
-    { name: '2017 - September' },
-    { name: '2017 - October' },
-    { name: '2017 - November' },
-    { name: '2017 - December' },
-    { name: '2018 - January' },
-    { name: '2018 - February' },
-    { name: '2018 - March' },
-    { name: '2018 - April' },
-    { name: '2018 - May' },
-    { name: '2018 - June' },
-    { name: '2018 - July' },
-    { name: '2018 - August' },
-    { name: '2018 - September'},
-    { name: '2018 - October'}
-  ];
+  public cohorts;
   public selectedValue = '';
   public color = false;
   public submit = true;
@@ -67,7 +44,7 @@ export class SpaceshipComponent implements OnInit {
   }
 
   ngOnInit() {
-
+    this.data.getCohorts().subscribe(res => this.cohorts = res);
   }
 
   handleAnimation(anim: any) {
@@ -96,7 +73,7 @@ export class SpaceshipComponent implements OnInit {
     optList.classList.toggle('hidden');
   }
 
-  prueba(course) {
+  setAttributeToList(course) {
     const value = document.querySelector('.value');
     value.innerHTML = course;
     this.color = true;
