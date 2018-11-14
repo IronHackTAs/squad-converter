@@ -22,6 +22,7 @@ export class CrashComponent implements OnInit {
   public userExists = false;
   public missingEmail = false;
   public email = '';
+  public userNotExists = false;
 
   constructor(
     public route: Router,
@@ -55,8 +56,10 @@ export class CrashComponent implements OnInit {
         this.userExists = data['exists'];
         this.userExists
           ? this.route.navigate(['/boarding'])
-          : console.log('Not exist');
+          : this.userNotExists = true;
       });
+    } else {
+      this.missingEmail = true;
     }
   }
 
