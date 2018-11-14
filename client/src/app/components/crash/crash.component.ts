@@ -19,6 +19,9 @@ export class CrashComponent implements OnInit {
   public missingSurname = false;
   public user: object = {};
   public empty = false;
+  public userExists = false;
+  public missingEmail = false;
+  public email = '';
 
   constructor(
     public route: Router,
@@ -38,40 +41,29 @@ export class CrashComponent implements OnInit {
     }, 1);
   }
 
-  onNameChange(name: string) {
-    this.name = name;
-    this.name !== '' && this.surname !== ''
-      ? (this.color = true)
-      : (this.color = false);
-    if (this.name !== '') { this.missingName = false; }
-  }
-
-  onSurnameChange(surname: string) {
-    this.surname = surname;
-    this.name !== '' && this.surname !== ''
-      ? (this.color = true)
-      : (this.color = false);
-    if (this.surname !== '') { this.missingSurname = false; }
+  onEmailChange(email: string) {
+    this.email = email;
+    this.email !== '' ? (this.color = true) : (this.color = false);
+    if (this.email !== '') {
+      this.missingEmail = false;
+    }
   }
 
   onConfirm() {
-    if (this.name !== '' && this.surname !== '') {
-      this.submit = false;
-      this.data.addName(this.name, this.surname);
-      this.play();
-      this.route.navigate(['/boarding']);
-    } else if (this.name === '' && this.surname === '') {
-      this.missingName = true;
-      this.missingSurname = true;
-    } else if (this.surname === '') {
-      this.missingSurname = true;
-    } else if (this.name === '') {
-      this.missingName = true;
+    if (this.email !== '') {
+      this.data.checkUser(this.email).subscribe(data => {
+        this.userExists = data['exists'];
+        this.userExists
+          ? this.route.navigate(['/boarding'])
+          : console.log('Not exist');
+      });
     }
   }
 
   scroll(el) {
-    if (this.name !== '' && this.surname !== '') { el.scrollIntoView(); }
+    if (this.name !== '' && this.surname !== '') {
+      el.scrollIntoView();
+    }
   }
 
   handleAnimation(anim: any) {

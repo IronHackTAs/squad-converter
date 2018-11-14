@@ -50,7 +50,7 @@ export class JeepComponent implements OnInit {
               this.data.addToken(user['token']);
               this.play();
               this.data.checkUser(this.user['emailAddress']).subscribe(data => this.userExists = data['exists']);
-              !this.userExists
+              this.userExists
               ? setTimeout(() => {this.route.navigate(['/boarding']); }, 3000)
               : setTimeout(() => {this.route.navigate(['/boarding']); }, 3000);
             }

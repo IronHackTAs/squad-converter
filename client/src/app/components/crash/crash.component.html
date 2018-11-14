@@ -26,20 +26,13 @@
             <div class="description">
                 <p>Before going inside, you have to select the campus/city where you have completed your bootcamp</p>
             </div>
-            <input [ngClass]="{'missing': missingName}" class="rectangle" #box1 name="username" placeholder="Name" id="username"
-                (input)="onNameChange($event.target.value)" required>
-            <div *ngIf="missingName" class="missingName">
-                <p>
-                    Missing Name
-                </p>
-            </div>
-            <input [ngClass]="{'missing': missingSurname}" class="rectangle" #box2 name="surname" placeholder="Surname"
-                (input)="onSurnameChange($event.target.value)" required>
-            <div *ngIf="missingSurname" class="missingSurname">
-                <p>
-                    Missing Surname
-                </p>
-            </div>
+            <input [ngClass]="{'missing': missingEmail}" class="rectangle" #box1 name="email" placeholder="Email" id="email"
+            (input)="onEmailChange($event.target.value)" required>
+        <div *ngIf="missingEmail" class="missingEmail">
+            <p>
+                Missing Email
+            </p>
+        </div>
 
         </div>
         <div class="bottom">
