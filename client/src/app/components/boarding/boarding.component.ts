@@ -11,13 +11,7 @@ export class BoardingComponent implements OnInit {
   public lottieConfig: Object;
   private anim: any;
   private animationSpeed = 1;
-  public campus: Array<object> = [
-    { name: 'Madrid' },
-    { name: 'Barcelona' },
-    { name: 'Miami' },
-    { name: 'Amsterdam' },
-    { name: 'Paris' }
-  ];
+  public campus;
   public selectedValue = '';
   public color = false;
   public submit = true;
@@ -35,6 +29,7 @@ export class BoardingComponent implements OnInit {
 
   ngOnInit() {
     this.name = this.data.getData().name;
+    this.data.getCampus().subscribe(res => this.campus = res);
   }
 
   scroll(el) {
@@ -80,7 +75,7 @@ export class BoardingComponent implements OnInit {
     optList.classList.toggle('hidden');
   }
 
-  prueba(course) {
+  setAttributeToList(course) {
     const value = document.querySelector('.value');
     value.innerHTML = course;
     this.color = true;

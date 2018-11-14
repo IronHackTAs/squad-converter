@@ -52,7 +52,13 @@ export class DataService {
 
   checkUser(email) {
     return this.http
-      .get(`${environment.BASE_URL}/api/database/${email}`)
+      .get(`${environment.BASE_URL}/api/database/student/${email}`)
+      .map(res => res);
+  }
+
+  getCampus() {
+    return this.http
+      .get(`${environment.BASE_URL}/api/database/campus`)
       .map(res => res);
   }
 }

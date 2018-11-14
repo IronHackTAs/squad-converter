@@ -31,7 +31,7 @@
         (click)="toggleOptList(select)" #select>
         <span class="value">Select city</span>
         <ul class="optList hidden">
-          <li class="option" *ngFor="let c of campus" (click)="prueba(c.name)">{{c.name}}</li>
+          <li class="option" *ngFor="let c of campus" (click)="setAttributeToList(c.city)">{{c.city}}</li>
         </ul>
       </div>
       <div *ngIf="missingCity" class="missingCity">
