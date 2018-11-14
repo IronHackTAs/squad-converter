@@ -73,4 +73,10 @@ export class DataService {
       .get(`${environment.BASE_URL}/api/database/cohorts`)
       .map(res => res);
   }
+
+  postStudent(data) {
+    return this.http
+      .post(`${environment.BASE_URL}`, data)
+      .map(res => res);
+  }
 }

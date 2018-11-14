@@ -70,6 +70,7 @@ export class ProfsComponent implements OnInit {
 
   ngOnInit() {
     this.datas = this.data.getData();
+    // this.data.postStudent(this.data.email)
     this.course = this.getCourseCode(this.datas.course);
     return this.http.get(`${environment.BASE_URL}/api/database`).subscribe(data => {
       Object.values(data).forEach(e => {
