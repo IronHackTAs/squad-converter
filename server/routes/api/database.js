@@ -12,8 +12,7 @@ databaseRoute.get('/', (req, res) => {
   axios.get(dbUrl)
     .then((response) => {
       res.status(200).json(response.data.courseEditions);
-    })
-    .catch((err) => { throw err; });
+    });
 });
 
 databaseRoute.get('/:email', (req, res) => {

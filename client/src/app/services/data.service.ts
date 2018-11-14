@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DataService {
-
   public data = {
     name: '',
     surname: '',
@@ -12,10 +13,10 @@ export class DataService {
     date: '',
     course: '',
     token: '',
-    personId: '',
+    personId: ''
   };
 
-  constructor() { }
+  constructor(public http: HttpClient) {}
 
   addToken(token) {
     Object.assign(this.data, { token });
@@ -42,7 +43,16 @@ export class DataService {
   }
 
   addNameLinkedin(user) {
-    Object.assign(this.data, { name: user.firstName, surname: user.lastName, personId: user.id });
+    Object.assign(this.data, {
+      name: user.firstName,
+      surname: user.lastName,
+      personId: user.id
+    });
   }
 
+  checkUser(email) {
+    return this.http
+      .get(`${environment.BASE_URL}/api/database/${email}`)
+      .map(res => res);
+  }
 }
