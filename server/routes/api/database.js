@@ -16,4 +16,13 @@ databaseRoute.get('/', (req, res) => {
     .catch((err) => { throw err; });
 });
 
+databaseRoute.get('/:email', (req, res) => {
+  const { email } = req.params;
+
+  axios.get(`${dbUrl}/squads/student/${email}`)
+    .then((response) => {
+      res.status(200).json(response.data);
+    });
+});
+
 module.exports = databaseRoute;
