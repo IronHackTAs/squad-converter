@@ -61,4 +61,10 @@ export class DataService {
       .get(`${environment.BASE_URL}/api/database/campus`)
       .map(res => res);
   }
+
+  getCourse() {
+    return this.http
+      .get(`${environment.BASE_URL}/api/database/course`)
+      .map(res => res);
+  }
 }
