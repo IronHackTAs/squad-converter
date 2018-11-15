@@ -72,8 +72,8 @@ databaseRoute.post('/checked-by-student', (req, res) => {
       const { id } = cohorts;
 
       const bodyParameters = {
-        Email: email,
-        'Cohort id': id,
+        email,
+        cohort_id: id,
       };
 
       axios.post(`${dbUrl}/squads/checked-by-student`, bodyParameters, config)

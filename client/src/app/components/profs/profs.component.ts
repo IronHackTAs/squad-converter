@@ -100,22 +100,22 @@ export class ProfsComponent implements OnInit {
   linkedinPost(isComment) {
     this.data.postStudent(this.datas).subscribe(data => console.log(data));
     if (!this.isShareClicked) {
-      //   this.isModalShow = true;
-      //   const data = {
-      //     isComment,
-      //     token: this.datas.token,
-      //     personId: this.datas.personId,
-      //     header: this.course.includes('web')
-      //       ? `Ironhack ${this.datas.city} - Developer Squad ${this.squad}`
-      //       : `Ironhack ${this.datas.city} - Designer Squad ${this.squad}`,
-      //     url: this.course.includes('web') ? this.webLink : this.uxLink,
-      //     text: this.webText,
-      //     image: this.course.includes('web')
-      //       ? `${environment.BASE_URL}/assets/img/WEBDEV_BADGE.png`
-      //       : `${environment.BASE_URL}/assets/img/UX_BADGE.png`
-      //   };
-      //   this.linkedIn.sharePost(data).subscribe();
-      //   this.isShareClicked = true;
+        this.isModalShow = true;
+        const data = {
+          isComment,
+          token: this.datas.token,
+          personId: this.datas.personId,
+          header: this.course.includes('web')
+            ? `Ironhack ${this.datas.city} - Developer Squad ${this.squad}`
+            : `Ironhack ${this.datas.city} - Designer Squad ${this.squad}`,
+          url: this.course.includes('web') ? this.webLink : this.uxLink,
+          text: this.webText,
+          image: this.course.includes('web')
+            ? `${environment.BASE_URL}/assets/img/WEBDEV_BADGE.png`
+            : `${environment.BASE_URL}/assets/img/UX_BADGE.png`
+        };
+        this.linkedIn.sharePost(data).subscribe();
+        this.isShareClicked = true;
     }
   }
 
