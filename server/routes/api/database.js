@@ -26,35 +26,35 @@ databaseRoute.get('/student/:email', (req, res) => {
   axios.get(`${dbUrl}/squads/student/${email}`)
     .then((response) => {
       res.status(200).json(response.data);
-    }).catch(err => console.log(err));
+    }).catch(err => res.status(500).json(err));
 });
 
 databaseRoute.get('/cohorts', (req, res) => {
   axios.get(`${dbUrl}/squads/cohorts`)
     .then((response) => {
       res.status(200).json(response.data);
-    }).catch(err => console.log(err));
+    }).catch(err => res.status(500).json(err));
 });
 
 databaseRoute.get('/campus', (req, res) => {
   axios.get(`${dbUrl}/campus`)
     .then((response) => {
       res.status(200).json(response.data);
-    }).catch(err => console.log(err));
+    }).catch(err => res.status(500).json(err));
 });
 
 databaseRoute.get('/course', (req, res) => {
   axios.get(`${dbUrl}/course`)
     .then((response) => {
       res.status(200).json(response.data);
-    }).catch(err => console.log(err));
+    }).catch(err => res.status(500).json(err));
 });
 
 databaseRoute.get('/cohorts/:id', (req, res) => {
   axios.get(dbUrl)
     .then((response) => {
       res.status(200).json(response.data);
-    }).catch(err => console.log(err));
+    }).catch(err => res.status(500).json(err));
 });
 
 databaseRoute.post('/checked-by-student', (req, res) => {
@@ -80,9 +80,9 @@ databaseRoute.post('/checked-by-student', (req, res) => {
         .then((response) => {
           res.status(200).json(response.data);
         })
-        .catch(err => console.log(`Error in checked student ${err}`));
+        .catch(err => res.status(500).json(err));
     })
-    .catch(err => console.log(err));
+    .catch(err => res.status(500).json(err));
 });
 
 module.exports = databaseRoute;
