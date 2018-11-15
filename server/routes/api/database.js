@@ -4,6 +4,7 @@ const express = require('express');
 
 const databaseRoute = express.Router();
 const axios = require('axios');
+const _ = require('lodash');
 
 
 const {
@@ -57,24 +58,31 @@ databaseRoute.get('/cohorts/:id', (req, res) => {
 });
 
 databaseRoute.post('/checked-by-student', (req, res) => {
-  console.log(req.body);
+  const { email, squadNumber } = req.body;
+
   const config = {
     headers: {
       'Content-Type': 'application/json',
     },
   };
 
-  const bodyParameters = {
-    Email: '',
-    CohorsId: '',
-  };
+  axios.get(`${dbUrl}/squads/cohorts`)
+    .then(response => _.find(response.data,  ['squad', `${squadNumber}`]))
+    .then((cohorts) => {
+      const { id } = cohorts;
 
-  res.status(200).json('ok');
-  // axios.post(`${dbUrl}/squads/checked-by-student`, bodyParameters, config)
-  //   .then((response) => {
-  //     res.status(200).json(response.data);
-  //   })
-  //   .catch(err => console.log(err));
+      const bodyParameters = {
+        Email: email,
+        'Cohort id': id,
+      };
+
+      axios.post(`${dbUrl}/squads/checked-by-student`, bodyParameters, config)
+        .then((response) => {
+          res.status(200).json(response.data);
+        })
+        .catch(err => console.log(`Error in checked student ${err}`));
+    })
+    .catch(err => console.log(err));
 });
 
 module.exports = databaseRoute;
