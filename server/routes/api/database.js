@@ -31,7 +31,6 @@ databaseRoute.get('/student/:email', (req, res) => {
 databaseRoute.get('/cohorts', (req, res) => {
   axios.get(`${dbUrl}/squads/cohorts`)
     .then((response) => {
-      console.log(response);
       res.status(200).json(response.data);
     }).catch(err => console.log(err));
 });

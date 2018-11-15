@@ -13,7 +13,9 @@ export class DataService {
     date: '',
     course: '',
     token: '',
-    personId: ''
+    personId: '',
+    email: '',
+    squadNumber: ''
   };
 
   constructor(public http: HttpClient) {}
@@ -46,14 +48,18 @@ export class DataService {
     Object.assign(this.data, {
       name: user.firstName,
       surname: user.lastName,
-      personId: user.id
+      personId: user.id,
+      email: user.emailAddress,
     });
   }
 
   checkUser(email) {
     return this.http
       .get(`${environment.BASE_URL}/api/database/student/${email}`)
-      .map(res => res);
+      .map(res => {
+        this.data.squadNumber = res['squad'];
+        return res;
+      });
   }
 
   getCampus() {

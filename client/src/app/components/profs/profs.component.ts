@@ -25,7 +25,8 @@ export class ProfsComponent implements OnInit {
     date: '',
     course: '',
     token: '',
-    personId: ''
+    personId: '',
+    email: ''
   };
   public percentage = 0;
   public squad = 0;
@@ -70,29 +71,14 @@ export class ProfsComponent implements OnInit {
 
   ngOnInit() {
     this.datas = this.data.getData();
-    // this.data.postStudent(this.data.email)
+    console.log(this.datas['squadNumber'].length);
+    this.squad = this.datas['squadNumber'].slice(this.datas['squadNumber'].length - 3, this.datas['squadNumber'].length - 0);
     this.course = this.getCourseCode(this.datas.course);
-    return this.http.get(`${environment.BASE_URL}/api/database`).subscribe(data => {
-      Object.values(data).forEach(e => {
-        const course = this.getCourseCode(this.datas.course);
-        const year = new Date(e['start_at']).getFullYear().toString();
-        if (
-          e['campus'].name === this.datas.city &&
-          course === e['course'].course_code &&
-          this.datas.date.includes(
-            this.monthNames[new Date(e['start_at']).getMonth()]
-          ) &&
-          this.datas.date.includes(year)
-        ) {
-          const squadName = e['squap_name'];
-          this.squad = parseInt(squadName.replace(/[^0-9]/g, ''), 0);
-        }
-      });
-    });
   }
 
   linkedinPost(isComment) {
     if (!this.isShareClicked) {
+      this.data.postStudent(this.datas);
       this.isModalShow = true;
       const data = {
         isComment,
@@ -104,8 +90,8 @@ export class ProfsComponent implements OnInit {
         url: this.course.includes('web') ? this.webLink : this.uxLink,
         text: this.webText,
         image: this.course.includes('web')
-        ? `${environment.BASE_URL}/assets/img/WEBDEV_BADGE.png`
-        : `${environment.BASE_URL}/assets/img/UX_BADGE.png`
+          ? `${environment.BASE_URL}/assets/img/WEBDEV_BADGE.png`
+          : `${environment.BASE_URL}/assets/img/UX_BADGE.png`
       };
       this.linkedIn.sharePost(data).subscribe();
       this.isShareClicked = true;
@@ -155,5 +141,4 @@ export class ProfsComponent implements OnInit {
   toogleIsModalShow() {
     this.isModalShow = !this.isModalShow;
   }
-
 }

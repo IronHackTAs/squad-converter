@@ -49,10 +49,11 @@ export class JeepComponent implements OnInit {
               this.data.addNameLinkedin(user['$in']);
               this.data.addToken(user['token']);
               this.play();
-              this.data.checkUser(this.user['emailAddress']).subscribe(data => this.userExists = data['exists']);
-              this.userExists
-              ? setTimeout(() => {this.route.navigate(['/boarding']); }, 3000)
-              : setTimeout(() => {this.route.navigate(['/boarding']); }, 3000);
+              this.data.checkUser(this.user['emailAddress']).subscribe(data => {
+                data['exists']
+                ? setTimeout(() => {this.route.navigate(['/boarding']); }, 3000)
+                : setTimeout(() => {this.route.navigate(['/crash']); }, 3000);
+              });
             }
           },
           err => err ? this.Login() : ''
