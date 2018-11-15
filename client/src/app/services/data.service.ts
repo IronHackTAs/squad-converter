@@ -1,7 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
+import { HttpHeaders } from '@angular/common/http';
 
+const httpOptions = {
+  headers: new HttpHeaders({
+    'Content-Type':  'application/json',
+    'Authorization': 'my-auth-token'
+  })
+};
 @Injectable({
   providedIn: 'root'
 })
@@ -82,7 +89,7 @@ export class DataService {
 
   postStudent(data) {
     return this.http
-      .post(`${environment.BASE_URL}`, data)
+      .post(`${environment.BASE_URL}/api/database/checked-by-student`, data)
       .map(res => res);
   }
 }

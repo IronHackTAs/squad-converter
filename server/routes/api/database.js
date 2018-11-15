@@ -57,6 +57,7 @@ databaseRoute.get('/cohorts/:id', (req, res) => {
 });
 
 databaseRoute.post('/checked-by-student', (req, res) => {
+  console.log(req.body);
   const config = {
     headers: {
       'Content-Type': 'application/json',
@@ -67,11 +68,13 @@ databaseRoute.post('/checked-by-student', (req, res) => {
     Email: '',
     CohorsId: '',
   };
-  axios.post(`${dbUrl}/squads/checked-by-student`, bodyParameters, config)
-    .then((response) => {
-      res.status(200).json(response.data);
-    })
-    .catch(err => console.log(err));
+
+  res.status(200).json('ok');
+  // axios.post(`${dbUrl}/squads/checked-by-student`, bodyParameters, config)
+  //   .then((response) => {
+  //     res.status(200).json(response.data);
+  //   })
+  //   .catch(err => console.log(err));
 });
 
 module.exports = databaseRoute;
