@@ -98,6 +98,7 @@ input{
 .profile-img {
   border-radius: 50%;
   width: 3rem;
+  margin-right: 15px;
 }
 
 .error {
