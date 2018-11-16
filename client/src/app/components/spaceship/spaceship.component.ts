@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { DataService } from '../../services/data.service';
+import _ from 'lodash'
 
 @Component({
   selector: 'app-spaceship',
@@ -60,10 +61,14 @@ export class SpaceshipComponent implements OnInit {
 
   ngOnInit() {
     this.data.getCohorts().subscribe((res: any) => {
-      this.cohorts = res
+      console.log(res)
+      this.cohorts = 
+      _.uniqBy(res
+        , 'date')
         .sort((a: any, b: any) => +new Date(a.date) - +new Date(b.date))
         .map(e => ({ id: e.id, date: this.formatDate(e.date) }));
-    });
+        
+      });
   }
 
   handleAnimation(anim: any) {
