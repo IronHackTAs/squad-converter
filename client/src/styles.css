@@ -192,6 +192,7 @@ select {
     overflow-x: hidden;
     border-radius: 8px;
     background: #fff;
+    height: 200px;
   }
   
   .select .option {
