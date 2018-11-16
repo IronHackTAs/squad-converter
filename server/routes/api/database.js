@@ -67,7 +67,7 @@ databaseRoute.post('/checked-by-student', (req, res) => {
   };
 
   axios.get(`${dbUrl}/squads/cohorts`)
-    .then(response => _.find(response.data,  ['squad', `${squadNumber}`]))
+    .then(response => _.find(response.data, ['squad', `${squadNumber}`]))
     .then((cohorts) => {
       const { id } = cohorts;
 
