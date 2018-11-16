@@ -1,21 +1,21 @@
-import { Component, OnInit, Output, Input } from "@angular/core";
-import { Router, Data, ActivatedRoute } from "@angular/router";
-import { DataService } from "../../services/data.service";
-import { LinkedinService } from "../../services/linkedin.service";
-import * as _ from "lodash";
-import "rxjs/add/operator/toPromise";
+import { Component, OnInit, Output, Input } from '@angular/core';
+import { Router, Data, ActivatedRoute } from '@angular/router';
+import { DataService } from '../../services/data.service';
+import { LinkedinService } from '../../services/linkedin.service';
+import * as _ from 'lodash';
+import 'rxjs/add/operator/toPromise';
 
 @Component({
-  selector: "app-jeep",
-  templateUrl: "./jeep.component.html",
-  styleUrls: ["./jeep.component.css"]
+  selector: 'app-jeep',
+  templateUrl: './jeep.component.html',
+  styleUrls: ['./jeep.component.css']
 })
 export class JeepComponent implements OnInit {
   public lottieConfig: Object;
   public anim: any;
   public animationSpeed = 1;
-  public name = "";
-  public surname = "";
+  public name = '';
+  public surname = '';
   public color = false;
   public submit = false;
   public user: object = {};
@@ -31,7 +31,7 @@ export class JeepComponent implements OnInit {
     public linkedin: LinkedinService
   ) {
     this.lottieConfig = {
-      path: "../../../assets/animations/jeep/jeep.json",
+      path: '../../../assets/animations/jeep/jeep.json',
       autoplay: false,
       loop: false
     };
@@ -43,26 +43,22 @@ export class JeepComponent implements OnInit {
         this.linkedin.getToken(params).subscribe(
           user => {
             this.empty = true;
-            this.user = user["$in"];
+            this.user = user['$in'];
             if (this.user) {
               this.submit = true;
               this.color = true;
-              this.data.addNameLinkedin(user["$in"]);
-              this.data.addToken(user["token"]);
+              this.data.addNameLinkedin(user['$in']);
+              this.data.addToken(user['token']);
               this.play();
               this.loading = false;
-              this.data.checkUser(this.user["emailAddress"]).subscribe(data => {
-                data["exists"]
-                  ? setTimeout(() => {
-                      this.route.navigate(["/boarding"]);
-                    }, 3000)
-                  : setTimeout(() => {
-                      this.route.navigate(["/crash"]);
-                    }, 3000);
+              this.data.checkUser(this.user['emailAddress']).subscribe(data => {
+                data['exists']
+                ? setTimeout(() => {this.route.navigate(['/boarding']); }, 3000)
+                : setTimeout(() => {this.route.navigate(['/crash']); }, 3000);
               });
             }
           },
-          err => (err ? this.Login() : "")
+          err => err ? this.Login() : ''
         );
       }
     });
@@ -79,13 +75,11 @@ export class JeepComponent implements OnInit {
   }
 
   scroll(el) {
-    if (this.name !== "" && this.surname !== "") {
-      el.scrollIntoView();
-    }
+    if (this.name !== '' && this.surname !== '') { el.scrollIntoView(); }
   }
 
   onConfirm() {
-    this.route.navigate(["/boarding"]);
+    this.route.navigate(['/boarding']);
   }
 
   handleAnimation(anim: any) {

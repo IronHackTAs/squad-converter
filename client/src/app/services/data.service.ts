@@ -80,15 +80,15 @@ export class DataService {
       .map(res => res);
   }
 
-  getCohort(id) {
-    return this.http
-      .get(`${environment.BASE_URL}/api/database/cohorts/${id}`)
-      .map(res => res);
-  }
-
   postStudent(data) {
     return this.http
       .post(`${environment.BASE_URL}/api/database/checked-by-student`, data)
+      .map(res => res);
+  }
+
+  getCohort(squadNumber) {
+    return this.http
+      .get(`${environment.BASE_URL}/api/database/squads/cohorts/${encodeURIComponent(squadNumber)}`)
       .map(res => res);
   }
 }

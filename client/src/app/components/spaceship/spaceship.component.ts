@@ -58,8 +58,8 @@ export class SpaceshipComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.data.getCohorts().subscribe(res => this.cohorts = res.sort((a,b) => new Date(a.date) - new Date(b.date)).map(e => ({id:e.id, date:this.formatDate(e.date)}))
-    ));
+    this.data.getCohorts().subscribe(res => this.cohorts = res.sort((a, b) => new Date(a.date) - new Date(b.date)).map(e => ({id: e.id, date: this.formatDate(e.date)}))
+    ); )
   }
 
   handleAnimation(anim: any) {
@@ -96,7 +96,7 @@ export class SpaceshipComponent implements OnInit {
     this.data.addDate(this.selectedValue);
   }
 
-  formatDate(date){
-   return date.slice(8, 10)+ " " + this.monthNames[new Date('2016-06-01').getMonth()] + " " + date.slice(0, 4)
+  formatDate(date) {
+   return date.slice(8, 10) + ' ' + this.monthNames[new Date('2016-06-01').getMonth()] + ' ' + date.slice(0, 4);
   }
 }

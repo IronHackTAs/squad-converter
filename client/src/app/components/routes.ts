@@ -9,18 +9,18 @@ import { ProfsComponent } from './profs/profs.component';
 import { SplashComponent } from './splash/splash.component';
 import { AboutComponent } from './about/about.component';
 import { CrashComponent } from './crash/crash.component';
-import { isLoggedGuardService } from '../services/routesGuard.service';
+import { IsLoggedGuardService } from '../services/routesGuard.service';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'splash', pathMatch: 'full' },
-  { path: 'handButton', component: HandButtonComponent, canActivate:[isLoggedGuardService]},
-  { path: 'spaceship', component: SpaceshipComponent, canActivate:[isLoggedGuardService] },
-  { path: 'boarding', component: BoardingComponent, canActivate:[isLoggedGuardService] },
-  { path: 'takeoff', component: TakeoffComponent, canActivate:[isLoggedGuardService] },
+  { path: 'handButton', component: HandButtonComponent, canActivate: [IsLoggedGuardService]},
+  { path: 'spaceship', component: SpaceshipComponent, canActivate: [IsLoggedGuardService] },
+  { path: 'boarding', component: BoardingComponent, canActivate: [IsLoggedGuardService] },
+  { path: 'takeoff', component: TakeoffComponent, canActivate: [IsLoggedGuardService] },
   { path: 'jeep', component: JeepComponent },
-  { path: 'profs', component: ProfsComponent , canActivate:[isLoggedGuardService]},
+  { path: 'profs', component: ProfsComponent , canActivate: [IsLoggedGuardService]},
   { path: 'splash', component: SplashComponent },
-  { path: 'about', component: AboutComponent, canActivate:[isLoggedGuardService] },
-  { path: 'crash', component: CrashComponent, canActivate:[isLoggedGuardService] },
+  { path: 'about', component: AboutComponent, canActivate: [IsLoggedGuardService] },
+  { path: 'crash', component: CrashComponent, canActivate: [IsLoggedGuardService] },
   { path: '**', redirectTo: 'splash' },
 ];
