@@ -28,7 +28,7 @@
       <div class="select" [ngClass]="{'selected-color': color}" tabindex="0" (click)="toggleOptList(select)" #select>
         <span class="value">Select date</span>
         <ul class="optList hidden">
-          <li class="option" *ngFor="let c of cohorts" (click)="setAttributeToList(c.date)">{{c.date.slice(0,10)}}</li>
+          <li class="option" *ngFor="let c of cohorts" (click)="setAttributeToList(c.date)">{{c.date}}</li>
         </ul>
       </div>
     </div>

@@ -48,12 +48,12 @@ linkedinRoute.post('/submit', (req, res) => {
     },
   };
 
-  const bodyParametersComment =   {
+  const bodyParametersComment = {
     comment: `${req.body.data.header}\n${req.body.data.text} ${req.body.data.url}`,
     content: {
       title: 'Ironhack',
       'submitted-url': 'www.ironhack.com',
-      'submitted-image-url' : `${req.body.data.image}`,
+      'submitted-image-url': `${req.body.data.image}`,
     },
     visibility: {
       code: 'anyone',
