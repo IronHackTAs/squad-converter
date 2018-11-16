@@ -71,10 +71,7 @@ export class ProfsComponent implements OnInit {
 
   ngOnInit() {
     this.datas = this.data.getData();
-    this.squad = this.datas['squadNumber'].slice(
-      this.datas['squadNumber'].length - 3,
-      this.datas['squadNumber'].length - 0
-    );
+    this.squad = this.datas['squadNumber'];
     this.course = this.getCourseCode(this.datas.course);
     return this.http
       .get(`${environment.BASE_URL}/api/database`)
