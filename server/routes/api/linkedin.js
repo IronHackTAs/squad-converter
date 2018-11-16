@@ -1,90 +1,94 @@
-require("dotenv").config();
-const express = require("express");
+require('dotenv').config();
+const express = require('express');
+
 const linkedinRoute = express.Router();
 const axios = require('axios');
-const querystring = require('querystring');
-const Linkedin = require("node-linkedin")(
+const Linkedin = require('node-linkedin')(
   process.env.CLIENT_ID,
   process.env.SECRET_KEY,
-  process.env.callBack
+  process.env.callBack,
 );
 
 const scope = [
-  "r_basicprofile",
-  "r_emailaddress",
-  "rw_company_admin",
-  "w_share",
+  'r_basicprofile',
+  'r_emailaddress',
+  'rw_company_admin',
+  'w_share',
 ];
 
-linkedinRoute.get("/oauth/linkedin", (req, res) => {
-<<<<<<< HEAD
-  // set the callback url
-=======
->>>>>>> ad816503b575ccdefa2c314b411047f99c6b14cc
-  var auth_url = Linkedin.auth.authorize(scope);
-  res.status(200).json(auth_url);
+linkedinRoute.get('/oauth/linkedin', (req, res) => {
+  const authUrl = Linkedin.auth.authorize(scope);
+  res.status(200).json(authUrl);
 });
 
-linkedinRoute.get("/oauth/linkedin/callback", (req, res) => {
-  Linkedin.auth.getAccessToken(res, req.query.code, req.query.state, function (
+linkedinRoute.get('/oauth/linkedin/callback', (req, res) => {
+  Linkedin.auth.getAccessToken(res, req.query.code, req.query.state, (
     err,
-    results
-  ) {
-<<<<<<< HEAD
-    if (err) return console.error(err);
-    const linkedin = Linkedin.init(results.access_token);
-    linkedin.people.me(function (err, $in) {
-      if (err) console.error(err);
-      return res.status(200).json({
-        $in,
-        token: results.access_token
-      });
-    });
-=======
-    if (err) res.status(500).json({ message: 'Error in login'});
+    results,
+  ) => {
+    if (err) res.status(500).json({ message: 'Error in login' });
     else {
       const linkedin = Linkedin.init(results.access_token);
-      linkedin.people.me(function (err, $in) {
-        if (err) console.log(err)
+      linkedin.people.me((error, $in) => {
+        if (error) res.status(500).json(err);
         return res.status(200).json({
           $in,
-          token: results.access_token
+          token: results.access_token,
         });
       });
     }
->>>>>>> ad816503b575ccdefa2c314b411047f99c6b14cc
   });
 });
 
-linkedinRoute.post("/submit", (req, res) => {
-
-  var config = {
+linkedinRoute.post('/submit', (req, res) => {
+  const config = {
     headers: {
-      'Authorization': "Bearer " + req.body.data.token,
-      'Content-Type': 'application/json'
-    }
+      Authorization: `Bearer ${req.body.data.token}`,
+      'Content-Type': 'application/json',
+    },
   };
 
-  var bodyParameters =   {
-    "comment": `${req.body.data.header}\n${req.body.data.text} ${req.body.data.url}`,
-    "content": {
-      "title": "LinkedIn Developers Resources",
-      "submitted-url": "https://cdn.dribbble.com/users/2167/screenshots/1171625/ironhack-dribbble.png"
+  const bodyParametersComment = {
+    comment: `${req.body.data.header}\n${req.body.data.text} ${req.body.data.url}`,
+    content: {
+      title: 'Ironhack',
+      'submitted-url': 'www.ironhack.com',
+      'submitted-image-url': `${req.body.data.image}`,
     },
-    "visibility": {
-      "code": "anyone"
-    }  
-  }
+    visibility: {
+      code: 'anyone',
+    },
+  };
+
+  const bodyParametersProfile = {
+    patch: {
+      $set: {
+        summary: {
+          preferredLocale: {
+            country: 'ES',
+            language: 'en',
+          },
+          localized: {
+            en_US: {
+              rawText: `${req.body.data.header}\n${req.body.data.text} ${req.body.data.url}`,
+            },
+          },
+        },
+      },
+    },
+  };
 
   axios.post(
-    'https://api.linkedin.com/v1/people/~/shares?format=json',
-    bodyParameters,
-    config
+    req.body.data.isComment
+      ? 'https://api.linkedin.com/v1/people/~/shares?format=json'
+      : `https://api.linkedin.com/v2/people/id=${req.body.data.personId}`,
+    req.body.data.isComment ? bodyParametersComment : bodyParametersProfile,
+    config,
   ).then((response) => {
-    res.status(200).json({response});
-  }).catch((error) => {
-    console.log(error);
+    res.status(200).json({ response });
+  }).catch((err) => {
+    res.status(500).json(err);
   });
-})
+});
 
 module.exports = linkedinRoute;

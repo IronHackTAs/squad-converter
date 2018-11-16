@@ -1,43 +1,38 @@
-import { Component, OnInit } from "@angular/core";
-import { Router } from "@angular/router";
-import { DataService } from "../../services/data.service";
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { DataService } from '../../services/data.service';
 
 @Component({
-  selector: "app-hand-button",
-  templateUrl: "./hand-button.component.html",
-  styleUrls: ["./hand-button.component.css"]
+  selector: 'app-hand-button',
+  templateUrl: './hand-button.component.html',
+  styleUrls: ['./hand-button.component.css']
 })
 export class HandButtonComponent implements OnInit {
   public lottieConfig: Object;
   public lottieConfig2: Object;
-  public displayAnimation: string = "none";
-  public displayAnimation2: string = "block";
+  public displayAnimation = 'none';
+  public displayAnimation2 = 'block';
   private anim: any;
-  private animationSpeed: number = 1;
-  public campus = [
-    { name: "Web Development Full-Time" },
-    { name: "Web Development Part-Time" },
-    { name: "UX/UI Full-Time" },
-    { name: "UX/UI Part-Time" }
-  ];
-  public selectedValue = "";
+  private animationSpeed = 1;
+  public courses;
+  public selectedValue = '';
   public color = false;
 
-  constructor(public router: Router, public data:DataService) {
+  constructor(public router: Router, public data: DataService) {
     this.lottieConfig = {
-      path: "../../../assets/animations/handButton/button.json",
+      path: '../../../assets/animations/handButton/button.json',
       autoplay: true,
       loop: true
     };
     this.lottieConfig2 = {
-      path: "../../../assets/animations/handButton/pushButton.json",
+      path: '../../../assets/animations/handButton/pushButton.json',
       autoplay: false,
       loop: false
     };
   }
 
   scroll(el) {
-    if(this.selectedValue !== '')el.scrollIntoView();
+    if (this.selectedValue !== '') {el.scrollIntoView(); }
 }
 
   onClick() {
@@ -45,17 +40,19 @@ export class HandButtonComponent implements OnInit {
   }
 
   onConfirm() {
-    this.displayAnimation = "block";
-    this.displayAnimation2 = "none";
-    if (this.selectedValue != "") {
+    this.displayAnimation = 'block';
+    this.displayAnimation2 = 'none';
+    if (this.selectedValue !== '') {
       this.play();
       setTimeout(() => {
-        this.router.navigate(["/takeoff"]);
+        this.router.navigate(['/takeoff']);
       }, 2700);
     }
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.data.getCourses().subscribe(res => this.courses = res);
+  }
 
   handleAnimation(anim: any) {
     this.anim = anim;
@@ -79,12 +76,12 @@ export class HandButtonComponent implements OnInit {
   }
 
   toggleOptList(select) {
-    let optList = select.querySelector(".optList");
-    optList.classList.toggle("hidden");
+    const optList = select.querySelector('.optList');
+    optList.classList.toggle('hidden');
   }
 
-  prueba(course) {
-    let value = document.querySelector(".value");
+  setAttributeToList(course) {
+    const value = document.querySelector('.value');
     value.innerHTML = course;
     this.color = true;
     this.selectedValue = course;

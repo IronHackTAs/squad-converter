@@ -1,7 +1,7 @@
 <div class="container">
   <div class="right-bar">
     <h2 style="width:100%">This is your Squad:</h2>
-    <h1 class="layer">#{{squad}}</h1>
+    <h1 class="layer">{{squad}}</h1>
     <div class="space">
 
       <svg width="345px" height="77px" viewBox="0 0 345 77" version="1.1" xmlns="http://www.w3.org/2000/svg"
@@ -79,7 +79,7 @@
                       id="Combined-Shape" fill="#72C0BC"></path>
                     <text id="#8" transform="translate(12.500000, 20.500000) rotate(270.000000) translate(-12.500000, -20.500000) "
                       font-family=".AppleSystemUIFont" font-size="13" font-weight="normal" fill="#FFFFFF">
-                      <tspan x="4" y="25">#{{squad}}</tspan>
+                      <tspan x="4" y="25">{{squad}}</tspan>
                     </text>
                   </g>
                 </g>
@@ -89,24 +89,15 @@
         </g>
       </svg>
     </div>
-    <h3 class="You-are-in-3rd-posit">You are in 3rd position!</h3>
-    <p>To go back to earth with your teacher all of your squad has to complete this adventure, so you can all go
-      back together. Share this link with your squad mates to win the competition!</p>
+    <h3 class="You-are-in-3rd-posit">You are in {{position}} place!</h3>
+    <p>To go back to Earth with your teachers, every member of your squad has to complete this adventure so you can
+      return together. Share this link with your teammates to win this competition!</p>
     <div class="bottom">
-      <button class="button main-button" (click)="linkedinPost()" [ngClass]="{'color': color}">
+      <button class="button main-button" (click)="linkedinPost(isPost = true)" [ngClass]="{'color': color}">
         <p>
           Share post in linkedIn
         </p>
       </button>
-      <div *ngIf="isShareClicked" class="modal">
-        <div class="center">
-            <p>Are you sure to post?</p>
-        </div>
-        <div class="inline">
-            <button>YES</button>
-            <button>NO</button>
-        </div>
-      </div>
       <div class="center">
         <a [routerLink]="['/about']">About the squad</a>
       </div>
@@ -116,7 +107,7 @@
   <div class="left-part padding">
     <div>
       <h1>Congratulations!</h1>
-      <h2>…to save your teacher, you have to go back to earth</h2>
+      <h2>...to save your teachers, you have to go back to Earth</h2>
     </div>
     <div class="animation">
 
@@ -126,4 +117,16 @@
     <div id="player">
     </div>
   </div>
+</div>
+<div id="myModal" class="modal" [hidden]="!isModalShow">
+  <!-- Modal content -->
+  <div class="modal-content">
+    <div class="modal-button">
+      <button class="close" (click)="toogleIsModalShow()">&times;</button>
+    </div>
+    <div class="modal-text">
+      <p class="text-modal">Post Submitted ✅</p>
+    </div>
+  </div>
+
 </div>
