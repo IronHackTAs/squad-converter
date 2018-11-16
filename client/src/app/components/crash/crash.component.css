@@ -89,3 +89,9 @@ input {
   margin-left: -8rem !important;
   margin-top: -1rem !important;
 }
+
+.userNotExists, .missingEmail {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

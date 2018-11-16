@@ -21,6 +21,7 @@ export class JeepComponent implements OnInit {
   public user: object = {};
   public empty = false;
   public error = false;
+  public userExists = false;
 
   constructor(
     public route: Router,
@@ -48,12 +49,14 @@ export class JeepComponent implements OnInit {
               this.data.addNameLinkedin(user['$in']);
               this.data.addToken(user['token']);
               this.play();
-              setTimeout(() => {
-                this.route.navigate(['/boarding']);
-              }, 3000);
+              this.data.checkUser(this.user['emailAddress']).subscribe(data => {
+                data['exists']
+                ? setTimeout(() => {this.route.navigate(['/boarding']); }, 3000)
+                : setTimeout(() => {this.route.navigate(['/crash']); }, 3000);
+              });
             }
           },
-          err => this.Login()
+          err => err ? this.Login() : ''
         );
       }
     });

@@ -14,12 +14,7 @@ export class HandButtonComponent implements OnInit {
   public displayAnimation2 = 'block';
   private anim: any;
   private animationSpeed = 1;
-  public campus = [
-    { name: 'Web Development Full-Time' },
-    { name: 'Web Development Part-Time' },
-    { name: 'UX/UI Full-Time' },
-    { name: 'UX/UI Part-Time' }
-  ];
+  public courses;
   public selectedValue = '';
   public color = false;
 
@@ -55,7 +50,9 @@ export class HandButtonComponent implements OnInit {
     }
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.data.getCourses().subscribe(res => this.courses = res);
+  }
 
   handleAnimation(anim: any) {
     this.anim = anim;
@@ -83,7 +80,7 @@ export class HandButtonComponent implements OnInit {
     optList.classList.toggle('hidden');
   }
 
-  prueba(course) {
+  setAttributeToList(course) {
     const value = document.querySelector('.value');
     value.innerHTML = course;
     this.color = true;

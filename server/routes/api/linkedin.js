@@ -30,7 +30,7 @@ linkedinRoute.get('/oauth/linkedin/callback', (req, res) => {
     else {
       const linkedin = Linkedin.init(results.access_token);
       linkedin.people.me((error, $in) => {
-        if (error) throw err;
+        if (error) res.status(500).json(err);
         return res.status(200).json({
           $in,
           token: results.access_token,
@@ -86,8 +86,8 @@ linkedinRoute.post('/submit', (req, res) => {
     config,
   ).then((response) => {
     res.status(200).json({ response });
-  }).catch((error) => {
-    console.log(error);
+  }).catch((err) => {
+    res.status(500).json(err);
   });
 });
 
