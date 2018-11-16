@@ -104,7 +104,7 @@ export class SpaceshipComponent implements OnInit {
     return (
       date.slice(8, 10) +
       ' ' +
-      this.monthNames[new Date('2016-06-01').getMonth()] +
+      this.monthNames[new Date(date).getMonth()] +
       ' ' +
       date.slice(0, 4)
     );
