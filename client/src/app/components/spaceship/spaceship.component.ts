@@ -16,20 +16,6 @@ export class SpaceshipComponent implements OnInit {
   public selectedValue = '';
   public color = false;
   public submit = true;
-  public monthNames = [
-    'January',
-    'February',
-    'March',
-    'April',
-    'May',
-    'June',
-    'July',
-    'August',
-    'September',
-    'October',
-    'November',
-    'December'
-  ];
 
   constructor(public router: Router, public data: DataService) {
       this.lottieConfig = {
@@ -58,8 +44,7 @@ export class SpaceshipComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.data.getCohorts().subscribe(res => this.cohorts = res.sort((a,b) => new Date(a.date) - new Date(b.date)).map(e => ({id:e.id, date:this.formatDate(e.date)}))
-    ));
+    this.data.getCohorts().subscribe(res => this.cohorts = res);
   }
 
   handleAnimation(anim: any) {
@@ -94,9 +79,5 @@ export class SpaceshipComponent implements OnInit {
     this.color = true;
     this.selectedValue = course;
     this.data.addDate(this.selectedValue);
-  }
-
-  formatDate(date){
-   return date.slice(8, 10)+ " " + this.monthNames[new Date('2016-06-01').getMonth()] + " " + date.slice(0, 4)
   }
 }

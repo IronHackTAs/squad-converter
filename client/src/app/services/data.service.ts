@@ -92,4 +92,11 @@ export class DataService {
       .post(`${environment.BASE_URL}/api/database/checked-by-student`, data)
       .map(res => res);
   }
+  getCohort(squadNumber="Dev Front-End #2") {
+    squadNumber="Dev Front-End #2"
+    console.log(encodeURIComponent(squadNumber));
+    return this.http
+      .get(`${environment.BASE_URL}/api/database/squads/cohorts/${encodeURIComponent(squadNumber)}`)
+      .map(res => res);
+  }
 }

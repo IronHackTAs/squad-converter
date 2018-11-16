@@ -29,7 +29,7 @@ export class ProfsComponent implements OnInit {
     email: ''
   };
   public percentage = 0;
-  public squad = 0;
+  public squad:any = "";
   public course = '';
   public p: string;
   public rocket = '78';
@@ -51,8 +51,9 @@ export class ProfsComponent implements OnInit {
   in-person courses in Web Development, UX/UI Design & Data Analytics.`;
   public webLink = `https://www.ironhack.com/en/courses/web-development-bootcamp`;
   public uxLink = `https://www.ironhack.com/en/courses/ux-ui-design-bootcamp-learn-ux-design`;
-  public position = '1st';
+  public memberMissing:number;
   public isPost: boolean;
+  public cohort : Object;
 
   constructor(
     public http: HttpClient,
@@ -65,13 +66,22 @@ export class ProfsComponent implements OnInit {
       autoplay: true,
       loop: true
     };
-    this.p = (2.04 * this.percentage).toString();
-    this.rocket = (2.04 * this.percentage + 7).toString();
+    console.log("Entra")
   }
-
+  
   ngOnInit() {
     this.datas = this.data.getData();
     this.squad = this.datas['squadNumber'];
+    this.data.getCohort(this.squad).subscribe((res) => {
+      this.memberMissing = res["totalStudents"] - res["completedStudents"];
+
+      this.percentage = (Math.floor(res["completedStudents"] * 100 / res["totalStudents"] * 10)) / 10 ;
+      console.log(this.percentage)
+      this.p = (2.04 * this.percentage).toString();
+      this.rocket = (2.04 * this.percentage + 7).toString();
+
+    });
+  
     this.course = this.getCourseCode(this.datas.course);
     return this.http
       .get(`${environment.BASE_URL}/api/database`)

@@ -70,11 +70,6 @@
         </button>
         <p *ngIf="error" class="error">There was an error with the connection</p>
       </div>
-
-      <div *ngIf="loading" class="loading">
-        <img src="assets/icons/loading.gif" alt="Loading">
-      </div>
-
     </div>
     <div class="bottom">
       <button (click)="scroll(target)" [disabled]="!submit" [ngClass]="{'color': color}" (click)="onConfirm()" class="main-button">

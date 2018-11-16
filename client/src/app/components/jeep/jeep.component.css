@@ -98,20 +98,10 @@ input{
 .profile-img {
   border-radius: 50%;
   width: 3rem;
-  margin-right: 15px;
 }
 
 .error {
   text-align: center;
   font-weight: bold;
   margin-top: 1rem;
-}
-
-.loading {
-  text-align: center;
-}
-
-.loading img {
-  width: 75px;
-  margin-top: 20px;
 }

@@ -26,14 +26,3 @@ select {
 .selected-color > span {
   color: #000;
 }
-
-
-
-.blank-space {
-  width: 68vw;
-  height: 100px;
-  position: absolute;
-  left: -50px;
-  bottom: 0;
-  background: #fff;
-}
