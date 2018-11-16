@@ -8,26 +8,41 @@ import { DataService } from '../../services/data.service';
   styleUrls: ['./spaceship.component.css']
 })
 export class SpaceshipComponent implements OnInit {
-
   public lottieConfig: Object;
   private anim: any;
   private animationSpeed = 1;
-  public cohorts;
+  public cohorts: any;
   public selectedValue = '';
   public color = false;
   public submit = true;
+  public monthNames = [
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December'
+  ];
 
   constructor(public router: Router, public data: DataService) {
-      this.lottieConfig = {
-          path: '../../../assets/animations/spaceship/spaceship.json',
-          autoplay: false,
-          loop: false
-      };
+    this.lottieConfig = {
+      path: '../../../assets/animations/spaceship/spaceship.json',
+      autoplay: false,
+      loop: false
+    };
   }
 
   scroll(el) {
-    if (this.selectedValue !== '') {el.scrollIntoView(); }
-}
+    if (this.selectedValue !== '') {
+      el.scrollIntoView();
+    }
+  }
 
   onClick() {
     this.color = true;
@@ -44,28 +59,32 @@ export class SpaceshipComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.data.getCohorts().subscribe(res => this.cohorts = res);
+    this.data.getCohorts().subscribe((res: any) => {
+      this.cohorts = res
+        .sort((a: any, b: any) => +new Date(a.date) - +new Date(b.date))
+        .map(e => ({ id: e.id, date: this.formatDate(e.date) }));
+    });
   }
 
   handleAnimation(anim: any) {
-      this.anim = anim;
+    this.anim = anim;
   }
 
   stop() {
-      this.anim.stop();
+    this.anim.stop();
   }
 
   play() {
-      this.anim.play();
+    this.anim.play();
   }
 
   pause() {
-      this.anim.pause();
+    this.anim.pause();
   }
 
   setSpeed(speed: number) {
-      this.animationSpeed = speed;
-      this.anim.setSpeed(speed);
+    this.animationSpeed = speed;
+    this.anim.setSpeed(speed);
   }
 
   toggleOptList(select) {
@@ -79,5 +98,15 @@ export class SpaceshipComponent implements OnInit {
     this.color = true;
     this.selectedValue = course;
     this.data.addDate(this.selectedValue);
+  }
+
+  formatDate(date) {
+    return (
+      date.slice(8, 10) +
+      ' ' +
+      this.monthNames[new Date('2016-06-01').getMonth()] +
+      ' ' +
+      date.slice(0, 4)
+    );
   }
 }

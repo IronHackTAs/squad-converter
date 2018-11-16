@@ -35,8 +35,8 @@ const index = require('./routes/index');
 
 app.use('/', index);
 
-// app.get('*', (req, res) => {
-//   res.sendFile(`${__dirname}/public/index.html`);
-// });
+app.get('*', (req, res) => {
+  res.sendFile(`${__dirname}/public/index.html`);
+});
 
 module.exports = app;

@@ -22,6 +22,7 @@ export class JeepComponent implements OnInit {
   public empty = false;
   public error = false;
   public userExists = false;
+  public loading = false;
 
   constructor(
     public route: Router,
@@ -49,6 +50,7 @@ export class JeepComponent implements OnInit {
               this.data.addNameLinkedin(user['$in']);
               this.data.addToken(user['token']);
               this.play();
+              this.loading = false;
               this.data.checkUser(this.user['emailAddress']).subscribe(data => {
                 data['exists']
                 ? setTimeout(() => {this.route.navigate(['/boarding']); }, 3000)
@@ -63,6 +65,7 @@ export class JeepComponent implements OnInit {
   }
 
   Login() {
+    this.loading = true;
     this.linkedin
       .getCode()
       .subscribe(

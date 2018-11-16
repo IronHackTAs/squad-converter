@@ -1,14 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
-import { HttpHeaders } from '@angular/common/http';
 
-const httpOptions = {
-  headers: new HttpHeaders({
-    'Content-Type':  'application/json',
-    'Authorization': 'my-auth-token'
-  })
-};
 @Injectable({
   providedIn: 'root'
 })
@@ -92,9 +85,8 @@ export class DataService {
       .post(`${environment.BASE_URL}/api/database/checked-by-student`, data)
       .map(res => res);
   }
-  getCohort(squadNumber="Dev Front-End #2") {
-    squadNumber="Dev Front-End #2"
-    console.log(encodeURIComponent(squadNumber));
+
+  getCohort(squadNumber) {
     return this.http
       .get(`${environment.BASE_URL}/api/database/squads/cohorts/${encodeURIComponent(squadNumber)}`)
       .map(res => res);
