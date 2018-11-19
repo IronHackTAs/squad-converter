@@ -47,13 +47,12 @@ export class ProfsComponent implements OnInit {
     'November',
     'December'
   ];
-  public webText = `Ironhack is a Global Tech School offering intensive & immersive
-  in-person courses in Web Development, UX/UI Design & Data Analytics.`;
-  public webLink = `https://www.ironhack.com/en/courses/web-development-bootcamp`;
-  public uxLink = `https://www.ironhack.com/en/courses/ux-ui-design-bootcamp-learn-ux-design`;
+  public webText = `if you are an ironhacker go to this link and find out your squad number`;
   public memberMissing: number;
   public isPost: boolean;
   public cohort: Object;
+  public totStudent: number;
+  public completedStudent: number;
 
   constructor(
     public http: HttpClient,
@@ -66,19 +65,16 @@ export class ProfsComponent implements OnInit {
       autoplay: true,
       loop: true
     };
-
   }
 
   ngOnInit() {
     this.datas = this.data.getData();
     this.squad = this.datas['squadNumber'];
-    this.data.getCohort(this.squad).subscribe((res) => {
+    this.data.getCohort(this.squad).subscribe(res => {
+      this.totStudent = res['totalStudents'];
+      this.completedStudent = res['completedStudents'];
       this.memberMissing = res['totalStudents'] - res['completedStudents'];
-
-      this.percentage = (Math.floor(res['completedStudents'] * 100 / res['totalStudents'] * 10)) / 10 ;
-      this.p = (2.04 * this.percentage).toString();
-      this.rocket = (2.04 * this.percentage + 7).toString();
-
+      this.printRocket();
     });
 
     this.course = this.getCourseCode(this.datas.course);
@@ -103,18 +99,28 @@ export class ProfsComponent implements OnInit {
       });
   }
 
+  printRocket() {
+    this.percentage =
+      Math.floor(((this.completedStudent * 100) / this.totStudent) * 10) / 10;
+    this.p = (2.04 * this.percentage).toString();
+    this.rocket = (2.04 * this.percentage + 7).toString();
+  }
+
   linkedinPost(isComment) {
-    this.data.postStudent(this.datas).subscribe(() => {});
-    if (!this.isShareClicked) {
+    this.data.postStudent(this.datas).subscribe(() => {
+      this.memberMissing--;
+      this.completedStudent++;
+      this.printRocket();
+      if (!this.isShareClicked) {
         this.isModalShow = true;
         const data = {
           isComment,
           token: this.datas.token,
           personId: this.datas.personId,
           header: this.course.includes('web')
-            ? `Ironhack ${this.datas.city} - Developer Squad ${this.squad}`
+            ? `${this.squad} Ironhack ${this.datas.city}`
             : `Ironhack ${this.datas.city} - Designer Squad ${this.squad}`,
-          url: this.course.includes('web') ? this.webLink : this.uxLink,
+          url: environment.BASE_URL,
           text: this.webText,
           image: this.course.includes('web')
             ? `${environment.BASE_URL}/assets/img/WEBDEV_BADGE.png`
@@ -122,7 +128,8 @@ export class ProfsComponent implements OnInit {
         };
         this.linkedIn.sharePost(data).subscribe();
         this.isShareClicked = true;
-    }
+      }
+    });
   }
 
   handleAnimation(anim: any) {

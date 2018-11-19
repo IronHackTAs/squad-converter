@@ -21,9 +21,7 @@
             <div class="Step-1-of-5">Step 1<span class="grey"> of 5</span></div>
       </div>
       <h3 class="title">Drive to the rocket </h3>
-      <p class="description">We need to register how many students accomplish this adventure, so we have to know who
-        you are
-      </p>
+      <p class="description">We need to know who you are</p>
       <div class="input-box">
         <div *ngIf="empty" class="user-box inline">
           <img src="{{user.pictureUrl}}" alt="" class="profile-img">
@@ -43,7 +41,7 @@
             <span *ngIf="submit">Login with another account</span>
           </p>
         </button>
-        <p *ngIf="error" class="error">There was an error with the connection</p>
+        <p *ngIf="error" class="error">There was an error with the connection, try to login again</p>
       </div>
 
       <div *ngIf="loading" class="loading">
