@@ -51,6 +51,8 @@ export class ProfsComponent implements OnInit {
   public memberMissing: number;
   public isPost: boolean;
   public cohort: Object;
+  public totStudent: number;
+  public completedStudent: number;
 
   constructor(
     public http: HttpClient,
@@ -69,14 +71,10 @@ export class ProfsComponent implements OnInit {
     this.datas = this.data.getData();
     this.squad = this.datas['squadNumber'];
     this.data.getCohort(this.squad).subscribe(res => {
+      this.totStudent = res['totalStudents'];
+      this.completedStudent = res['completedStudents'];
       this.memberMissing = res['totalStudents'] - res['completedStudents'];
-
-      this.percentage =
-        Math.floor(
-          ((res['completedStudents'] * 100) / res['totalStudents']) * 10
-        ) / 10;
-      this.p = (2.04 * this.percentage).toString();
-      this.rocket = (2.04 * this.percentage + 7).toString();
+      this.printRocket();
     });
 
     this.course = this.getCourseCode(this.datas.course);
@@ -101,9 +99,18 @@ export class ProfsComponent implements OnInit {
       });
   }
 
+  printRocket() {
+    this.percentage =
+      Math.floor(((this.completedStudent * 100) / this.totStudent) * 10) / 10;
+    this.p = (2.04 * this.percentage).toString();
+    this.rocket = (2.04 * this.percentage + 7).toString();
+  }
+
   linkedinPost(isComment) {
     this.data.postStudent(this.datas).subscribe(() => {
       this.memberMissing--;
+      this.completedStudent++;
+      this.printRocket();
       if (!this.isShareClicked) {
         this.isModalShow = true;
         const data = {
