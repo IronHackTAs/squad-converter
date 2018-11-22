@@ -10,6 +10,7 @@
 }
 h1 {
   width: 100%;
+  padding-top:0;
 }
 
 .card {
@@ -136,4 +137,8 @@ button {
     margin-top: 0;
     width: 75%;
   }
+}
+
+.Go-back {
+  padding: 1rem;
 }

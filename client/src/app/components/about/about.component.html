@@ -1,34 +1,35 @@
 <div class="container">
-  <h1>Squad Team</h1>
-  <h3>UX/UI Design</h3>
-  <div class="row">
-    <div class="card" *ngFor="let member of ux">
-      <img src="{{member.img}}" alt="">
-      <p>
-        {{member.name}}
-      </p>
-      <button class="linkedin inline" (click)="link(member.url)">
-        <object type="image/svg+xml" item-prop="image" id="svgImage" data="assets/img/linkedin.svg"></object>
-        <p>
-          Linkedin Profile
-        </p>
-      </button>
-    </div>
-  </div>
+  <div class="Go-back"><a [routerLink]="['/profs']">
+      < Go back</a> </div> <h1>Squad Team</h1>
+        <h3>UX/UI Design</h3>
+        <div class="row">
+          <div class="card" *ngFor="let member of ux">
+            <img src="{{member.img}}" alt="">
+            <p>
+              {{member.name}}
+            </p>
+            <button class="linkedin inline" (click)="link(member.url)">
+              <object type="image/svg+xml" item-prop="image" id="svgImage" data="assets/img/linkedin.svg"></object>
+              <p>
+                Linkedin Profile
+              </p>
+            </button>
+          </div>
+        </div>
 
-  <h3>Web Development</h3>
-  <div class="row">
-    <div class="card" *ngFor="let member of web">
-      <img src="{{member.img}}" alt="">
-      <p>
-        {{member.name}}
-      </p>
-      <button class="github inline" (click)="link(member.url)">
-        <object type="image/svg+xml" item-prop="image" id="svgImage" data="assets/img/github.svg"></object>
-        <p>
-          Github Profile
-        </p>
-      </button>
-    </div>
+        <h3>Web Development</h3>
+        <div class="row">
+          <div class="card" *ngFor="let member of web">
+            <img src="{{member.img}}" alt="">
+            <p>
+              {{member.name}}
+            </p>
+            <button class="github inline" (click)="link(member.url)">
+              <object type="image/svg+xml" item-prop="image" id="svgImage" data="assets/img/github.svg"></object>
+              <p>
+                Github Profile
+              </p>
+            </button>
+          </div>
+        </div>
   </div>
-</div>
