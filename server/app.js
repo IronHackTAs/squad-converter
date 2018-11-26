@@ -1,11 +1,12 @@
 require('dotenv').config();
+const index = require('./routes/index');
 
 const bodyParser = require('body-parser');
 const express = require('express');
 const favicon = require('serve-favicon');
 const logger = require('morgan');
-const path = require('path');
 const cors = require('cors');
+const path = require('path');
 
 const app = express();
 
@@ -30,8 +31,6 @@ app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 
 // default value for title local
 app.locals.title = 'Ironhack - Squad Converter';
-
-const index = require('./routes/index');
 
 app.use('/', index);
 
