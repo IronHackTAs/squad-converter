@@ -1,5 +1,5 @@
 require('dotenv').config();
-const { debug } = require('../../bin/www');
+const debug = require('../../bin/www');
 const express = require('express');
 
 const linkedinRoute = express.Router();
