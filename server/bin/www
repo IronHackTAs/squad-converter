@@ -1,6 +1,8 @@
+const app = require('../app');
+const appName = require('../package.json').name;
+const path = require('path');
+const debug = require('debug')(`${appName}:${path.basename(__filename).split('.')[0]}`);
 const http = require('http');
-
-let app = require('../app');
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
@@ -9,7 +11,7 @@ app.use((req, res, next) => {
   next(err);
 });
 
-app.use((err, req, res, next) => {
+app.use((err, req, res) => {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = process.env.ENV === 'development' ? err : {};
@@ -19,19 +21,19 @@ app.use((err, req, res, next) => {
   res.render('error');
 }); // Express middleware to handle errors
 
-let server = http.createServer(app);
+const server = http.createServer(app);
 
-server.on('error', error => {
-  if (error.syscall !== 'listen') { throw error }
+server.on('error', (error) => {
+  if (error.syscall !== 'listen') { throw error; }
 
   // handle specific listen errors with friendly messages
   switch (error.code) {
     case 'EACCES':
-      console.error(`Port ${process.env.PORT} requires elevated privileges`);
+      debug(`Port ${process.env.PORT} requires elevated privileges`);
       process.exit(1);
       break;
     case 'EADDRINUSE':
-      console.error(`Port ${process.env.PORT}is already in use`);
+      debug(`Port ${process.env.PORT}is already in use`);
       process.exit(1);
       break;
     default:
@@ -40,5 +42,7 @@ server.on('error', error => {
 });
 
 server.listen(process.env.PORT, () => {
-  console.log(`Listening on http://localhost:${process.env.PORT}`);
+  debug(`Listening on http://localhost:${process.env.PORT}`);
 });
+
+module.exports = debug;

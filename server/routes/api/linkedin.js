@@ -1,4 +1,5 @@
 require('dotenv').config();
+const { debug } = require('../../bin/www');
 const express = require('express');
 
 const linkedinRoute = express.Router();
@@ -26,11 +27,11 @@ linkedinRoute.get('/oauth/linkedin/callback', (req, res) => {
     err,
     results,
   ) => {
-    if (err) console.log(err);
+    if (err) debug(err);
     else {
       const linkedin = Linkedin.init(results.access_token);
       linkedin.people.me((error, $in) => {
-        if (error) console.log(err);
+        if (error) debug(err);
         return res.status(200).json({
           $in,
           token: results.access_token,
