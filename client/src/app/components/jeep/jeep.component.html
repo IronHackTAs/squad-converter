@@ -37,11 +37,11 @@
           <object type="image/svg+xml" item-prop="image" id="svgImage" data="assets/img/linkedin.svg"></object>
 
           <p class="Confirm">
-            <span *ngIf="!submit">Login Linkedin</span>
-            <span *ngIf="submit">Login with another account</span>
+            <span *ngIf="!submit">Login Linkedin.</span>
+            <span *ngIf="submit">Login with another account.</span>
           </p>
         </button>
-        <p *ngIf="error" class="error">There was an error with the connection, try to login again</p>
+        <p *ngIf="error" class="error">There was an error with the connection, try to login again.</p>
       </div>
 
       <div *ngIf="loading" class="loading">
@@ -57,7 +57,7 @@
   </div>
   <div class="left-part">
     <h1 class="Get-ready">Get ready!</h1>
-    <h2 class="to-start-this-advent">To start the adventure, please identify yourself</h2>
+    <h2 class="to-start-this-advent">To start the adventure, please identify yourself.</h2>
     <div #target class="animation">
       <lottie-animation-view [options]="lottieConfig" (animCreated)="handleAnimation($event)">
       </lottie-animation-view>
