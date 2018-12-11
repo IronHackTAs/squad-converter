@@ -42,7 +42,7 @@ export class JeepComponent implements OnInit {
       if (!_.isEmpty(params)) {
         setTimeout(() => {
           this.error = true;
-        }, 5000);
+        }, 10000);
         this.linkedin.getToken(params).subscribe(
           user => {
             this.empty = true;
