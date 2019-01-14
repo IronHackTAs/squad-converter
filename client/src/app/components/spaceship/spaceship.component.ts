@@ -61,11 +61,12 @@ export class SpaceshipComponent implements OnInit {
 
   ngOnInit() {
     this.data.getCohorts().subscribe((res: any) => {
-      this.cohorts =
-      _.uniqBy(res
-        , 'date')
+      const dates =
+      _.uniqBy(res, 'date')
         .sort((a: any, b: any) => +new Date(a.date) - +new Date(b.date))
         .map(e => ({ id: e.id, date: this.formatDate(e.date) }));
+
+      this.cohorts = _.uniqBy(dates, 'date');
       });
   }
 
@@ -105,8 +106,6 @@ export class SpaceshipComponent implements OnInit {
 
   formatDate(date) {
     return (
-      date.slice(8, 10) +
-      ' ' +
       this.monthNames[new Date(date).getMonth()] +
       ' ' +
       date.slice(0, 4)
