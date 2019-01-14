@@ -1,5 +1,4 @@
 require('dotenv').config();
-const index = require('./routes/index');
 
 const bodyParser = require('body-parser');
 const express = require('express');
@@ -7,6 +6,7 @@ const favicon = require('serve-favicon');
 const logger = require('morgan');
 const cors = require('cors');
 const path = require('path');
+const index = require('./routes/index');
 
 const app = express();
 
@@ -36,8 +36,6 @@ app.locals.title = 'Ironhack - Squad Converter';
 
 app.use('/', index);
 
-app.get('*', (req, res) => {
-  res.sendFile(`${__dirname}/public/index.html`);
-});
+app.get('*', (req, res) => res.sendFile(`${__dirname}/public/index.html`));
 
 module.exports = app;
