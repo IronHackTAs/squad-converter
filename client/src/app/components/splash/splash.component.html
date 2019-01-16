@@ -1,40 +1,41 @@
 <div class="container">
   <div class="right-bar">
-    <div class="section">
-      <h3 class="paragraph">How to win</h3>
-      <p>To win the competition, all classmates from your cohort have to complete this adventure. All your
-        teachers are prisoners on the moon and you have to go there to save them and head back to Earth. You will reach
-        the moon by following the next 5 steps. Please note, you can only go back to Earth if your whole squad finishes
-        this adventure.</p>
-    </div>
-    <div class="section">
-      <h3 class="paragraph">Prize</h3>
-      <p>The first squad to save all their teachers will win tickets for go-kart racing for all members of that squad.</p>
-    </div>
-
-    <div class="section">
-      <label class="label-container">
-        <input [(ngModel)]="checkboxValue" (change)="togle()" type="checkbox" name="onoffswitch" class="onoffswitch-checkbox"
-        id="myonoffswitch" checked>
-        <span class="checkmark"></span>
-        <p class="inline" for="">
-          I agree to
-          <a href="../../../assets/pdf/Terms & Conditions Squad competition.pdf" target="_blanck">
-            terms and conditions
-          </a>.
-        </p>
-      </label>
+    <div>
+        <div class="section">
+          <h3 class="paragraph">How to win</h3>
+          <p>To win the competition, all classmates from your cohort have to complete this adventure. All your
+            teachers are prisoners on the moon and you have to go there to save them and head back to Earth. You will reach
+            the moon by following the next 5 steps. Please note, you can only go back to Earth if your whole squad finishes
+            this adventure.</p>
+        </div>
+        <div class="section">
+          <h3 class="paragraph">Prize</h3>
+          <p>The first squad to save all their teachers will win tickets for go-kart racing for all members of that squad.</p>
+        </div>
+    
+        <div class="section">
+          <label class="label-container">
+            <input [(ngModel)]="checkboxValue" (change)="togle()" type="checkbox" name="onoffswitch" class="onoffswitch-checkbox"
+            id="myonoffswitch" checked>
+            <span class="checkmark"></span>
+            <p class="inline" for="">
+              I agree to
+              <a href="../../../assets/pdf/Terms & Conditions Squad competition.pdf" target="_blanck">
+                terms and conditions
+              </a>.
+            </p>
+          </label>
+        </div>
     </div>
     <div class="center">
-      <button (click)="onClick()" [ngClass]="{'color' : color}" class="main-button">
+        <button (click)="onClick()" [ngClass]="{'color' : color}" class="main-button">
         <p>Start Now</p>
-      </button>
+        </button>
     </div>
   </div>
   <div class="left-part">
     <h1>Hi Ironhacker!</h1>
-    <h2>Participate in this competition and be the fastest squad to save their teachers!</h2>
-
+    <h2>Participate in this competition and be the fastest squad to save their teachers and win the prize!</h2>
   </div>
   <div class="space-man">
     <!-- Generator: Adobe Illustrator 22.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->

@@ -1,5 +1,4 @@
 require('dotenv').config();
-const debug = require('../../bin/www');
 const express = require('express');
 
 const linkedinRoute = express.Router();
@@ -9,6 +8,7 @@ const Linkedin = require('node-linkedin')(
   process.env.SECRET_KEY,
   process.env.callBack,
 );
+const debug = require('../../bin/www');
 
 const scope = [
   'r_basicprofile',
@@ -49,12 +49,12 @@ linkedinRoute.post('/submit', (req, res) => {
     },
   };
 
-  const bodyParametersComment =   {
+  const bodyParametersComment = {
     comment: `${req.body.data.header}\n${req.body.data.text} ${req.body.data.url}`,
     content: {
       title: 'Squad Converter',
       'submitted-url': `${process.env.BASE_URL}`,
-      'submitted-image-url' : `${req.body.data.image}`,
+      'submitted-image-url': `${req.body.data.image}`,
     },
     visibility: {
       code: 'anyone',

@@ -1,7 +1,7 @@
 
+const express = require('express');
 const linkedinRoute = require('./api/linkedin');
 const databaseRoute = require('./api/database');
-const express = require('express');
 
 const router = express.Router();
 
