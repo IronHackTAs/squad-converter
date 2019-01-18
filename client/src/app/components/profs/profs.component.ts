@@ -119,7 +119,7 @@ export class ProfsComponent implements OnInit {
           personId: this.datas.personId,
           header: this.course.includes('web')
             ? `${this.squad} Ironhack ${this.datas.city}`
-            : `Ironhack ${this.datas.city} - Designer Squad ${this.squad}`,
+            : `Ironhack ${this.datas.city} - ${this.squad}`,
           url: environment.BASE_URL,
           text: this.webText,
           image: this.course.includes('web')
