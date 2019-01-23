@@ -108,10 +108,10 @@ export class ProfsComponent implements OnInit {
 
   linkedinPost(isComment) {
     this.data.postStudent(this.datas).subscribe(() => {
-      this.memberMissing--;
-      this.completedStudent++;
-      this.printRocket();
       if (!this.isShareClicked) {
+        this.memberMissing--;
+        this.completedStudent++;
+        this.printRocket();
         this.isModalShow = true;
         const data = {
           isComment,

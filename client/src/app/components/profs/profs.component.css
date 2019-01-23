@@ -86,6 +86,7 @@ svg {
   display: flex;
   justify-content: center;
   text-align: center;
+  flex-direction: column;
   background-color: #fefefe;
   margin: 15% auto;
   /* 15% from the top and centered */
