@@ -27,7 +27,7 @@
         <p>You have to select the campus where you studied.</p>
       </div>
 
-      <div [ngClass]="{'missing': missingSelect, 'selected-color': color}" [ngClass]="{}" class="select" tabindex="0"
+      <div [ngClass]="{'missing': missingSelect, 'selected-color': color}" class="select" tabindex="0"
         (click)="toggleOptList(select)" #select>
         <span class="value">Select city</span>
         <ul class="optList hidden">

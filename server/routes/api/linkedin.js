@@ -8,7 +8,6 @@ const Linkedin = require('node-linkedin')(
   process.env.SECRET_KEY,
   process.env.callBack,
 );
-const debug = require('../../bin/www');
 
 const scope = [
   'r_basicprofile',
@@ -27,11 +26,11 @@ linkedinRoute.get('/oauth/linkedin/callback', (req, res) => {
     err,
     results,
   ) => {
-    if (err) debug(err);
+    if (err) console.log(err);
     else {
       const linkedin = Linkedin.init(results.access_token);
       linkedin.people.me((error, $in) => {
-        if (error) debug(err);
+        if (error) console.log(err);
         return res.status(200).json({
           $in,
           token: results.access_token,
